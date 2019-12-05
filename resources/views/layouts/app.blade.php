@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Patient') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
@@ -18,6 +18,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- jQuery Effects - Sliding -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Animate.css -->
+    {{--<link href="{{ asset('css/animate.css') }}" rel="stylesheet">--}}
 
     <!-- Font Awesome -->
     {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">--}}
@@ -80,10 +84,6 @@
 
         .md-form label {
             color: #ffffff;
-        }
-
-        title {
-            color: #000000 !important;
         }
 
         h6 {
