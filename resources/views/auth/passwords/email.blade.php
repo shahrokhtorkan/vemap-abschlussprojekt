@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
-    <div class="title text-light display-1 mb-5">
+    <div class="title text-center text-dark display-1 mb-5">
         Reset Password
     </div>
 </div>
@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-light">{{ __('Reset Password') }}</div>
+                <div class="card-header text-dark">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -23,7 +23,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right text-light">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right text-dark">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

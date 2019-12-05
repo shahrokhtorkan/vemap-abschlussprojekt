@@ -3,23 +3,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- Font Awesome -->
     {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">--}}
     <!-- Font Awesome Icons Fa -->
@@ -29,10 +28,6 @@
     <!-- Data Tables -->
     {{--<link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
-    <!-- Material Design Bootstrap -->
-    {{--<link href="../css/mdb.min.css" rel="stylesheet">--}}
-    <!-- Bootstrap core JavaScript -->
-    {{--<script src="../js/bootstrap.min.js"></script>--}}
 
     <style>
         html,
@@ -102,10 +97,10 @@
 <div class="view" style="background-image: url('https://victoria.mediaplanet.com/app/uploads/sites/76/2019/07/iStock-1058161032.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
                 <a class="navbar-brand text-dark" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Patient Portal') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
