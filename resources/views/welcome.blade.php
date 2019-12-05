@@ -3,9 +3,10 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="content">
-        <div class="title text-center text-dark display-1 mb-5">
+        {{--<div class="title text-center text-dark display-1 mb-5">
             Patient
-        </div>
+        </div>--}}
+        <p align="center"><img src="../images/logo.png"></p>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
