@@ -4,7 +4,7 @@
 <div class="flex-center position-ref full-height mt-5">
     <div class="content">
         <div class="title text-center text-dark display-1 mb-5">
-            Patient
+            <h1>Patient Portal</h1>
         </div>
         <div class="container">
             <div class="row justify-content-center">

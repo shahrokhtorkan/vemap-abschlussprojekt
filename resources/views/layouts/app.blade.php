@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    {{--<script src="{{ asset('js/jquery.min.js') }}" defer></script>--}}
+    <script src="{{ asset('js/popper.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Patient') }}</title>
@@ -18,11 +18,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- jQuery Effects - Sliding -->
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    {{--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--}}
     <!-- Animate.css -->
     {{--<link href="{{ asset('css/animate.css') }}" rel="stylesheet">--}}
-
     <!-- Font Awesome -->
     {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">--}}
     <!-- Font Awesome Icons Fa -->
@@ -33,75 +33,14 @@
     {{--<link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
 
-    <style>
-        html,
-        body,
-        header,
-        .view {
-            height: 100%;
-        }
-
-        @media (max-width: 740px) {
-            html,
-            body,
-            header,
-            .view {
-                height: 1000px;
-            }
-        }
-        @media (min-width: 800px) and (max-width: 850px) {
-            html,
-            body,
-            header,
-            .view {
-                height: 650px;
-            }
-        }
-
-        .top-nav-collapse {
-            background-color: #3f51b5 !important;
-        }
-
-        .navbar:not(.top-nav-collapse) {
-            background: transparent !important;
-        }
-
-        @media (max-width: 991px) {
-            .navbar:not(.top-nav-collapse) {
-                background: #3f51b5 !important;
-            }
-        }
-
-        .rgba-gradient {
-            background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
-            background: -webkit-gradient(linear, 45deg, from(rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%)));
-            background: linear-gradient(to 45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
-        }
-
-        .card {
-            background-color: rgba(114, 157, 81, 0.452);
-        }
-
-        .md-form label {
-            color: #ffffff;
-        }
-
-        h6 {
-            line-height: 1.7;
-        }
-    </style>
-
 </head>
 <body>
 <!-- Full Page Intro -->
-<div class="view" style="background-image: url('https://victoria.mediaplanet.com/app/uploads/sites/76/2019/07/iStock-1058161032.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<div class="view" style="background-image:url({{url('images/bg.jpg')}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand text-dark" href="{{ url('/') }}">
-                    {{ config('app.name', 'Patient Portal') }}
-                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -109,7 +48,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark btn btn-outline-info" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -117,16 +58,16 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-dark btn btn-outline-info" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-outline-info" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

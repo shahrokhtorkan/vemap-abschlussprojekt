@@ -3,13 +3,13 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="title text-center text-dark display-1 mb-5">
-        Register
+        <h1>Register</h1>
     </div>
 </div>
 
 <div class="container mb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-dark">{{ __('Register') }}</div>
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="title text-center text-dark display-1 mb-5">
-        Login
+        <h1>Login</h1>
     </div>
 </div>
 
