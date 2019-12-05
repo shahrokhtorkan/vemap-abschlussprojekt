@@ -11396,20 +11396,16 @@ header,
 }
 
 .card {
-  background-color: rgba(114, 157, 81, 0.452);
+  background-color: rgba(50, 144, 220, 0.452);
 }
 
 .md-form label {
   color: #ffffff;
 }
 
-h6 {
-  line-height: 1.7;
-}
-
 h1 {
   font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
-  color: rgba(114, 157, 81, 0.8);
+  color: rgba(50, 144, 220, 0.8);
   font-size: 40px;
   font-style: normal;
   font-variant: normal;
@@ -11451,5 +11447,11 @@ pre {
   font-variant: normal;
   font-weight: 400;
   line-height: 18.5667px;
+}
+
+h6 {
+  line-height: 1.9;
+  color: #1d2124;
+  font-size: 15px;
 }
 
