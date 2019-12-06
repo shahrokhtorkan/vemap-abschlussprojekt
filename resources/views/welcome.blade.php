@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="content">
-        <p class="text-center"><img src="../images/logo.png" alt="logo"></p>
+        <p><img src="../images/logo.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"></p>
         <h2 class="text-center mt-5 mb-5">Es ist KOSTENLOS für Sie,<a href="{{ url('/register') }}"> HAST DU LUST?</a></h2>
         <div class="container">
             <div class="row justify-content-center">
