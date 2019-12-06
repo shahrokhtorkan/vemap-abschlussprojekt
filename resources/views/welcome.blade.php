@@ -6,7 +6,7 @@
         {{--<div class="title text-center text-dark display-1 mb-5">
             Patient
         </div>--}}
-        <p align="center"><img src="../images/logo.png"></p>
+        <p class="text-center"><img src="../images/logo.png" alt="logo"></p>
         <h2 class="text-center mt-5 mb-5">Es ist KOSTENLOS für Sie,<a href="{{ url('/register') }}"> HAST DU LUST?</a></h2>
         <div class="container">
             <div class="row justify-content-center">
