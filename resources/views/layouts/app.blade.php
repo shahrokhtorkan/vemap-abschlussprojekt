@@ -96,14 +96,12 @@
         </nav>
             <main class="py-4">
                 @yield('content')
-                <footer class="mt-2">
-                    <div class="container text-center">
-                        <h6>Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></h6>
-                        <h6>Copyright &copy; 2019</h6>
-                    </div>
-                </footer>
             </main>
         </div>
     </div>
+<div class="footer fixed-bottom pt-3 pb-2">
+    <h6 class="text-center">Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></h6>
+    <h6 class="text-center">Copyright &copy; 2019</h6>
+</div>
 </body>
 </html>
