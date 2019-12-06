@@ -8,7 +8,7 @@
 </div>
 
 <div class="container mb-5">
-    <div class="row justify-content-center animate-box" data-animate-effect="fadeInRight">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-dark">{{ __('Login') }}</div>

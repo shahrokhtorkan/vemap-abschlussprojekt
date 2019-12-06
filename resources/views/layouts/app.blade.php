@@ -49,13 +49,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
                         <li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-outline-info btn-block" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-outline-info btn-block" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
                         </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link text-dark btn btn-outline-info btn-block" href="{{ route('backend') }}">{{ __('Backend') }}</a>
+                        <li class="nav-item mr-2 mb-2">
+                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
                     </ul>
 
@@ -64,13 +64,13 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item mr-2 mb-2">
-                                <a class="nav-link text-dark btn btn-outline-info" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark btn btn-outline-info" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('register'))
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-outline-info" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
