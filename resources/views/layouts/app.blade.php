@@ -39,23 +39,23 @@
 <div class="view" style="background-image:url({{url('images/bg.jpg')}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light">
+        <nav class="navbar navbar-expand-md bg-light navbar-light">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ url('/') }}">{{ __('Home') }}</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-2 mb-2">
+                            <a class="nav-link text-dark btn btn-outline-info btn-block" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                        <li class="nav-item mr-2 mb-2">
+                            <a class="nav-link text-dark btn btn-outline-info btn-block" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark btn btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-dark btn btn-outline-info btn-block" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
                     </ul>
 
@@ -63,11 +63,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="nav-link text-dark btn btn-outline-info" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item mb-2">
                                     <a class="nav-link text-dark btn btn-outline-info" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
