@@ -52,6 +52,9 @@
                             <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark btn btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
                     </ul>
