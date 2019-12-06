@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::post('login', [
+    'uses' => 'SignInController@signin',
+    'as' => 'auth.signin'
+    ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/backend','HomeController@index')->name('backend');
