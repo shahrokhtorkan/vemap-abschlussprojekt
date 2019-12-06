@@ -15,13 +15,13 @@ class SignInController extends Controller
     {
         // Validate input data
         $this->validate($request, [
-            'name' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
         // Using Auth facade to verify user credentials
         if(Auth::attempt([
-            'name' => $request->input('name'),
+            'email' => $request->input('email'),
             'password' => $request->input('password'),
         ], $request->has('remember'))) {
             return redirect('/backend'); // If using named route, pls. use backend.index
