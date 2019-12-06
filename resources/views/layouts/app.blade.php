@@ -6,8 +6,8 @@
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     {{--<script src="{{ asset('js/jquery.min.js') }}" defer></script>--}}
-    <script src="{{ asset('js/popper.min.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Patient') }}</title>
@@ -49,7 +49,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark btn btn-outline-info" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link text-dark btn btn-outline-info mr-2" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark btn btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
                     </ul>
 
