@@ -11,6 +11,13 @@ use Auth;
  */
 class SignInController extends Controller
 {
+    /**
+     * Custom sign-in controller. Currently does nothing in particular
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function signin(Request $request)
     {
         // Validate input data
