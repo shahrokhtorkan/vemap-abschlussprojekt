@@ -24,6 +24,9 @@
 ## Aufgabe:
 
 - Login/Register/Password Reset.
+- Contact Form.
+- Responsive layout.
+- Bootstrap Template.
 - User Roles and Permissions.
 
 ## Contributing
