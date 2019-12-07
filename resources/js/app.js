@@ -20,14 +20,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-/* About Us */
-Vue.component('about-us', require('./components/AboutUs.vue').default);
-/* Services */
-Vue.component('services', require('./components/Services.vue').default);
 /* Contact Form */
 Vue.component('contact-form', require('./components/ContactForm.vue').default);
-/* Imprint */
-Vue.component('imprint', require('./components/Imprint.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
