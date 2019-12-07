@@ -105,7 +105,7 @@
             <li class="list-inline-item"><a class="text-dark" href="{{ url('about') }}">{{ __('Über uns') }}</a></li>|
             <li class="list-inline-item"><a class="text-dark" href="{{ route('services') }}">{{ __('Leistungen') }}</a></li>|
             <li class="list-inline-item"><a class="text-dark" href="{{ route('contact') }}">{{ __('Kontakt') }}</a></li>|
-            <li class="list-inline-item"><a class="text-dark" href="{{ route('imprint') }}">{{ __('Impressum') }}</li>
+            <li class="list-inline-item"><a class="text-dark" href="{{ route('imprint') }}">{{ __('Impressum') }}</a></li>
         </ul>
     </div>
     <h6 class="text-center">Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></h6>
