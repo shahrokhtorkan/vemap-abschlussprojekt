@@ -6,13 +6,12 @@
         <h1>Kontakt</h1>
     </div>
 </div>
-
 <div id="app">
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header text-dark">{{ __('Kontakt') }}</div>
+                    <div class="card-header text-dark"><i class="fas fa-envelope"></i>{{ __(' Kontakt') }}</div>
                     <div class="card-body">
                         <div class="card-body">
                             <contact-form></contact-form>

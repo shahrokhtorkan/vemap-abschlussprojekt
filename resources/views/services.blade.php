@@ -6,13 +6,12 @@
         <h1>Leistungen</h1>
     </div>
 </div>
-
 <div id="app">
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header text-dark">{{ __('Leistungen') }}</div>
+                    <div class="card-header text-dark"><i class="fas fa-toolbox"></i>{{ __(' Leistungen') }}</div>
                     <div class="card-body">
                         <div class="card-body">
                             <p>Physiotherapie<P>

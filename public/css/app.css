@@ -11401,6 +11401,10 @@ header,
   background-color: rgba(50, 144, 220, 0.3);
 }
 
+.card:hover {
+  box-shadow: 10px 10px 26px -8px #093b7d;
+}
+
 .md-form label {
   color: #ffffff;
 }
@@ -11408,7 +11412,7 @@ header,
 h1 {
   font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
   color: rgba(50, 144, 220, 0.8);
-  font-size: 40px;
+  font-size: 30px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;

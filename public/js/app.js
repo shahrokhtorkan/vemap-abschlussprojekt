@@ -37326,7 +37326,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { type: "text", name: "name", id: "name" },
+          attrs: {
+            type: "text",
+            placeholder: "Ihre Name",
+            name: "name",
+            id: "name"
+          },
           domProps: { value: _vm.fields.name },
           on: {
             input: function($event) {
@@ -37346,7 +37351,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("E-mail")]),
+        _c("label", { attrs: { for: "email" } }, [_vm._v("E-Mail")]),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -37358,7 +37363,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { type: "email", name: "email", id: "email" },
+          attrs: {
+            type: "email",
+            placeholder: "Ihre Email",
+            name: "email",
+            id: "email"
+          },
           domProps: { value: _vm.fields.email },
           on: {
             input: function($event) {
@@ -37378,7 +37388,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+        _c("label", { attrs: { for: "message" } }, [_vm._v("Nachricht")]),
         _vm._v(" "),
         _c("textarea", {
           directives: [
@@ -37390,7 +37400,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { id: "message", name: "message", rows: "2" },
+          attrs: {
+            placeholder: "Schreib uns was",
+            id: "message",
+            name: "message",
+            rows: "2"
+          },
           domProps: { value: _vm.fields.message },
           on: {
             input: function($event) {
@@ -37412,12 +37427,12 @@ var render = function() {
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Send message")]
+        [_vm._v("Nachricht senden")]
       ),
       _vm._v(" "),
       _vm.success
         ? _c("div", { staticClass: "alert alert-success mt-3" }, [
-            _vm._v("\n        Message sent!\n    ")
+            _vm._v("\n        Nachricht wurde erfolgreich gesendet!\n    ")
           ])
         : _vm._e()
     ]

@@ -6,13 +6,12 @@
         <h1>Über uns</h1>
     </div>
 </div>
-
 <div id="app">
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header text-dark">{{ __('Über uns') }}</div>
+                    <div class="card-header text-dark"><i class="fas fa-user-md"></i>{{ __(' Über uns') }}</div>
                     <div class="card-body">
                         <div class="card-body">
                             <P>Anna Fink</P>
