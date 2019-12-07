@@ -19,10 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- Text Animate -->
+    <script src="{{ asset('js/textanimate.js') }}" defer></script>
     <!-- jQuery Effects - Sliding -->
-    {{--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--}}
-    <!-- Animate.css -->
-    {{--<link href="{{ asset('css/animate.css') }}" rel="stylesheet">--}}
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}" defer></script>
     <!-- Font Awesome -->
     {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">--}}
     <!-- Font Awesome Icons Fa -->
