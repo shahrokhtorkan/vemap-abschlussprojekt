@@ -11457,6 +11457,10 @@ h6 {
   font-size: 15px;
 }
 
+ul {
+  font-size: 20px;
+}
+
 .footer {
   background-color: rgba(50, 144, 220, 0.3) !important;
 }
