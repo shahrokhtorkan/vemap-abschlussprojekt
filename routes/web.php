@@ -25,3 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/backend','HomeController@index')->name('backend');
 Route::get('/contact', 'ContactFormController@index')->name('contact');
 Route::post('/submit', 'ContactFormController@submit');
+Route::get('/about', 'AboutUsController@index')->name('about');
+Route::get('/services', 'ServicesController@index')->name('services');
+Route::get('/imprint', 'ImprintController@index')->name('imprint');
