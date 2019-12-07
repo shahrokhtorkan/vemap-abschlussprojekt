@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Patient') }}</title>
-    <!-- Scripts -->
+    <!-- app.js -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,9 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- Text Animate -->
-    <script src="{{ asset('js/textanimate.js') }}" defer></script>
+    <script src="{{ asset('js/textanimate.js') }}"></script>
     <!-- jQuery Effects - Sliding -->
-    <script src="{{ asset('js/jquery-1.11.1.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
     <!-- Font Awesome -->
     {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">--}}
     <!-- Font Awesome Icons Fa -->
@@ -73,7 +73,7 @@
                         @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-outline-info" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-block btn-outline-info" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
