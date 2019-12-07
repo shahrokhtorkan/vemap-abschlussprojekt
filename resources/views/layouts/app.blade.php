@@ -52,7 +52,7 @@
                             <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('contact') }}">{{ __('Kontakt') }}</a>
                         </li>
                         <li class="nav-item mr-2 mb-2">
                             <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
@@ -100,6 +100,14 @@
         </div>
     </div>
 <div class="footer fixed-bottom pt-3 pb-2">
+    <div>
+        <ul class="list-inline text-center">
+            <li class="list-inline-item"><a class="text-dark" href="{{ url('about') }}">{{ __('Über uns') }}</a></li>|
+            <li class="list-inline-item"><a class="text-dark" href="{{ route('services') }}">{{ __('Leistungen') }}</a></li>|
+            <li class="list-inline-item"><a class="text-dark" href="{{ route('contact') }}">{{ __('Kontakt') }}</a></li>|
+            <li class="list-inline-item"><a class="text-dark" href="{{ route('imprint') }}">{{ __('Impressum') }}</li>
+        </ul>
+    </div>
     <h6 class="text-center">Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></h6>
     <h6 class="text-center">Copyright &copy; 2019</h6>
 </div>
