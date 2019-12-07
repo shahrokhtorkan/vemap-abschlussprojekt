@@ -51,9 +51,9 @@
                         <li class="nav-item mr-2 mb-2">
                             <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item mr-2 mb-2">
+                        {{--<li class="nav-item mr-2 mb-2">
                             <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('contact') }}">{{ __('Kontakt') }}</a>
-                        </li>
+                        </li>--}}
                         <li class="nav-item mr-2 mb-2">
                             <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
