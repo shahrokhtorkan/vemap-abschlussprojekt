@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header text-dark"><i class="fas fa-toolbox"></i>{{ __(' Leistungen') }}</div>
+                    <div class="card-header text-dark"><i class="fas fa-toolbox mr-1"></i>{{ __('Leistungen') }}</div>
                     <div class="card-body">
                         <div class="card-body">
                             <p>Physiotherapie<P>

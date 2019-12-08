@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-dark"><i class="fas fa-sign-in-alt"></i>{{ __(' Anmelden') }}</div>
+                <div class="card-header text-dark"><i class="fas fa-sign-in-alt mr-1"></i>{{ __('Anmelden') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header text-dark"><i class="fas fa-user-md"></i>{{ __(' Über uns') }}</div>
+                    <div class="card-header text-dark"><i class="fas fa-user-md mr-1"></i>{{ __('Über uns') }}</div>
                     <div class="card-body">
                         <div class="card-body">
                             <P>Anna Fink</P>

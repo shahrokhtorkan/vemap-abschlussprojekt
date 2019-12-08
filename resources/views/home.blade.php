@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="title text-center text-dark display-1 mb-5">
-        <h1>Patient Portal</h1>
+        <h1>Patientenportal</h1>
     </div>
 </div>
 
@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-dark">Dashboard</div>
+                <div class="card-header text-dark">Instrumententafel</div>
 
                 <div class="card-body mb-5">
                     @if (session('status'))
@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <p class="text-dark">You are logged in!</p>
+                    <p class="text-dark">Du bist eingeloggt!</p>
                 </div>
             </div>
         </div>

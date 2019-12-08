@@ -11,14 +11,14 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header text-dark"><i class="fas fa-clinic-medical"></i>{{ __(' Impressum') }}</div>
+                    <div class="card-header text-dark"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</div>
                     <div class="card-body">
                         <div class="card-body">
                             <h2>Patient</h2>
                             <p>Unsere Sekretariatsöffnungszeiten sind:</P>
-                            <P><i class="fas fa-calendar-alt"></i> Montag - Freitag  8:00 - 11:00</P>
-                            <P><i class="fas fa-phone"></i> +43 / 123 123 123 123</P>
-                            <P><i class="fas fa-envelope"></i> office[at]example.com</P>
+                            <P><i class="fas fa-calendar-alt mr-1"></i>Montag - Freitag  8:00 - 11:00</P>
+                            <P><i class="fas fa-phone mr-1"></i>+43 / 123 123 123 123</P>
+                            <P><i class="fas fa-envelope mr-1"></i>office[at]example.com</P>
                         </div>
                     </div>
                 </div>

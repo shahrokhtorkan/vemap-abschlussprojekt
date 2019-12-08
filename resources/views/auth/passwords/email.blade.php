@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-dark"><i class="fas fa-key"></i>{{ __(' Passwort vergessen') }}</div>
+                <div class="card-header text-dark"><i class="fas fa-key mr-1"></i>{{ __('Passwort vergessen') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
