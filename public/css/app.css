@@ -11421,11 +11421,20 @@ h1 {
 
 h3 {
   font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
-  font-size: 14px;
+  color: rgba(50, 144, 220, 0.8);
+  font-size: 18px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
   line-height: 15.4px;
+}
+
+h6 {
+  font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+  color: #1d2124;
+  font-size: 15px;
+  font-style: normal;
+  line-height: 1.9px;
 }
 
 p {
@@ -11455,13 +11464,33 @@ pre {
   line-height: 18.5667px;
 }
 
-h6 {
-  line-height: 1.9;
-  color: #1d2124;
-  font-size: 15px;
+ul {
+  font-size: 20px;
 }
 
-ul {
+.social-icons {
+  margin: 0;
+  padding: 0;
+}
+
+.social-icons li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.social-icons li a {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.social-icons li a i {
   font-size: 20px;
 }
 
