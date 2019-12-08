@@ -61,7 +61,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item mr-2 mb-2">
-                                <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('login') }}">{{ __('Anmelden') }}</a>
+                                <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('login') }}">{{ __('Einloggen') }}</a>
                             </li>
                         @if (Route::has('register'))
                             <li class="nav-item mr-2 mb-2">
@@ -78,7 +78,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="fas fa-sign-out-alt mr-1"></i>{{ __('Logout') }}
+                                        <i class="fas fa-sign-out-alt mr-1"></i>{{ __('Ausloggen') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

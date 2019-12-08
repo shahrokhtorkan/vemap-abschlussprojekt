@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="title text-center text-dark display-1 mb-5">
-        <h1>Anmelden</h1>
+        <h1>Einloggen</h1>
     </div>
 </div>
 
@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-dark"><i class="fas fa-sign-in-alt mr-1"></i>{{ __('Anmelden') }}</div>
+                <div class="card-header text-dark"><i class="fas fa-sign-in-alt mr-1"></i>{{ __('Einloggen') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -60,7 +60,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Anmelden') }}
+                                    {{ __('Einloggen') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
