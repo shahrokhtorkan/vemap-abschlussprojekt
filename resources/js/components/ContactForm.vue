@@ -15,9 +15,7 @@
             <textarea class="form-control" placeholder="Schreib uns was" id="message" name="message" rows="2" v-model="fields.message"></textarea>
             <div v-if="errors && errors.message" class="text-danger">{{ errors.message[0] }}</div>
         </div>
-
         <button type="submit" class="btn btn-primary">Nachricht senden</button>
-
         <div v-if="success" class="alert alert-success mt-3">
             Nachricht wurde erfolgreich gesendet!
         </div>
