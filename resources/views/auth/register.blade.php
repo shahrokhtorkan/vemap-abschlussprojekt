@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right text-dark">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right text-dark">{{ __('E-Mail-Addresse') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" placeholder="Ihre Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password"class="col-md-4 col-form-label text-md-right text-dark">{{ __('Password') }}</label>
+                            <label for="password"class="col-md-4 col-form-label text-md-right text-dark">{{ __('Passwort') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" placeholder="Ihr Passwort" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -60,10 +60,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right text-dark">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right text-dark">{{ __('Passwort bestätigen') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" placeholder="Passwort bestätigen" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" placeholder="Passwort wiederholen" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 

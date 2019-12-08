@@ -18,7 +18,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right text-dark">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right text-dark">{{ __('E-Mail-Addresse') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" placeholder="Ihre Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right text-dark">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right text-dark">{{ __('Passwort') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" placeholder="Ihr Passwort" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
