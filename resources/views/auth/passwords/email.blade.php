@@ -3,14 +3,14 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-5">
     <div class="title text-center text-dark display-1 mb-5">
-        <h1>Reset Password</h1>
+        <h1>Passwort vergessen</h1>
     </div>
 </div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-dark">{{ __('Reset Password') }}</div>
+                <div class="card-header text-dark"><i class="fas fa-key"></i>{{ __(' Passwort vergessen') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,7 +26,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right text-dark">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" placeholder="Ihre Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('absenden') }}
                                 </button>
                             </div>
                         </div>
