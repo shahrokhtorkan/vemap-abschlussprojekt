@@ -12,6 +12,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
     <title>{{ config('app.name', 'Patient') }}</title>
+    <!-- Favicon -->
+    <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
