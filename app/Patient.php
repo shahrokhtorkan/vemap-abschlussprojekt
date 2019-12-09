@@ -13,7 +13,7 @@ class Patient extends Model
      */
     public function documents()
     {
-        return $this->hasMany('App\Document');
+        return $this->hasMany('App\Document')->orderBy('id', 'desc');
     }
 
     /**
