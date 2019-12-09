@@ -9,6 +9,8 @@ use Illuminate\View\View;
 class PatientController extends Controller
 {
     /**
+     *
+     *
      * @return \Illuminate\Contracts\View\Factory|View
      */
     public function index()
@@ -20,13 +22,13 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating new patient
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('backend.patient');
     }
 
     /**
