@@ -56,6 +56,9 @@
                         <li class="nav-item mr-2 mb-2">
                             <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
+                        <li class="nav-item mr-2 mb-2">
+                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('Anfrage') }}">{{ __('Anfrage') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

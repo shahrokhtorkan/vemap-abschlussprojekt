@@ -24,7 +24,6 @@ Route::post('login', [
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/backend','HomeController@index')->name('backend');
 Route::get('/contact', 'ContactFormController@index')->name('contact');
+Route::view('/Anfrage', 'Anfrage')->name('Anfrage');
 Route::post('/submit', 'ContactFormController@submit');
-Route::get('/about', 'AboutUsController@index')->name('about');
-Route::get('/services', 'ServicesController@index')->name('services');
-Route::get('/imprint', 'ImprintController@index')->name('imprint');
+Route::post('/js/components/ContactForm.vue', 'AnfrageController@store')->name('ContactForm');
