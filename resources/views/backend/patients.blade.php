@@ -14,31 +14,77 @@
                     <div class="card-header text-dark"><i class="fas fa-user mr-1"></i>{{ __('Patientenübersicht') }}</div>
                     <div class="card-body">
                         <div class="card-body">
-                            @if (count($patients) > 0)
-                            <table id="example" class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                                    <th>SVNr</th>
-                                    <th>Name</th>
-                                    <th>Adresse</th>
-                                    <th>PLZ</th>
-                                    <th>Stadt</th>
-                                    <th>Land</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    @foreach($patients as $patient)
-                                    <td>{{ $patient -> svnr }}</td>
-                                    <td>{{ $patient -> lastname }} {{ $patient -> firstname }}</td>
-                                    <td>{{ $patient -> address }}</td>
-                                    <td>{{ $patient -> plz }}</td>
-                                    <td>{{ $patient -> city }}</td>
-                                    <td>{{ $patient -> country }}</td>
-                                </tr>
-                                </tbody>
-                                @endforeach
-                            </table>
+                            <div class="row mb-5">
+                                <div class="new-patient"><a href="{{ route('newpatient') }}" class="btn btn-primary" style="width: 220% !important;">Neuer Patient</a></div>
+                                <div class="search">
+                                    <form method="get" action="{{ route('patients') }}">
+                                        @csrf
+                                        &#x1F50D;<input type="text" name="query" placeholder="Name oder SVNr" value="{{ request()->get('query') }}">
+                                        <button class="btn btn-primary" type="submit">Suchen</button>
+                                    </form>
+                                </div>
+                            </div>
+                            @if (count($patients)>0)
+                                <table class="table table-bordered table-hover table-responsive-sm">
+                                    <tr>
+                                        @if( $orderBy == 'lastname')
+                                            <th>
+                                                <a href="{{ request()->fullUrlWithQuery(['orderBy' => 'lastname', 'orderDirection' => $inverseOrderDirection]) }}">Name {!! $orderDirectionIndicator !!}</a>
+                                            </th>
+                                        @else
+                                            <th>
+                                                <a href="{{ request()->fullUrlWithQuery(['orderBy' => 'lastname', 'orderDirection' => $orderDirection]) }}">Name</a>
+                                            </th>
+                                        @endif
+                                        @if( $orderBy == 'svnr')
+                                            <th>
+                                                <a href="{{ request()->fullUrlWithQuery(['orderBy' => 'svnr', 'orderDirection' => $inverseOrderDirection]) }}">SVNr {!! $orderDirectionIndicator !!}</a>
+                                            </th>
+                                        @else
+                                            <th>
+                                                <a href="{{ request()->fullUrlWithQuery(['orderBy' => 'svnr', 'orderDirection' => $orderDirection]) }}">SVNr</a>
+                                            </th>
+                                        @endif
+                                        @if ($orderBy == 'address')
+                                            <th>
+                                                <a href="{{ request()->fullUrlWithQuery(['orderBy' => 'address', 'orderDirection' => $inverseOrderDirection]) }}">Adresse {!! $orderDirectionIndicator !!}</a>
+                                            </th>
+                                        @else
+                                            <th>
+                                                <a href="{{ request()->fullUrlWithQuery(['orderBy' => 'address', 'orderDirection' => $orderDirection]) }}">Adresse</a>
+                                            </th>
+                                        @endif
+                                        <th class="flex-center">Aktion</th>
+                                    </tr>
+                                    @foreach ($patients as $patient)
+                                        <tr>
+                                            <td>
+                                                <a href="{{ route('patient', $patient->id) }}">
+                                                    {{$patient->firstname }} {{$patient->lastname}}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{$patient->svnr}}
+                                            </td>
+                                            <td>
+                                                {{$patient->address}},
+                                                {{$patient->plz}} {{$patient->city}},
+                                                {{$patient->country}}
+                                            </td>
+                                            <td class="flex-center">
+                                                <form method="post" action="/patient/{{$patient->id}}/delete">
+                                                    @csrf
+                                                    <button class="btn btn-primary" type="submit">Löschen</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                                <div class="page-number">
+                                    {{ $patients->links() }}
+                                </div>
+                            @else
+                                Keine Patienten gefunden. <a href="{{ route('patients') }}">Alle Patienten anzeigen.</a>
                             @endif
                         </div>
                     </div>

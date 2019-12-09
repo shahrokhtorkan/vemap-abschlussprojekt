@@ -18,6 +18,7 @@ Route::post('login', [
     'uses' => 'SignInController@signin',
     'as' => 'auth.signin'
 ]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/backend','HomeController@index')->name('backend');
 Route::get('/contact', 'ContactFormController@index')->name('contact');
@@ -26,3 +27,8 @@ Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
 Route::get('/patients', 'PatientController@index')->name('patients');
+Route::get('/patient/{id}', 'PatientController@edit')->name('patient');
+Route::get('/patient/', 'PatientController@create')->name('newpatient');
+Route::post('/patient/', 'PatientController@store')->name('newpatient');
+Route::post('/patient/{id}', 'PatientController@update')->name('patient');
+Route::post('/patient/{id}/delete', 'PatientController@destroy');

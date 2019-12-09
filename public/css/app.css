@@ -11516,3 +11516,13 @@ ul {
   background-color: rgba(50, 144, 220, 0.3) !important;
 }
 
+.new-patient {
+  position: absolute;
+  left: 15%;
+}
+
+.search {
+  position: absolute;
+  right: 15%;
+}
+
