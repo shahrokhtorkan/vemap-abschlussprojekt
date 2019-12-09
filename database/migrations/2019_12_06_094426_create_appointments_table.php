@@ -14,11 +14,15 @@ class CreateAppointmentsTable extends Migration
     public function up()
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('status')->default('available');
             $table->dateTime('begin');
             $table->dateTime('end');
-            $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('patient_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict'); // If the parent row has referencing child rows, you can't delete that parent row
+            $table->timeStamps();
         });
     }
 
