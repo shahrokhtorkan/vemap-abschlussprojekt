@@ -15,4 +15,14 @@ class Document extends Model
     {
         return $this->belongsTo('App\Patient');
     }
+
+    /**
+     * One Document belongs to only one User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

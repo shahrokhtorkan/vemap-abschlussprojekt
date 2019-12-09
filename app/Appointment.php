@@ -15,4 +15,14 @@ class Appointment extends Model
     {
         return $this->belongsTo('App\Patient');
     }
+
+    /**
+     * No Appointments or one Appointment belongs to User (0 .. 1 to m)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
