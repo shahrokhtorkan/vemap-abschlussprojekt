@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    {{--<script src="{{ asset('js/jquery.min.js') }}" defer></script>--}}
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Data Tables -->
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
@@ -25,19 +29,10 @@
     <!-- Text Animate -->
     <script src="{{ asset('js/textanimate.js') }}"></script>
     <!-- jQuery Effects - Sliding -->
-    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    {{--<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>--}}
     <!-- Font Awesome -->
     <script src="{{ asset('js/fontawesome.js') }}"></script>
-    <!-- Data Tables -->
-    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script>
-        $(document).ready( function () {
-            $('#myTable').DataTable();
-        } );
-    </script>
-    {{--<link rel="stylesheet" href="css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
+
 
 </head>
 <body>
