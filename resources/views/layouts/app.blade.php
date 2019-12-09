@@ -29,6 +29,13 @@
     <!-- Font Awesome -->
     <script src="{{ asset('js/fontawesome.js') }}"></script>
     <!-- Data Tables -->
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
     {{--<link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
 
@@ -107,13 +114,13 @@
             <li class="list-inline-item"><a class="text-dark" href="{{ route('contact') }}">{{ __('Kontakt') }}</a></li>|
             <li class="list-inline-item"><a class="text-dark" href="{{ route('imprint') }}">{{ __('Impressum') }}</a></li>
         </ul>
-        <h3 class="text-center">FOLGE UNS</h3>
+        {{--<h3 class="text-center">FOLGE UNS</h3>
         <ul class="social-icons list-inline text-center mb-3">
             <li><a target="_blank" href="https://www.facebook.com"><i class="fab fa-facebook-square mr-3"></i></a></li>
             <li><a target="_blank" href="https://github.com/shahrokhtorkan/vemap-abschlussprojekt.git"><i class="fab fa-github mr-3"></i></a></li>
             <li><a target="_blank" href="https://twitter.com"><i class="fab fa-twitter mr-3"></i></a></li>
             <li><a target="_blank" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
+        </ul>--}}
         <h6 class="text-center">Copyright © vemap academy 2019 | Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></h6>
     </div>
 </div>
