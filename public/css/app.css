@@ -11383,6 +11383,24 @@ header,
   }
 }
 
+@media (min-width: 414px) and (max-width: 736px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 750px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 667px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 750px;
+  }
+}
+
 .top-nav-collapse {
   background-color: transparent !important;
 }
