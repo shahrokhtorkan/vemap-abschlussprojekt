@@ -7,7 +7,7 @@
             <h1>Übersicht - Patienten</h1>
         </div>
         @if (count($patients) > 0)
-        <table id="table_id" class="display table table-bordered table-hover">
+        <table id="myTable" class="display table table-bordered table-hover">
             <thead>
             <tr>
                 <th>SVNr</th>
