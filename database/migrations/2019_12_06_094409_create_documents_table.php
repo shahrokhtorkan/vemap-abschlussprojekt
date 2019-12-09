@@ -15,11 +15,8 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            //$table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('patient_id');
-            //$table->foreign('patient_id')->references('id')->on('patients'); // When patient is gone, documentation is gone
-            $table->text('text'); // Note LM-06-12: The document will be saved as PDF attachment not text
+            $table->text('text');
             $table->timestamps();
         });
     }

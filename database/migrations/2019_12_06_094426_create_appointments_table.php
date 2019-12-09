@@ -18,10 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('status')->default('available');
             $table->dateTime('begin');
             $table->dateTime('end');
-            $table->unsignedBigInteger('user_id');
-            //$table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('patient_id');
-            //$table->foreign('patient_id')->references('id')->on('patients'); // If the parent row has referencing child rows, you can't delete that parent row
             $table->timeStamps();
         });
     }
