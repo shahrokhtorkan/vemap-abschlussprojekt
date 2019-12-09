@@ -17,13 +17,12 @@ class CreatePatientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('svnr');
             $table->string('email');
-            $table->string('phone');
-            $table->text('address');
-            $table->string('plz');
-            $table->string('city');
+            $table->string('svnr');
             $table->string('country')->default('Österreich');
+            $table->string('city');
+            $table->string('plz');
+            $table->text('address');
             $table->timestamps();
         });
     }

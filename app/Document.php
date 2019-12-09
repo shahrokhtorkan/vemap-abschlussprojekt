@@ -6,10 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
-    // protected $fillable = [] -- here, we'll put fillables to avoid mass assignment errors
+    /**
+     * Define relationship to User
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 
-    public function user()
-    {
-        return($this->belongsTo('App\User'));
+    /**
+     * Define relationship to Patient
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function patient() {
+        return $this->belongsTo('App\Patient');
     }
 }
