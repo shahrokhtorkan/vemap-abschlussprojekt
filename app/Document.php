@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Document extends Model
 {
     /**
-     * Define relationship to user
+     * Define relationship to User
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user() {
@@ -15,7 +15,7 @@ class Document extends Model
     }
 
     /**
-     * Define relationship to patient
+     * Define relationship to Patient
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function patient() {

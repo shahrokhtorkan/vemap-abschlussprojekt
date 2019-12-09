@@ -11,14 +11,15 @@ class Patient extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function documents() {
-        return $this->hasMany('App\Documentation')->orderBy('id', 'desc')  ;
+        return $this->hasMany('App\Documentation');
     }
 
     /**
      * Define relationship to Appointment
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function slots() {
+    public function appointments() {
         return $this->hasMany('App\Appointment');
     }
 }
