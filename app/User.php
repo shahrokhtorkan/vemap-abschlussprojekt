@@ -38,6 +38,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * One User is one Patient
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function patient()
+    {
+        return $this->hasOne('App\Patient');
+    }
+
+    /**
      * One User has many Documents
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

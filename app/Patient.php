@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     /**
+     * One User is one Patient
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne('App\User');
+    }
+
+    /**
      * One Patient has many Documents
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
