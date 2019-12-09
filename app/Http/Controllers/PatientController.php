@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Patient;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PatientController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|View
      */
     public function index()
     {
-        //
+        $patients = Patient::all();
+        return view('backend.patients', [
+            'patients' => $patients
+        ]);
     }
 
     /**
