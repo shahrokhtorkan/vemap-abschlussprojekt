@@ -29,6 +29,13 @@
     <!-- Font Awesome -->
     <script src="{{ asset('js/fontawesome.js') }}"></script>
     <!-- Data Tables -->
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
     {{--<link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">--}}
 
