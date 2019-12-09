@@ -25,6 +25,4 @@ Route::post('/submit', 'ContactFormController@submit');
 Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
-
-
 Route::get('/patients', 'PatientController@index')->name('patients');
