@@ -16,7 +16,6 @@ class DocumentController extends Controller
     public function index()
     {
         return view('backend.document', [
-            'document' => auth()->user()->document()->orderBy('id', 'desc')->paginate(5)
         ]);
     }
 
