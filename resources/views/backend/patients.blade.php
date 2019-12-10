@@ -14,7 +14,7 @@
                                 <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>{{ __('Patientenübersicht') }}</div>
                                 <div class="card-body">
                                     <div class="row mb-5">
-                                        <div class="new-patient"><a href="{{ route('newpatient') }}" class="btn btn-primary" style="width: 220% !important;">Neuer Patient</a></div>
+                                        <div class="new-patient"><a href="{{ route('newpatient') }}" class="btn btn-primary">Neuer Patient</a></div>
                                         <div class="search">
                                             <form method="get" action="{{ route('patients') }}">
                                                 @csrf
@@ -83,7 +83,7 @@
                                                 </tr>
                                             @endforeach
                                         </table>
-                                        <div class="page-number pagination-sm">
+                                        <div class="pagination-sm">
                                             {{ $patients->links() }}
                                         </div>
                                     @else
