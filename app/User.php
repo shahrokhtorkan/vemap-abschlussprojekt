@@ -37,11 +37,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function appointments() {
-        return $this->hasMany('App\Appointment');
+    /**
+     * One User is one Patient
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function patient()
+    {
+        return $this->hasOne('App\Patient');
     }
 
-    public function documents() {
+    /**
+     * One User has many Documents
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function documents()
+    {
         return $this->hasMany('App\Document');
+    }
+
+    /**
+     * One User has more Appointments or no Appointments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment');
     }
 }

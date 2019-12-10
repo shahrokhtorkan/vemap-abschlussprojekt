@@ -7,19 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     /**
-     * Define relationship to User
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user() {
-        return $this->belongsTo('App\User');
-    }
-
-    /**
-     * Define relationship to Patient
+     *  One Appointment belong to only one Patient
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function patient() {
+    public function patient()
+    {
         return $this->belongsTo('App\Patient');
+    }
+
+    /**
+     * No Appointments or one Appointment belongs to User (0 .. 1 to m)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }
