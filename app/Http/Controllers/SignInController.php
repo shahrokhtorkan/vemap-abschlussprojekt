@@ -26,7 +26,7 @@ class SignInController extends Controller
             'password' => 'required'
         ]);
 
-        // Using Auth facade to verify user credentials
+        // Using Auth facade to verify user credentials TODO change email to name in final version
         if(Auth::attempt([
             'email' => $request->input('email'),
             'password' => $request->input('password'),
