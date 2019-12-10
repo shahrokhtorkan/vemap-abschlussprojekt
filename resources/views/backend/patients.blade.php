@@ -18,8 +18,12 @@
                                         <div class="search">
                                             <form method="get" action="{{ route('patients') }}">
                                                 @csrf
-                                                <input type="text" class="form-control mr-1" name="query" placeholder="Name oder SVNr" value="{{ request()->get('query') }}">
-                                                <button class="btn btn-primary" type="submit">Suchen</button>
+                                                <div class="input-group mb-4">
+                                                    <input type="text" class="form-control mr-1" name="query" placeholder="Name oder SVNr" value="{{ request()->get('query') }}">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                                                    </div>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
