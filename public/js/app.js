@@ -1838,7 +1838,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _FormMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../FormMixin */ "./resources/js/FormMixin.js");
 //
 //
 //
@@ -1863,13 +1862,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_FormMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
-      'action': '/submit'
+      step: 1,
+      registration: {
+        name: null,
+        email: null,
+        phone: null,
+        q1: null,
+        q2: null,
+        q3: null,
+        q4: null,
+        q5: null,
+        Leistungen: 'a',
+        'action': '/submit'
+      }
     };
+  },
+  methods: {
+    prev: function prev() {
+      this.step--;
+    },
+    next: function next() {
+      this.step++;
+    },
+    submit: function submit() {},
+    csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content2')
   }
 });
 
@@ -37300,141 +37377,378 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.submit($event)
-        }
-      }
-    },
-    [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.fields.name,
-              expression: "fields.name"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder: "Ihre Name",
-            name: "name",
-            id: "name"
-          },
-          domProps: { value: _vm.fields.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+  return _c("div", { attrs: { id: "app" } }, [
+    _c("form", { attrs: { method: "POST", action: "contact2" } }, [
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrf }
+      }),
+      _vm._v(" "),
+      _vm.step === 1
+        ? _c("div", [
+            _c("h1", [_vm._v("Schritt eins")]),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "Leistungen" } }, [
+              _vm._v("Leistungen :")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.registration.Leistungen,
+                    expression: "registration.Leistungen"
+                  }
+                ],
+                attrs: { id: "Leistungen", name: "Leistungen" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.registration,
+                      "Leistungen",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "a" } }, [
+                  _vm._v("Therapie Aktiv Betreuungsprogramm")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "b" } }, [
+                  _vm._v("Marcoumar-Einstellung")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "c" } }, [
+                  _vm._v("Schmerztherapie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "d" } }, [
+                  _vm._v("Nahtentfernung")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "e" } }, [
+                  _vm._v("Verbandwechsel")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.next()
+                  }
+                }
+              },
+              [_vm._v("Next")]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.step === 2
+        ? _c("div", [
+            _c("h1", [_vm._v("Schritt zwei")]),
+            _vm._v(" "),
+            _c("h1", [_vm._v("Fragen an Arzt")]),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "q1" } }, [
+              _vm._v(
+                " Welche Probleme haben Sie? Sind diese mit Schmerzen verbunden? Warum fühlen Sie\n                    sich nicht gut? :\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.q1,
+                  expression: "registration.q1"
+                }
+              ],
+              attrs: { type: "text", id: "q1", name: "q1" },
+              domProps: { value: _vm.registration.q1 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "q1", $event.target.value)
+                }
               }
-              _vm.$set(_vm.fields, "name", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errors && _vm.errors.name
-          ? _c("div", { staticClass: "text-danger" }, [
-              _vm._v(_vm._s(_vm.errors.name[0]))
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("E-Mail")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.fields.email,
-              expression: "fields.email"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "email",
-            placeholder: "Ihre Email",
-            name: "email",
-            id: "email"
-          },
-          domProps: { value: _vm.fields.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "q2" } }, [
+              _vm._v(
+                " Wann treten die Probleme auf? (morgens, mittags, abends) :"
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.q2,
+                  expression: "registration.q2"
+                }
+              ],
+              attrs: { type: "text", id: "q2", name: "q2" },
+              domProps: { value: _vm.registration.q2 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "q2", $event.target.value)
+                }
               }
-              _vm.$set(_vm.fields, "email", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errors && _vm.errors.email
-          ? _c("div", { staticClass: "text-danger" }, [
-              _vm._v(_vm._s(_vm.errors.email[0]))
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "message" } }, [_vm._v("Nachricht")]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.fields.message,
-              expression: "fields.message"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            placeholder: "Schreib uns was",
-            id: "message",
-            name: "message",
-            rows: "2"
-          },
-          domProps: { value: _vm.fields.message },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "q3" } }, [
+              _vm._v(
+                " Wobei, bei welchen Tätigkeiten treten die Probleme auf? :"
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.q3,
+                  expression: "registration.q3"
+                }
+              ],
+              attrs: { type: "text", id: "q3", name: "q3" },
+              domProps: { value: _vm.registration.q3 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "q3", $event.target.value)
+                }
               }
-              _vm.$set(_vm.fields, "message", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errors && _vm.errors.message
-          ? _c("div", { staticClass: "text-danger" }, [
-              _vm._v(_vm._s(_vm.errors.message[0]))
-            ])
-          : _vm._e()
-      ]),
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "q4" } }, [
+              _vm._v(" Was habe ich bisher unternommen? :")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.q4,
+                  expression: "registration.q4"
+                }
+              ],
+              attrs: { type: "text", id: "q4", name: "q4" },
+              domProps: { value: _vm.registration.q4 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "q4", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "q5" } }, [
+              _vm._v(
+                " Gibt es eine Vorbehandlung? Bei welcher Arzt- oder Heilpraktiker-Praxis? :\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.q5,
+                  expression: "registration.q5"
+                }
+              ],
+              attrs: { type: "text", id: "q5", name: "q5" },
+              domProps: { value: _vm.registration.q5 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "q5", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.prev()
+                  }
+                }
+              },
+              [_vm._v("Previous")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.next()
+                  }
+                }
+              },
+              [_vm._v("Next")]
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Nachricht senden")]
-      ),
-      _vm._v(" "),
-      _vm.success
-        ? _c("div", { staticClass: "alert alert-success mt-3" }, [
-            _vm._v("\n        Nachricht wurde erfolgreich gesendet!\n    ")
+      _vm.step === 3
+        ? _c("div", [
+            _c("h1", [_vm._v("Schritt drei")]),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "name" } }, [_vm._v("Ihre Name:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.name,
+                  expression: "registration.name"
+                }
+              ],
+              attrs: { id: "name", type: "text", name: "name" },
+              domProps: { value: _vm.registration.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "name", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "email" } }, [_vm._v("Ihre Email:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.email,
+                  expression: "registration.email"
+                }
+              ],
+              attrs: { id: "email", name: "email", type: "email" },
+              domProps: { value: _vm.registration.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "email", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c("p"),
+            _c("legend", { attrs: { for: "email" } }, [_vm._v("Ihre Tel.Nr:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registration.phone,
+                  expression: "registration.phone"
+                }
+              ],
+              attrs: { id: "phone", name: "phone", type: "number" },
+              domProps: { value: _vm.registration.phone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registration, "phone", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("p"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.prev()
+                  }
+                }
+              },
+              [_vm._v("Previous")]
+            ),
+            _vm._v(" "),
+            _c("input", { attrs: { type: "submit", value: "Save" } })
           ])
         : _vm._e()
-    ]
-  )
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _c("br"),
+    _vm._v("Debug: " + _vm._s(_vm.registration) + "\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49626,52 +49940,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/FormMixin.js":
-/*!***********************************!*\
-  !*** ./resources/js/FormMixin.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      fields: {},
-      errors: {},
-      success: false,
-      loaded: true,
-      action: ''
-    };
-  },
-  methods: {
-    submit: function submit() {
-      var _this = this;
-
-      if (this.loaded) {
-        this.loaded = false;
-        this.success = false;
-        this.errors = {};
-        axios.post(this.action, this.fields).then(function (response) {
-          _this.fields = {}; //Clear input fields.
-
-          _this.loaded = true;
-          _this.success = true;
-        })["catch"](function (error) {
-          _this.loaded = true;
-
-          if (error.response.status === 422) {
-            _this.errors = error.response.data.errors || {};
-          }
-        });
-      }
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -49708,7 +49976,10 @@ Vue.component('contact-form', __webpack_require__(/*! ./components/ContactForm.v
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: function data() {
+    return {};
+  }
 });
 
 /***/ }),
@@ -49914,8 +50185,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
