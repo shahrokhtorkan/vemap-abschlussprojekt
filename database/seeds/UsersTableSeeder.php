@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
+use Faker\Factory as Faker;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,17 +15,18 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert(
             [
-                'name' => 'admin',
-                'password' => Hash::make('admin'),
+                'name' => 'admin@example.com',
+                'password' => bcrypt('admin'),
                 'email' => 'admin@example.com',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         );
+
         DB::table('users')->insert(
             [
-                'name' => 'patient',
-                'password' => Hash::make('patient'),
+                'name' => 'patient@example.com',
+                'password' => bcrypt('patient'),
                 'email' => 'patient@example.com',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
