@@ -11,7 +11,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header text-dark"><i class="fas fa-user mr-1"></i>{{ __('Patientenübersicht') }}</div>
+                            <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>{{ __('Patientenübersicht') }}</div>
                             <div class="card-body">
                                 <div class="row mb-5">
                                     <div class="new-patient"><a href="{{ route('newpatient') }}" class="btn btn-primary" style="width: 220% !important;">Neuer Patient</a></div>

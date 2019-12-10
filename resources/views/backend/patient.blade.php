@@ -11,7 +11,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="card">
-                            <div class="card-header text-dark"><i class="fas fa-user mr-1"></i>
+                            <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>
                                 @if($patient)
                                     Patient bearbeiten
                                 @else

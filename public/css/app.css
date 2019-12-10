@@ -11416,15 +11416,18 @@ header,
 }
 
 .card {
-  background-color: rgba(50, 144, 220, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .card:hover {
-  box-shadow: 10px 10px 26px -8px #093b7d;
+  box-shadow: 10px 10px 26px -8px #093b7d !important;
 }
 
-.md-form label {
-  color: #ffffff;
+.card-top {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#48afea), to(#2a63ad));
+  background-image: linear-gradient(#48afea, #2a63ad);
+  color: #ffffff !important;
+  font-size: 19px;
 }
 
 h1 {

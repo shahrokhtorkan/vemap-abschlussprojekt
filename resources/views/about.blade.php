@@ -11,7 +11,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-7">
                         <div class="card">
-                            <div class="card-header text-dark"><i class="fas fa-user-md mr-1"></i>{{ __('Über uns') }}</div>
+                            <div class="card-header text-dark card-top"><i class="fas fa-user-md mr-1"></i>{{ __('Über uns') }}</div>
                             <div class="card-body">
                                 <P>Anna Fink</P>
                                 <p>Als Physiotherapeutin ist mir die ganzheitliche Arbeit mit dem Patienten wichtig. Die Osteopathie biete ich ebenfalls an - sie ergänzt die Behandlung optimal. Barbara und ich arbeiten schon lange zusammen und wir freuen uns, auch Sie in unserer Praxis begrüßen zu dürfen.</P>
