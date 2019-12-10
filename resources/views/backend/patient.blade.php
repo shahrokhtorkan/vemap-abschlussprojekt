@@ -9,7 +9,7 @@
         <div id="app">
             <div class="container mb-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>
                                 @if($patient)
@@ -131,6 +131,44 @@
                                         <a href="{{ route('patients') }}" class="btn btn-primary">Alle Patienten anzeigen.</a>
                                     </div>
                                 </form>
+
+                                    @if($patient)
+                                        <form method="post" action="/patient/{{$patient->id}}/delete">
+                                            @csrf
+                                            <p class="float-right">Diesen Patienten löschen:
+                                                <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                                            </p>
+                                        </form>
+                                        {{--Dokument--}}
+                                        <h2 class="mt-5">Dokument</h2>
+                                        @if(!empty($patient->documents))
+                                            <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                                                <thead>
+                                                <tr>
+                                                    <th>Datum</th>
+                                                    <th>Autor</th>
+                                                    <th>Beschreibung</th>
+                                                </tr>
+                                                </thead>
+                                                @foreach($patient->documents as $document)
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>{{ $document->created_at->toDateString() }}</td>
+                                                        <td>{{ $document->user->name }}</td>
+                                                        <td>{{ $document->text }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                @endforeach
+                                            </table>
+                                        @else
+                                            <p>Keine Dokument vorhanden.</p>
+                                        @endif
+
+                                    @endif
+                                    @if($patient)
+                                        <a href="{{ route('newdocument', $patient->id) }}" class="btn btn-primary mb-3">Neue Dokument</a>
+                                    @endif
+
                             </div>
                         </div>
                     </div>

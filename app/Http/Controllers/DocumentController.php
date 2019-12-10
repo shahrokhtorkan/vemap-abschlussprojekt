@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
+use App\Patient;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller
@@ -13,28 +15,36 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.document', [
+            'document' => auth()->user()->document()->orderBy('id', 'desc')->paginate(5)
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param int $patientId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(int $patientId)
     {
-        //
+        return view('backend.document', [ 'patientId' => $patientId]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $patientId
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, int $patientId)
     {
-        //
+        $patient = Patient::find($patientId);
+
+        $documents = new Document();
+        $documents->user()->associate(auth()->user());
+        $documents->patient()->associate($patient);
+        $documents->text = $request->text;
+        $documents->save();
+
+        return redirect()->route('patient', $patientId);
     }
 
     /**

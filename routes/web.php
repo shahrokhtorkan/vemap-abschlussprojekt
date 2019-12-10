@@ -31,4 +31,7 @@ Route::get('/patient/', 'PatientController@create')->name('newpatient');
 Route::post('/patient/', 'PatientController@store')->name('newpatient');
 Route::post('/patient/{id}', 'PatientController@update')->name('patient');
 Route::post('/patient/{id}/delete', 'PatientController@destroy');
+Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
+Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
+Route::get('/documents', 'DocumentController@index')->name('documents');
 
