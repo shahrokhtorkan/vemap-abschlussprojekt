@@ -50,16 +50,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
                         <li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ url('/') }}">{{ __('Home') }}</a>
-                        </li>
-                        {{--<li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('contact') }}">{{ __('Kontakt') }}</a>
-                        </li>--}}
-                        <li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('backend') }}">{{ __('Backend') }}</a>
+                            <a class="btn btn-primary btn-block" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item mr-2 mb-2">
-                            <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('patients') }}">{{ __('Patients') }}</a>
+                            <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Backend') }}</a>
+                        </li>
+                        <li class="nav-item mr-2 mb-2">
+                            <a class="btn btn-primary btn-block" href="{{ route('patients') }}">{{ __('Patients') }}</a>
                         </li>
 
                     </ul>
@@ -69,11 +66,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item mr-2 mb-2">
-                                <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('login') }}">{{ __('Einloggen') }}</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('login') }}">{{ __('Einloggen') }}</a>
                             </li>
                         @if (Route::has('register'))
                             <li class="nav-item mr-2 mb-2">
-                                <a class="nav-link text-dark btn btn-block btn-outline-info" href="{{ route('register') }}">{{ __('Registrieren') }}</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('register') }}">{{ __('Registrieren') }}</a>
                             </li>
                         @endif
                         @else
