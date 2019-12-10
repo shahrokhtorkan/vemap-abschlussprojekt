@@ -32,10 +32,10 @@ class PatientController extends Controller
                 ->orWhere('lastname', 'like', "%{$query}%")
                 ->orWhere('svnr', 'like', "%{$query}%")
                 ->orderBy($orderBy, $orderDirection)
-                ->paginate(getenv('AIOT_PAGINATE_ROWS'));
+                ->paginate(10);
         } else {
             $patients = Patient::orderBy($orderBy, $orderDirection)
-                ->paginate(getenv('AIOT_PAGINATE_ROWS'));
+                ->paginate(10);
         }
         return view('backend.patients', [
             'patients' => $patients,
