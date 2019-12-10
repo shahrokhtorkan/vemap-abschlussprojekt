@@ -11,7 +11,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-7">
                         <div class="card">
-                            <div class="card-header text-dark"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</div>
+                            <div class="card-header text-dark card-top"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</div>
                             <div class="card-body">
                                 <h2>Patient</h2>
                                 <p>Unsere Sekretariatsöffnungszeiten sind:</P>
