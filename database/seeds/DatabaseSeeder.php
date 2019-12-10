@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i<30; ++$i) {
+        php artisan make:seeder UsersTableSeederfor ($i=0; $i<30; ++$i) {
             $firstname = Arr::random(['Horst', 'Claudia', 'Georg', 'Alois', 'Erich', 'Werner', 'Arnold', 'Norbert', 'Stefan', 'Gustav', 'Edith', 'Heinz-Christian', 'Rudolf', 'Florian', 'Wolfgang', 'Josephine', 'Ludwig', 'Fritz', 'Franz', 'Karl', 'Josef', 'Agnes', 'Peter', 'Kurt', 'Birgit', 'Sabine', 'Gisela', 'Bianca', 'Jutta', 'Felix', 'Sara', 'Friedrich', 'Otto', 'Sebastian', 'Michael', 'Alex', 'Andreas', 'Bernhardt', 'Silvia', 'Judith', 'Johannes', 'Irmgard', 'Ingrid', 'Klara', 'Siegfried', 'Albert', 'Herbert', 'Helene', 'Simon',  'Anna', 'Katharina', 'Marie', 'Daniel', 'Walter', 'Jeanette', 'Ferdinand', 'Wilhelm', 'Martin']);
             $lastname = Arr::random(['Mueller', 'Brunner', 'Froehlich', 'Schwarz', 'Salzmann', 'Berger', 'Wolf', 'Putz', 'Schmied', 'Hofer', 'Wallner', 'Kurz', 'Nussbaum', 'Burger', 'Klein', 'Haas', 'Neumann', 'Deutsch', 'Kornfeld', 'Meyer', 'Meier', 'Mayer', 'Steiner', 'Hoefner', 'Bergmann', 'Wagner', 'Henschel', 'Uhrmann', 'Becker', 'Susskind', 'Loeffler', 'Braun', 'Kohl', 'Gerber', 'Hart', 'Blatt', 'Kempner', 'Herzog', 'Jonas', 'Adler', 'Steinberg', 'Bauer', 'Denk', 'Stern', 'Krebs', 'Katz', 'Schaerdinger', 'Goestli', 'Zweig', 'Bachmann', 'Horch', 'Mann', 'Cronfeld', 'Jellinek', 'Roth', 'Ackermann', 'Schuster', 'Hirsch', 'Fuchs', 'Kaufmann', 'Kern']);
             $svnr = rand(1000, 9999) . sprintf("%02s%02s%02s", rand(1, 28), rand(1, 12), rand(1, 99));
