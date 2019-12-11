@@ -8,10 +8,6 @@
     <script src="{{ asset('js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <!-- Data Tables -->
-    {{--<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">--}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
