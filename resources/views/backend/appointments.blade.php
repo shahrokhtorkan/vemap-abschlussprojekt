@@ -13,7 +13,18 @@
                         <div class="card">
                             <div class="card-header text-dark card-top">{{ __('Sample Title') }}</div>
                             <div class="card-body">
-                                {{--content--}}
+
+
+                                @if($reservedSlots)
+                                    <h1>Meine Terminreservierungen</h1>
+
+                                    @if($availableSlots)
+                                        <h2>Available Termine verfügbar</h2>
+                                    @endif
+                                @else
+                                    <p>Keine Terminreservierungen.</p>
+                                @endif
+
 
                             </div>
                         </div>

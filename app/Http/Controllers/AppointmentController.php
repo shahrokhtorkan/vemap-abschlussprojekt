@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Patient;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -16,6 +17,6 @@ class AppointmentController extends Controller
 
 
 
-        //return view('backend.slots', ['reservedAndConfirmedSlots' => $reservedAndConfirmedSlots, 'reservedSlots' => $reservedSlots, 'availableSlots' => $availableSlots, 'patients' => Patient::orderBy('lastname')->get(), 'slotStati' => $this->getAllStati()]);
+        return view('backend.appointments', ['confirmedSlots' => $confirmedSlots, 'reservedSlots' => $reservedSlots, 'availableSlots' => $availableSlots]);
     }
 }
