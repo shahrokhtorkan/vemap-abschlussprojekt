@@ -38,9 +38,9 @@
                                 @else
                                     <p>Keine Dokument vorhanden.</p>
                                 @endif
-                                <div class="pagination-sm">
+                                {{--<div class="pagination-sm">
                                     {{ $documents->links() }}
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
