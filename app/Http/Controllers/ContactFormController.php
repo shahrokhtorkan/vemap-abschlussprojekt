@@ -32,12 +32,12 @@ class ContactFormController extends Controller
         $inquiry->name = $request->name;
         $inquiry->email = $request->email;
         $inquiry->phone = $request->phone;
-        $inquiry->service = 'a';
-        $inquiry->q1 = 'q1';
-        $inquiry->q2 = 'q2';
-        $inquiry->q3 = 'q3';
-        $inquiry->q4 = 'q4';
-        $inquiry->q5 = 'q5';
+        $inquiry->service = $request->Leistungen;
+        $inquiry->q1 = $request->q1;
+        $inquiry->q2 = $request->q2;
+        $inquiry->q3 = $request->q3;
+        $inquiry->q4 = $request->q4;
+        $inquiry->q5 = $request->q5;
         $inquiry->status = 1;
         $inquiry->save();
 
