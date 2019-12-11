@@ -19,11 +19,6 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('patient_id');
             $table->timestamps();
-
-            $table->foreign('patient_id')
-                ->references('id')
-                ->on('patients')
-                ->onDelete('cascade');
         });
     }
 
