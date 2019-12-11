@@ -12,8 +12,10 @@ class AppointmentController extends Controller
         $user = auth()->user();
 
         $availableSlots = $user->appointments()->where('status', 'available');
+
         $reservedSlots = $user->appointments()->where('status', 'reserved');
-        $confirmedSlots = $user->appointments()->whereIn('status', ['reserved', 'confirmed']);
+
+        $confirmedSlots = $user->appointments()->where('status', 'confirmed');
 
 
 

@@ -14,17 +14,22 @@
                             <div class="card-header text-dark card-top">{{ __('Sample Title') }}</div>
                             <div class="card-body">
 
-
+                                {{-- Slots where('status' is 'reserved') --}}
                                 @if($reservedSlots)
                                     <h1>Meine Terminreservierungen</h1>
-
-                                    @if($availableSlots)
-                                        <h2>Available Termine verfügbar</h2>
-                                    @endif
                                 @else
-                                    <p>Keine Terminreservierungen.</p>
+                                    <p>Es gibt keine Terminreservierungen.</p>
                                 @endif
 
+                                {{-- Slots where('status' is 'available') --}}
+                                    @if($availableSlots)
+                                        <h2>Du hast {{$availableSlots->count()}} freie Termine</h2>
+                                    @endif
+
+                                {{-- Slots where('status' is 'confirmed') --}}
+                                    @if($confirmedSlots)
+                                        <h2>Du hast {{$confirmedSlots->count()}} bestätigte Termine</h2>
+                                    @endif
 
                             </div>
                         </div>
