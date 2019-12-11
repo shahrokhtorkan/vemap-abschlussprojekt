@@ -74,6 +74,8 @@ Route::middleware(['auth'])->group(function () {
     // Patienten löschen
     Route::post('/patient/{id}/delete', 'PatientController@destroy');
 
+    Route::get('/appointments', 'appointmentController@index')->name('appointments');
+
     Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
     Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
     Route::get('/documents', 'DocumentController@index')->name('documents');
