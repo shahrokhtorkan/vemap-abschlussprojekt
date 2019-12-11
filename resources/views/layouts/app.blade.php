@@ -45,6 +45,11 @@
                 <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
+                        @can('login')
+                        <li class="nav-item ml-2 mr-2 mb-2">
+                            <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Home') }}</a>
+                        </li>
+                        @endcan
                         @can('admin-patient')
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('patients') }}">{{ __('Patients') }}</a>
@@ -87,9 +92,9 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item ml-2 mr-2 mb-2">
+                            {{--<li class="nav-item ml-2 mr-2 mb-2">
                                 <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Home') }}</a>
-                            </li>
+                            </li>--}}
                         @endguest
                     </ul>
                 </div>
