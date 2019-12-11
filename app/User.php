@@ -66,4 +66,42 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Appointment');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles() {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function addRole(string $roleName) {
+        $role = Role::where('name', $roleName)->first();
+        $this->roles()->save($role);
+    }
+
+    public function hasRole(string $roleName) {
+        $result = false;
+        foreach (auth()->user()->roles as $role) {
+            if($role->name == $roleName) {
+                $result = true;
+                break;
+            }
+        }
+        return $result;
+    }
+
+    public function hasPermission(string $permissionName): bool {
+
+        $hasPermission = false;
+
+        foreach($this->roles as $role) {
+            if($role->hasPermission($permissionName)) {
+                $hasPermission=true;
+                break;
+            }
+        }
+
+        return $hasPermission;
+
+    }
 }

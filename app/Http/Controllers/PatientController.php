@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Patient;
-use Illuminate\Http\Request;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Gate;
 use \InvalidArgumentException;
+use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
