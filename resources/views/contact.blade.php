@@ -14,7 +14,7 @@
                     <div class="card-header text-dark"><i class="fas fa-envelope mr-1"></i>{{ __('Kontakt') }}</div>
                     <div class="card-body">
                         <div class="card-body">
-                            <contact-form route={{route('contact2')}}></contact-form>
+                            <contact-form></contact-form>
                         </div>
                     </div>
                 </div>
