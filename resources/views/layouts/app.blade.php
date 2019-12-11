@@ -52,19 +52,19 @@
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
-                        @can('admin-patient')
+                        {{--@can('admin-patient')--}}
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('patients') }}">{{ __('Patients') }}</a>
                         </li>
-                        @endcan
-                        @can('admin-document')
-                        <li class="nav-item mr-2 mb-2">
+                        {{--@endcan--}}
+                        {{--@can('admin-document')--}}
+                        {{--<li class="nav-item mr-2 mb-2">
                             <a class="nav-item {{ request()->is('document') ? "active" : "" }}" href="{{ route('document') }}">{{ __('Dokument') }}</a>
-                        </li>
-                        @endcan
+                        </li>--}}
+                        {{--@endcan--}}
 
                     </ul>
 
