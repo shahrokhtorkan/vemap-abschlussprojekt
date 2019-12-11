@@ -16,7 +16,7 @@ class HasPermission
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $permissionName)
     {
         if(Gate::denies($permissionName)) {
             throw new AuthorizationException();

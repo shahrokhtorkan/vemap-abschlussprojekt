@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'admin@example.com',
                 'password' => bcrypt('admin'),
                 'email' => 'admin@example.com',
+                /*'roles' => ('admin'),*/
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
@@ -28,6 +29,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'patient@example.com',
                 'password' => bcrypt('patient'),
                 'email' => 'patient@example.com',
+                /*'roles' => ('patient'),*/
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
