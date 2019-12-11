@@ -13,14 +13,15 @@
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>{{ __('Neue Dokument erstellen') }}</div>
                             <div class="card-body">
-                                @if(!empty($document))
+                                // TODO Undefined variable: $documents
+                                @if(!empty($documents))
                                     <table class="table table-bordered table-hover table-responsive-sm">
                                         <tr>
                                             <th>Datum</th>
                                             <th>Patient</th>
                                             <th>Text</th>
                                         </tr>
-                                        @foreach($document as $document)
+                                        @foreach($documents as $document)
                                             <tr>
                                                 <td>
                                                     {{ $document->created_at->toDateString() }}
@@ -38,7 +39,7 @@
                                     <p>Keine Dokument vorhanden.</p>
                                 @endif
                                 <div class="pagination-sm">
-                                    {{ $document->links() }}
+                                    {{ $documents->links() }}
                                 </div>
                             </div>
                         </div>
