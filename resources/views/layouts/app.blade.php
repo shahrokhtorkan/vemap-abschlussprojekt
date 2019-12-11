@@ -45,23 +45,16 @@
                 <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
-                        <li class="nav-item mr-2 mb-2">
-                            <a class="btn btn-primary btn-block" href="{{ url('/') }}">{{ __('Home') }}</a>
-                        </li>
-                        {{--@can('admin-patient')--}}
-                        <li class="nav-item mr-2 mb-2">
-                            <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Backend') }}</a>
-                        </li>
+                        @can('admin-patient')
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('patients') }}">{{ __('Patients') }}</a>
                         </li>
-                        {{--@endcan--}}
-                        {{--@can('admin-document')--}}
-                        {{--<li class="nav-item mr-2 mb-2">
-                            <a class="nav-item {{ request()->is('document') ? "active" : "" }}" href="{{ route('document') }}">{{ __('Dokument') }}</a>
-                        </li>--}}
-                        {{--@endcan--}}
-
+                        @endcan
+                        @can('admin-document')
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('documents') }}">{{ __('Document') }}</a>
+                            </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -93,6 +86,9 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                            <li class="nav-item ml-2 mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Home') }}</a>
                             </li>
                         @endguest
                     </ul>

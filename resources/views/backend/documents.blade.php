@@ -20,7 +20,7 @@
                                             <th>Patient</th>
                                             <th>Text</th>
                                         </tr>
-                                        @foreach($documents as $document)
+                                        @foreach($document as $document)
                                             <tr>
                                                 <td>
                                                     {{ $document->created_at->toDateString() }}
@@ -38,7 +38,7 @@
                                     <p>Keine Dokument vorhanden.</p>
                                 @endif
                                 <div class="pagination-sm">
-                                    {{ $documents->links() }}
+                                    {{ $document->links() }}
                                 </div>
                             </div>
                         </div>

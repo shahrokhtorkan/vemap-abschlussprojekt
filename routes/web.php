@@ -11,28 +11,22 @@
 */
 
 /**
- * Route to the fronted page
- * These routes are freely exposed
- */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-/**
  * Custom authentication, currently not different from Laravel's default
  * I prefer the syntax for all routes
  */
 
 Auth::routes();
 
+Route::get('/', function () {
+    return view('frontend');
+});
+
 Route::get('/auth/login', function () {
     return view('login');
 })->name('login');
 
 Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/backend','HomeController@index')->name('backend');
+Route::get('/backend','HomeController@index')->name('frontend');
 Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
@@ -44,6 +38,10 @@ Route::post('/contact', 'ContactFormController@store')->name('contact');
  */
 
 Route::group(["middleware" => ['auth']], function () {
+
+    Route::get('/backend', function () {
+        return view('backend');
+    })->name('backend');
 
     Route::group(["middleware" => ['hasPermission:admin-document']], function () {
         Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
@@ -60,6 +58,6 @@ Route::group(["middleware" => ['auth']], function () {
         Route::post('/patient/{id}/delete', 'PatientController@destroy');
     });
 
-    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+    /*Route::get('logout', 'Auth\LoginController@logout')->name('logout');*/
 
 });
