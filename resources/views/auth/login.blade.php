@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-header text-dark card-top"><i class="fas fa-sign-in-alt mr-1"></i>{{ __('Einloggen') }}</div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('authenticate') }}">
                                 @csrf
 
                                 <div class="form-group row">
