@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="contact-form">
         <form>
             <div v-if="step === 1">
                 <h1>Schritt eins</h1>
@@ -19,7 +19,7 @@
                 <h1>Schritt zwei</h1>
                 <h1>Fragen an Arzt</h1>
                 <p>
-                    <legend for="q1"> Welche Probleme haben Sie? Sind diese mit Schmerzen verbunden? Warum fühlen Sie
+                    <legend for="q1"> Welche Probleme haben Sie? Warum fühlen Sie
                         sich nicht gut?
                     </legend>
                     <input type="text" id="q1" name="q1" v-model="inquiry.q1">
@@ -99,33 +99,34 @@
             next() {
                 this.step++;
             },
-            create () {
+            create() {
                 this.errors = []; // small 'hack' to prevent appending multiple errors
 
                 console.log(this.inquiry.service);
-
-                axios.post(this.uri, {
-                    name: this.inquiry.name,
-                    email: this.inquiry.email,
-                    phone: this.inquiry.phone,
-                    service: this.inquiry.service,
-                    q1: this.inquiry.q1,
-                    q2: this.inquiry.q2,
-                    q3: this.inquiry.q3,
-                    q4: this.inquiry.q4,
-                    q5: this.inquiry.q5
-                }).then(response => {
-                    this.inquiries.push(response.data.inquiry);
-                    //this.resetFields();
-                }).catch(error => {
-                    console.log(error);
-                    if(error.response.data.errors.name) {
-                        this.errors.push(error.response.data.errors.name[0]);
-                    }
-                    if(error.response.data.errors.body) {
-                        this.errors.push(error.response.data.errors.body[0]);
-                    }
-                });
+                if (confirm("Do you really want to delete this?")) {
+                    axios.post(this.uri, {
+                        name: this.inquiry.name,
+                        email: this.inquiry.email,
+                        phone: this.inquiry.phone,
+                        service: this.inquiry.service,
+                        q1: this.inquiry.q1,
+                        q2: this.inquiry.q2,
+                        q3: this.inquiry.q3,
+                        q4: this.inquiry.q4,
+                        q5: this.inquiry.q5
+                    }).then(response => {
+                        this.inquiries.push(response.data.inquiry);
+                        //this.resetFields();
+                    }).catch(error => {
+                        console.log(error);
+                        if (error.response.data.errors.name) {
+                            this.errors.push(error.response.data.errors.name[0]);
+                        }
+                        if (error.response.data.errors.body) {
+                            this.errors.push(error.response.data.errors.body[0]);
+                        }
+                    });
+                }
             }
         },
     }
