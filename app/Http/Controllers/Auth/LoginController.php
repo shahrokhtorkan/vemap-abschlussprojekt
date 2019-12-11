@@ -45,7 +45,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return "name";
+        return "email";
     }
 
     protected function sendLoginResponse(Request $request)
@@ -61,8 +61,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only(['name', 'password']);
-        Log::info("login: {$credentials['name']}/{$credentials['password']}");
+        $credentials = $request->only(['email', 'password']);
+        Log::info("login: {$credentials['email']}/{$credentials['password']}");
         return $this->AuthenticatesUsers_login($request);
     }
 }

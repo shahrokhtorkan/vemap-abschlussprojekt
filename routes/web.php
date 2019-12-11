@@ -15,7 +15,6 @@
  * These routes are freely exposed
  */
 
-// Wilkommen (welcome.blade.php)
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,16 +31,13 @@ Route::get('/auth/login', function () {
 })->name('login');
 
 Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
-
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/backend','HomeController@index')->name('backend');
 Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
 Route::get('/contact', 'ContactFormController@index')->name('contact');
 Route::post('/contact', 'ContactFormController@store')->name('contact');
-
-Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/backend','HomeController@index')->name('backend');
 
 /**
  * Protected routes - only authenticated user can access

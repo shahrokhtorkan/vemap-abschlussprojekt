@@ -1908,13 +1908,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       step: 1,
-      registration: {
+      inquiry: {
+        // Init values for V-Model
         name: null,
         email: null,
         phone: null,
@@ -1923,9 +1922,11 @@ __webpack_require__.r(__webpack_exports__);
         q3: null,
         q4: null,
         q5: null,
-        Leistungen: 'a',
-        'action': '/submit'
-      }
+        service: 'a'
+      },
+      inquiries: [],
+      errors: [],
+      uri: 'https://patient:8019/contact'
     };
   },
   methods: {
@@ -1935,12 +1936,40 @@ __webpack_require__.r(__webpack_exports__);
     next: function next() {
       this.step++;
     },
-    submit: function submit() {},
-    csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content2')
-  },
-  createContact: function createContact() {
-    console.log('Creating contact...');
-    return;
+    create: function create() {
+      var _this = this;
+
+      this.errors = []; // small 'hack' to prevent appending multiple errors
+
+      console.log(this.inquiry.service);
+
+      if (confirm("Do you really want to delete this?")) {
+        axios.post(this.uri, {
+          name: this.inquiry.name,
+          email: this.inquiry.email,
+          phone: this.inquiry.phone,
+          service: this.inquiry.service,
+          q1: this.inquiry.q1,
+          q2: this.inquiry.q2,
+          q3: this.inquiry.q3,
+          q4: this.inquiry.q4,
+          q5: this.inquiry.q5
+        }).then(function (response) {
+          _this.inquiries.push(response.data.inquiry); //this.resetFields();
+
+        })["catch"](function (error) {
+          console.log(error);
+
+          if (error.response.data.errors.name) {
+            _this.errors.push(error.response.data.errors.name[0]);
+          }
+
+          if (error.response.data.errors.body) {
+            _this.errors.push(error.response.data.errors.body[0]);
+          }
+        });
+      }
+    }
   }
 });
 
@@ -37371,20 +37400,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app" } }, [
-    _c("form", { attrs: { method: "POST", action: this.route } }, [
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      }),
-      _vm._v(" "),
+  return _c("div", { attrs: { id: "contact-form" } }, [
+    _c("form", [
       _vm.step === 1
         ? _c("div", [
             _c("h1", [_vm._v("Schritt eins")]),
             _vm._v(" "),
             _c("p"),
             _c("legend", { attrs: { for: "Leistungen" } }, [
-              _vm._v("Leistungen :")
+              _vm._v("Leistungen:")
             ]),
             _vm._v(" "),
             _c(
@@ -37394,8 +37418,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.registration.Leistungen,
-                    expression: "registration.Leistungen"
+                    value: _vm.inquiry.service,
+                    expression: "inquiry.service"
                   }
                 ],
                 attrs: { id: "Leistungen", name: "Leistungen" },
@@ -37410,8 +37434,8 @@ var render = function() {
                         return val
                       })
                     _vm.$set(
-                      _vm.registration,
-                      "Leistungen",
+                      _vm.inquiry,
+                      "service",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
                   }
@@ -37466,7 +37490,7 @@ var render = function() {
             _c("p"),
             _c("legend", { attrs: { for: "q1" } }, [
               _vm._v(
-                " Welche Probleme haben Sie? Sind diese mit Schmerzen verbunden? Warum fühlen Sie\n                        sich nicht gut?\n            "
+                " Welche Probleme haben Sie? Warum fühlen Sie\n                    sich nicht gut?\n                "
               )
             ]),
             _vm._v(" "),
@@ -37475,18 +37499,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.q1,
-                  expression: "registration.q1"
+                  value: _vm.inquiry.q1,
+                  expression: "inquiry.q1"
                 }
               ],
               attrs: { type: "text", id: "q1", name: "q1" },
-              domProps: { value: _vm.registration.q1 },
+              domProps: { value: _vm.inquiry.q1 },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "q1", $event.target.value)
+                  _vm.$set(_vm.inquiry, "q1", $event.target.value)
                 }
               }
             }),
@@ -37495,9 +37519,7 @@ var render = function() {
             _vm._v(" "),
             _c("p"),
             _c("legend", { attrs: { for: "q2" } }, [
-              _vm._v(
-                " Wann treten die Probleme auf? (morgens, mittags, abends) "
-              )
+              _vm._v("Wann treten die Probleme auf? (morgens, mittags, abends)")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -37505,18 +37527,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.q2,
-                  expression: "registration.q2"
+                  value: _vm.inquiry.q2,
+                  expression: "inquiry.q2"
                 }
               ],
               attrs: { type: "text", id: "q2", name: "q2" },
-              domProps: { value: _vm.registration.q2 },
+              domProps: { value: _vm.inquiry.q2 },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "q2", $event.target.value)
+                  _vm.$set(_vm.inquiry, "q2", $event.target.value)
                 }
               }
             }),
@@ -37525,9 +37547,7 @@ var render = function() {
             _vm._v(" "),
             _c("p"),
             _c("legend", { attrs: { for: "q3" } }, [
-              _vm._v(
-                " Wobei, bei welchen Tätigkeiten treten die Probleme auf? "
-              )
+              _vm._v("Wobei, bei welchen Tätigkeiten treten die Probleme auf?")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -37535,18 +37555,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.q3,
-                  expression: "registration.q3"
+                  value: _vm.inquiry.q3,
+                  expression: "inquiry.q3"
                 }
               ],
               attrs: { type: "text", id: "q3", name: "q3" },
-              domProps: { value: _vm.registration.q3 },
+              domProps: { value: _vm.inquiry.q3 },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "q3", $event.target.value)
+                  _vm.$set(_vm.inquiry, "q3", $event.target.value)
                 }
               }
             }),
@@ -37555,7 +37575,7 @@ var render = function() {
             _vm._v(" "),
             _c("p"),
             _c("legend", { attrs: { for: "q4" } }, [
-              _vm._v(" Was habe ich bisher unternommen? :")
+              _vm._v("Was habe ich bisher unternommen?")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -37563,18 +37583,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.q4,
-                  expression: "registration.q4"
+                  value: _vm.inquiry.q4,
+                  expression: "inquiry.q4"
                 }
               ],
               attrs: { type: "text", id: "q4", name: "q4" },
-              domProps: { value: _vm.registration.q4 },
+              domProps: { value: _vm.inquiry.q4 },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "q4", $event.target.value)
+                  _vm.$set(_vm.inquiry, "q4", $event.target.value)
                 }
               }
             }),
@@ -37583,9 +37603,7 @@ var render = function() {
             _vm._v(" "),
             _c("p"),
             _c("legend", { attrs: { for: "q5" } }, [
-              _vm._v(
-                " Gibt es eine Vorbehandlung? Bei welcher Arzt- oder Heilpraktiker-Praxis?\n                    "
-              )
+              _vm._v("Gibt es eine Vorbehandlung? Bei welcher Arztpraxis?")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -37593,18 +37611,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.q5,
-                  expression: "registration.q5"
+                  value: _vm.inquiry.q5,
+                  expression: "inquiry.q5"
                 }
               ],
               attrs: { type: "text", id: "q5", name: "q5" },
-              domProps: { value: _vm.registration.q5 },
+              domProps: { value: _vm.inquiry.q5 },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "q5", $event.target.value)
+                  _vm.$set(_vm.inquiry, "q5", $event.target.value)
                 }
               }
             }),
@@ -37651,18 +37669,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.name,
-                  expression: "registration.name"
+                  value: _vm.inquiry.name,
+                  expression: "inquiry.name"
                 }
               ],
               attrs: { id: "name", type: "text", name: "name" },
-              domProps: { value: _vm.registration.name },
+              domProps: { value: _vm.inquiry.name },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "name", $event.target.value)
+                  _vm.$set(_vm.inquiry, "name", $event.target.value)
                 }
               }
             }),
@@ -37677,18 +37695,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.email,
-                  expression: "registration.email"
+                  value: _vm.inquiry.email,
+                  expression: "inquiry.email"
                 }
               ],
               attrs: { id: "email", name: "email", type: "email" },
-              domProps: { value: _vm.registration.email },
+              domProps: { value: _vm.inquiry.email },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "email", $event.target.value)
+                  _vm.$set(_vm.inquiry, "email", $event.target.value)
                 }
               }
             }),
@@ -37696,25 +37714,27 @@ var render = function() {
             _c("p"),
             _vm._v(" "),
             _c("p"),
-            _c("legend", { attrs: { for: "email" } }, [_vm._v("Ihre Tel.Nr:")]),
+            _c("legend", { attrs: { for: "email" } }, [
+              _vm._v("Ihre Tel. Nr:")
+            ]),
             _vm._v(" "),
             _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.registration.phone,
-                  expression: "registration.phone"
+                  value: _vm.inquiry.phone,
+                  expression: "inquiry.phone"
                 }
               ],
               attrs: { id: "phone", name: "phone", type: "text" },
-              domProps: { value: _vm.registration.phone },
+              domProps: { value: _vm.inquiry.phone },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.registration, "phone", $event.target.value)
+                  _vm.$set(_vm.inquiry, "phone", $event.target.value)
                 }
               }
             }),
@@ -37734,14 +37754,27 @@ var render = function() {
               [_vm._v("Previous")]
             ),
             _vm._v(" "),
-            _c("input", { attrs: { type: "submit", value: "Save" } })
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.create()
+                  }
+                }
+              },
+              [_vm._v("Save")]
+            )
           ])
         : _vm._e()
     ]),
     _vm._v(" "),
     _c("br"),
     _c("br"),
-    _vm._v("Test: " + _vm._s(_vm.registration) + "\n    ")
+    _vm._v("Test: " + _vm._s(_vm.inquiry) + "\n")
   ])
 }
 var staticRenderFns = []
@@ -50179,8 +50212,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

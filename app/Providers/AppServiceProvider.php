@@ -28,11 +28,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Builder::defaultStringLength(191);
         foreach (Permission::all() as $permission) {
-            $permissionName = $permission->name;
+        $permissionName = $permission->name;
 
-            Gate::define($permissionName, function($user) use ($permissionName) {
-                return $user->hasPermission($permissionName);
-            });
-        }
+        Gate::define($permissionName, function($user) use ($permissionName) {
+            return $user->hasPermission($permissionName);
+        });
+    }
     }
 }
