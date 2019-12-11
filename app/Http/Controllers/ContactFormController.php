@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 class ContactFormController extends Controller
 {
     /**
-     * Submit form function placeholder
+     * Submit contact form
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -44,7 +44,7 @@ class ContactFormController extends Controller
 
         return response()->json([
             'inquiry' => $inquiry,
-            'message' => 'Inquiry created'
+            'message' => 'Anfrage wurde gesendet.'
         ]);
     }
 

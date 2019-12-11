@@ -1,7 +1,6 @@
 <template>
     <div id="app">
         <form>
-            <input type="hidden" name="_token" :value="csrf">
             <div v-if="step === 1">
                 <h1>Schritt eins</h1>
                 <p>
