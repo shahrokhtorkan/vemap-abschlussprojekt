@@ -1,8 +1,12 @@
 <?php
 
+use App\Document;
+use App\Patient;
+use App\Permission;
+use App\Role;
+use App\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Carbon;
-use Faker\Factory as Faker;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,36 +17,32 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(
-            [
-                'name' => 'admin@example.com',
-                'password' => bcrypt('admin'),
+        $users = [
+            'admin' => [
                 'email' => 'admin@example.com',
-                /*'roles' => ('admin'),*/
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        );
-
-        DB::table('users')->insert(
-            [
-                'name' => 'patient@example.com',
-                'password' => bcrypt('patient'),
+                'password' => 'admin',
+                'roles' => ['assistant'],
+            ],
+            'patient' => [
                 'email' => 'patient@example.com',
-                /*'roles' => ('patient'),*/
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        );
-    }
+                'password' => 'patient',
+                'roles' => ['patient'],
+            ],
+        ];
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
+        foreach ($users as $userName => $userData) {
+            $user = new User();
+            $user->name = $userName;
+            $user->email = $userData['email'];
+            $user->password = Hash::make($userData['password']);
+            if(array_key_exists('patient', $userData)) {
+                $patient = Patient::where('svnr', $userData['patient'])->firstOrFail();
+                $user->patient()->associate($patient);
+            }
+            $user->save();
+            foreach ($userData['roles'] as $userRoleName) {
+                $user->addRole($userRoleName);
+            }
+        }
     }
 }

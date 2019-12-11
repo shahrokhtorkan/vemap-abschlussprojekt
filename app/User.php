@@ -38,13 +38,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * One User is one Patient
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function patient()
     {
-        return $this->hasOne('App\Patient');
+        return $this->belongsTo('App\Patient');
     }
 
     /**
@@ -75,7 +73,7 @@ class User extends Authenticatable
     }
 
     public function addRole(string $roleName) {
-        $role = Role::where('name', $roleName)->first();
+        $role = Role::where('name', $roleName)->firstOrFail();
         $this->roles()->save($role);
     }
 
