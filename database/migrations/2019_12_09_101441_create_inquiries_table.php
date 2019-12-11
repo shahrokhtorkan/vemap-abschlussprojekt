@@ -19,7 +19,11 @@ class CreateInquiriesTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('service');
-            $table->text('questions');
+            $table->string('q1');
+            $table->string('q2');
+            $table->string('q3');
+            $table->string('q4');
+            $table->string('q5');
             $table->integer('status')->default(1)->unsigned();
             $table->timestamps();
         });

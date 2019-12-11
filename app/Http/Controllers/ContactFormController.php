@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Inquiries;
 use Illuminate\Http\Request;
 
 class ContactFormController extends Controller
@@ -12,10 +13,7 @@ class ContactFormController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
 
-    public function create()
-    {
-        return view('');
-    }
+
 
     public function submit(Request $request) {
         $request->validate([
@@ -30,18 +28,20 @@ class ContactFormController extends Controller
             'q5'=>'required',
         ]);
 
-        $contact = new contact();
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
-        $contact->Leistungen = $request->Leistungen;
-        $contact->q1 = $request->q1;
-        $contact->q2 = $request->q2;
-        $contact->q3 = $request->q3;
-        $contact->q4 = $request->q4;
-        $contact->q5 = $request->q5;
-        $contact->save();
-        dd($contact->name);
+        $inquiries = new Inquiry();
+        $inquiries->name = $request->name;
+        $inquiries->email = $request->email;
+        $inquiries->phone = $request->phone;
+        $inquiries->Leistungen = $request->Leistungen;
+        $inquiries->q1 = $request->q1;
+        $inquiries->q2 = $request->q2;
+        $inquiries->q3 = $request->q3;
+        $inquiries->q4 = $request->q4;
+        $inquiries->q5 = $request->q5;
+        $inquiries->save();
+        session()->flash("message", "Patient {$inquiries->name} {$inquiries->email} wurde angelegt.");
+        return redirect('contact');
+
         /*
           Add mail functionality here.
         */
