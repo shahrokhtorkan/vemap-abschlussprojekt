@@ -1910,16 +1910,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1947,6 +1937,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     submit: function submit() {},
     csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content2')
+  },
+  createContact: function createContact() {
+    console.log('Creating contact...');
+    return;
   }
 });
 
@@ -37378,7 +37372,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "app" } }, [
-    _c("form", { attrs: { method: "POST", action: "contact2" } }, [
+    _c("form", { attrs: { method: "POST", action: this.route } }, [
       _c("input", {
         attrs: { type: "hidden", name: "_token" },
         domProps: { value: _vm.csrf }
@@ -37472,7 +37466,7 @@ var render = function() {
             _c("p"),
             _c("legend", { attrs: { for: "q1" } }, [
               _vm._v(
-                " Welche Probleme haben Sie? Sind diese mit Schmerzen verbunden? Warum fühlen Sie\n                    sich nicht gut? :\n                "
+                " Welche Probleme haben Sie? Sind diese mit Schmerzen verbunden? Warum fühlen Sie\n                        sich nicht gut?\n            "
               )
             ]),
             _vm._v(" "),
@@ -37502,7 +37496,7 @@ var render = function() {
             _c("p"),
             _c("legend", { attrs: { for: "q2" } }, [
               _vm._v(
-                " Wann treten die Probleme auf? (morgens, mittags, abends) :"
+                " Wann treten die Probleme auf? (morgens, mittags, abends) "
               )
             ]),
             _vm._v(" "),
@@ -37532,7 +37526,7 @@ var render = function() {
             _c("p"),
             _c("legend", { attrs: { for: "q3" } }, [
               _vm._v(
-                " Wobei, bei welchen Tätigkeiten treten die Probleme auf? :"
+                " Wobei, bei welchen Tätigkeiten treten die Probleme auf? "
               )
             ]),
             _vm._v(" "),
@@ -37590,7 +37584,7 @@ var render = function() {
             _c("p"),
             _c("legend", { attrs: { for: "q5" } }, [
               _vm._v(
-                " Gibt es eine Vorbehandlung? Bei welcher Arzt- oder Heilpraktiker-Praxis? :\n                "
+                " Gibt es eine Vorbehandlung? Bei welcher Arzt- oder Heilpraktiker-Praxis?\n                    "
               )
             ]),
             _vm._v(" "),
@@ -37713,7 +37707,7 @@ var render = function() {
                   expression: "registration.phone"
                 }
               ],
-              attrs: { id: "phone", name: "phone", type: "number" },
+              attrs: { id: "phone", name: "phone", type: "text" },
               domProps: { value: _vm.registration.phone },
               on: {
                 input: function($event) {
@@ -37747,7 +37741,7 @@ var render = function() {
     _vm._v(" "),
     _c("br"),
     _c("br"),
-    _vm._v("Debug: " + _vm._s(_vm.registration) + "\n")
+    _vm._v("Test: " + _vm._s(_vm.registration) + "\n    ")
   ])
 }
 var staticRenderFns = []
@@ -50185,8 +50179,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

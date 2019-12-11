@@ -29,9 +29,9 @@ Route::get('/services', 'ServicesController@index')->name('services');
 // Impressum (imprint.blade.php)
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
 
-// Kontakt (contact.blade.php) - Three step vue.js form, needs a post route
-Route::get('/contact', 'ContactFormController@index')->name('contact'); // shows contact form
+// Kontakt (contact.blade.php) - Three step vue.js form, needs one post route
 Route::post('/contact', 'ContactFormController@store')->name('contact');
+Route::get('/contact', 'ContactFormController@index')->name('contact');
 
 
 /**
@@ -73,6 +73,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Patienten löschen
     Route::post('/patient/{id}/delete', 'PatientController@destroy');
+
+    Route::get('/appointments', 'appointmentController@index')->name('appointments');
 
     Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
     Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
