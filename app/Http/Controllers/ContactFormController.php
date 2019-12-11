@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-use App\Inquiries;
+use App\Inquiry;
 use Illuminate\Http\Request;
 
 class ContactFormController extends Controller
@@ -15,11 +15,11 @@ class ContactFormController extends Controller
 
 
 
-    public function submit(Request $request) {
+    public function store(Request $request) {
         $request->validate([
-            'name' => 'required|alpha_dash|max:255',
+            'name' => 'required',
             'email' => 'email',
-            'phone'=>'required|numeric|digits:10',
+            'phone'=>'required',
             'Leistungen'=>'required',
             'q1'=>'required',
             'q2'=>'required',
@@ -28,24 +28,23 @@ class ContactFormController extends Controller
             'q5'=>'required',
         ]);
 
-        $inquiries = new Inquiry();
-        $inquiries->name = $request->name;
-        $inquiries->email = $request->email;
-        $inquiries->phone = $request->phone;
-        $inquiries->Leistungen = $request->Leistungen;
-        $inquiries->q1 = $request->q1;
-        $inquiries->q2 = $request->q2;
-        $inquiries->q3 = $request->q3;
-        $inquiries->q4 = $request->q4;
-        $inquiries->q5 = $request->q5;
-        $inquiries->save();
-        session()->flash("message", "Patient {$inquiries->name} {$inquiries->email} wurde angelegt.");
-        return redirect('contact');
+        $inquiry = new Inquiry();
+        $inquiry->name = $request->name;
+        $inquiry->email = $request->email;
+        $inquiry->phone = $request->phone;
+        $inquiry->service = 'a';
+        $inquiry->q1 = 'q1';
+        $inquiry->q2 = 'q2';
+        $inquiry->q3 = 'q3';
+        $inquiry->q4 = 'q4';
+        $inquiry->q5 = 'q5';
+        $inquiry->status = 1;
+        $inquiry->save();
 
         /*
           Add mail functionality here.
         */
-        return response()->json(null, 200);
+       return response()->json(null, 200);
     }
 
     public function index()

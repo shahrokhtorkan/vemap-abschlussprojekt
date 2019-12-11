@@ -86,7 +86,7 @@
                     q5: null,
                     Leistungen: 'a',
                 },
-                inqiries: [],
+                inquiries: [],
 
                 errors: [],
 
@@ -102,6 +102,35 @@
             },
             create () {
                 console.log('Creating inquiry...');
+
+                this.errors = []; // hack to prevent appending multiple errors
+
+                console.log(this.inquiry.name);
+                console.log(this.inquiry.email);
+                console.log(this.inquiry.Leistungen);
+
+                axios.post(this.uri, {
+                    name: this.inquiry.name,
+                    email: this.inquiry.email,
+                    phone: this.inquiry.phone,
+                    Leistungen: this.inquiry.Leistungen,
+                    q1: this.inquiry.q1,
+                    q2: this.inquiry.q2,
+                    q3: this.inquiry.q3,
+                    q4: this.inquiry.q4,
+                    q5: this.inquiry.q5
+                }).then(response => {
+                    this.inquiries.push(response.data.inquiry);
+                    //this.resetFields();
+                }).catch(error => {
+                    console.log(error);
+                    /*if(error.response.data.errors.name) {
+                        this.errors.push(error.response.data.errors.name[0]);
+                    }
+                    if(error.response.data.errors.body) {
+                        this.errors.push(error.response.data.errors.body[0]);
+                    }*/
+                });
             }
         },
     }
