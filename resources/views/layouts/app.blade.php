@@ -8,10 +8,6 @@
     <script src="{{ asset('js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <!-- Data Tables -->
-    {{--<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">--}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
@@ -52,12 +48,19 @@
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        {{--@can('admin-patient')--}}
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Backend') }}</a>
                         </li>
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('patients') }}">{{ __('Patients') }}</a>
                         </li>
+                        {{--@endcan--}}
+                        {{--@can('admin-document')--}}
+                        {{--<li class="nav-item mr-2 mb-2">
+                            <a class="nav-item {{ request()->is('document') ? "active" : "" }}" href="{{ route('document') }}">{{ __('Dokument') }}</a>
+                        </li>--}}
+                        {{--@endcan--}}
 
                     </ul>
 

@@ -15,9 +15,11 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('text');
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('patient_id');
+            /*$table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');*/
+            $table->text('text');
             $table->timestamps();
         });
     }

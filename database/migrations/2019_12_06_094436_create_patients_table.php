@@ -15,6 +15,8 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
+            /*$table->unsignedBigInteger('user_id')->nullable();*/
+            /*$table->foreign('user_id')->references('id')->on('users');*/
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
