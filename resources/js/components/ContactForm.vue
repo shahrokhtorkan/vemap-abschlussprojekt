@@ -6,7 +6,7 @@
                 <h1>Schritt eins</h1>
                 <p>
                     <legend for="Leistungen">Leistungen:</legend>
-                    <select id="Leistungen" name="Leistungen" v-model="inquiry.Leistungen">
+                    <select id="Leistungen" name="Leistungen" v-model="inquiry.service">
                         <option value="a">Therapie Aktiv Betreuungsprogramm</option>
                         <option value="b">Marcoumar-Einstellung</option>
                         <option value="c">Schmerztherapie</option>
@@ -84,7 +84,7 @@
                     q3: null,
                     q4: null,
                     q5: null,
-                    Leistungen: 'a',
+                    service: 'a',
                 },
                 inquiries: [],
 
@@ -101,19 +101,15 @@
                 this.step++;
             },
             create () {
-                console.log('Creating inquiry...');
+                this.errors = []; // small 'hack' to prevent appending multiple errors
 
-                this.errors = []; // hack to prevent appending multiple errors
-
-                console.log(this.inquiry.name);
-                console.log(this.inquiry.email);
-                console.log(this.inquiry.Leistungen);
+                console.log(this.inquiry.service);
 
                 axios.post(this.uri, {
                     name: this.inquiry.name,
                     email: this.inquiry.email,
                     phone: this.inquiry.phone,
-                    Leistungen: this.inquiry.Leistungen,
+                    service: this.inquiry.service,
                     q1: this.inquiry.q1,
                     q2: this.inquiry.q2,
                     q3: this.inquiry.q3,
@@ -124,12 +120,12 @@
                     //this.resetFields();
                 }).catch(error => {
                     console.log(error);
-                    /*if(error.response.data.errors.name) {
+                    if(error.response.data.errors.name) {
                         this.errors.push(error.response.data.errors.name[0]);
                     }
                     if(error.response.data.errors.body) {
                         this.errors.push(error.response.data.errors.body[0]);
-                    }*/
+                    }
                 });
             }
         },

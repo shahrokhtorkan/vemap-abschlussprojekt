@@ -17,7 +17,7 @@ class ContactFormController extends Controller
             'name' => 'required',
             'email' => 'email',
             'phone'=>'required',
-            'Leistungen'=>'required',
+            'service'=>'required',
             'q1'=>'required',
             'q2'=>'required',
             'q3'=>'required',
@@ -29,7 +29,7 @@ class ContactFormController extends Controller
         $inquiry->name = $request->name;
         $inquiry->email = $request->email;
         $inquiry->phone = $request->phone;
-        $inquiry->service = $request->Leistungen;
+        $inquiry->service = $request->service;
         $inquiry->q1 = $request->q1;
         $inquiry->q2 = $request->q2;
         $inquiry->q3 = $request->q3;
