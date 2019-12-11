@@ -10,14 +10,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header text-dark card-top">Instrumententafel</div>
+                        <div class="card-header text-dark card-top"><i class="fas fa-user-tie mr-1"></i>Instrumententafel</div>
                         <div class="card-body">
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <p class="text-dark">Du bist eingeloggt!</p>
+                            <h2>Willkommen {{ auth()->user()->name }}</h2>
                         </div>
                     </div>
                 </div>
