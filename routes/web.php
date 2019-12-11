@@ -30,8 +30,8 @@ Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
 
 // Kontakt (contact.blade.php) - Three step vue.js form, needs a post route
+Route::post('/contact', 'ContactFormController@store')->name('contact2');
 Route::get('/contact', 'ContactFormController@index')->name('contact'); // shows contact form
-Route::post('/contact', 'ContactFormController@store')->name('contact');
 
 
 /**
