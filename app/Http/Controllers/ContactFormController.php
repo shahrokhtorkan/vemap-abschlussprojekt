@@ -6,15 +6,12 @@ use Illuminate\Http\Request;
 class ContactFormController extends Controller
 {
     /**
-     * Submit form function placeholder TODO request should be stored in DB also
+     * Submit form function placeholder
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
-
-
-
     public function store(Request $request) {
         $request->validate([
             'name' => 'required',
@@ -44,7 +41,11 @@ class ContactFormController extends Controller
         /*
           Add mail functionality here.
         */
-       return response()->json(null, 200);
+
+        return response()->json([
+            'inquiry' => $inquiry,
+            'message' => 'Inquiry created'
+        ]);
     }
 
     public function index()
