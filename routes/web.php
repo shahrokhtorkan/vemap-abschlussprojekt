@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/login', function () {
+Route::get('/auth/login', function () {
     return view('login');
 })->name('login');
 
