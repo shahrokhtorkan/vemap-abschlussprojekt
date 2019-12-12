@@ -17,13 +17,9 @@ class CreateInquiriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('service');
-            $table->string('q1');
-            $table->string('q2');
-            $table->string('q3');
-            $table->string('q4');
-            $table->string('q5');
+            $table->string('question');
             $table->integer('status')->default(1)->unsigned();
             $table->timestamps();
         });

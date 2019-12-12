@@ -41,11 +41,7 @@ class ContactFormController extends Controller
         $inquiry->email = $request->email;
         $inquiry->phone = $request->phone;
         $inquiry->service = $request->service;
-        $inquiry->q1 = json_encode($questions);
-        $inquiry->q2 = $request->q2;
-        $inquiry->q3 = $request->q3;
-        $inquiry->q4 = $request->q4;
-        $inquiry->q5 = $request->q5;
+        $inquiry->question = json_encode($questions);
         $inquiry->status = 1;
         $inquiry->save();
 
