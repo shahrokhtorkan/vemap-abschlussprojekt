@@ -15,9 +15,12 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return view('backend.documents', [
-            'documents' => auth()->user()->documents()->orderBy('id', 'desc')->paginate(5)
-        ]);
+        $documents = Document::orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'));
+//        dd($documents);
+//        return view('backend.documents', array(
+//            'documents' => auth()->user()->documents()->orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'))
+//        ));
+        return view('backend.documents',compact('documents'));
     }
 
     /**
