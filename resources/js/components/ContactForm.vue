@@ -96,6 +96,10 @@
                 errors: [],
 
                 uri: 'https://patient:8019/contact',
+
+                toastr: toastr.options = {
+                    'positionClass': 'toast-bottom-right'
+                }
             };
         },
         methods: {
@@ -122,6 +126,7 @@
                         q5: this.inquiry.q5
                     }).then(response => {
                         this.inquiries.push(response.data.inquiry);
+                        toastr.success("Anfrage gesendet.");
                     }).catch(error => {
                         console.log(error);
                         if (error.response.data.errors.name) {

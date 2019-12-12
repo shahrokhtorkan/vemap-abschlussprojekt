@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "datatables.net": "^1.10.20",
-        "datatables.net-bs4": "^1.10.20"
+        "datatables.net-bs4": "^1.10.20",
+        "toastr": "^2.1.4"
     }
 }
