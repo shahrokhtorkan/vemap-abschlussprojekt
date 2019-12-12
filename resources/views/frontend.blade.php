@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex-center position-ref full-height mt-3">
+<div class="flex-center position-ref full-height mt-5">
     <div class="content">
         <p><img src="../images/logo.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"></p>
         <h2 class="text-center mt-5 mb-5">Treffen Sie unsere Fachärzte,<a href="{{ url('/register') }}"> HIER REGISTRIEREN!</a></h2>
