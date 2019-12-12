@@ -16,7 +16,7 @@ class DocumentController extends Controller
     public function index()
     {
         return view('backend.documents', [
-            'document' => auth()->user()->documents()->orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'))
+            'documents' => auth()->user()->documents()->orderBy('id', 'desc')->paginate(5)
         ]);
     }
 
@@ -36,7 +36,7 @@ class DocumentController extends Controller
      */
     public function store(Request $request, int $patientId)
     {
-        $patient = Patient::find($patientId);
+        $patient = Patient::findOrFail($patientId);
 
         $documents = new Document();
         $documents->user()->associate(auth()->user());

@@ -13,8 +13,7 @@
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>{{ __('Neue Dokument erstellen') }}</div>
                             <div class="card-body">
-                                // TODO Undefined variable: $documents
-                                @if(!empty($documents))
+                                @if(!empty($user->documents))
                                     <table class="table table-bordered table-hover table-responsive-sm">
                                         <tr>
                                             <th>Datum</th>
@@ -38,9 +37,9 @@
                                 @else
                                     <p>Keine Dokument vorhanden.</p>
                                 @endif
-                                {{--<div class="pagination-sm">
+                                <div class="pagination-sm">
                                     {{ $documents->links() }}
-                                </div>--}}
+                                </div>
                             </div>
                         </div>
                     </div>
