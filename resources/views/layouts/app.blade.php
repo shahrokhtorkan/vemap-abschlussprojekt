@@ -29,7 +29,6 @@
     <!-- Font Awesome -->
     <script src="{{ asset('js/fontawesome.js') }}"></script>
 
-
 </head>
 <body>
 <!-- Full Page Intro -->
@@ -92,9 +91,6 @@
                                     </form>
                                 </div>
                             </li>
-                            {{--<li class="nav-item ml-2 mr-2 mb-2">
-                                <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Home') }}</a>
-                            </li>--}}
                         @endguest
                     </ul>
                 </div>

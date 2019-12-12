@@ -15,7 +15,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $documents = Document::orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'));
+        $documents = Document::orderBy('id', 'desc')->paginate(7);
 //        dd($documents);
 //        return view('backend.documents', array(
 //            'documents' => auth()->user()->documents()->orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'))

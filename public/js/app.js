@@ -1908,6 +1908,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1943,7 +1949,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(this.inquiry.service);
 
-      if (confirm("Do you really want to delete this?")) {
+      if (confirm("Anfrage jetzt senden?")) {
         axios.post(this.uri, {
           name: this.inquiry.name,
           email: this.inquiry.email,
@@ -1955,8 +1961,7 @@ __webpack_require__.r(__webpack_exports__);
           q4: this.inquiry.q4,
           q5: this.inquiry.q5
         }).then(function (response) {
-          _this.inquiries.push(response.data.inquiry); //this.resetFields();
-
+          _this.inquiries.push(response.data.inquiry);
         })["catch"](function (error) {
           console.log(error);
 
@@ -1964,8 +1969,8 @@ __webpack_require__.r(__webpack_exports__);
             _this.errors.push(error.response.data.errors.name[0]);
           }
 
-          if (error.response.data.errors.body) {
-            _this.errors.push(error.response.data.errors.body[0]);
+          if (error.response.data.errors.email) {
+            _this.errors.push(error.response.data.errors.email[0]);
           }
         });
       }
@@ -37402,6 +37407,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "contact-form" } }, [
     _c("form", [
+      _vm.errors.length > 0
+        ? _c(
+            "div",
+            { staticClass: "alert alert-danger" },
+            _vm._l(_vm.errors, function(error) {
+              return _c("li", [
+                _vm._v("\n                " + _vm._s(error) + "\n            ")
+              ])
+            }),
+            0
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _vm.step === 1
         ? _c("div", [
             _c("h1", [_vm._v("Schritt eins")]),
