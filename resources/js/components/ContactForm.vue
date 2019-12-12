@@ -1,6 +1,12 @@
 <template>
     <div id="contact-form">
         <form>
+            <div v-if="errors.length > 0" class="alert alert-danger" >
+                <li v-for="error in errors">
+                    {{ error }}
+                </li>
+            </div>
+
             <div v-if="step === 1">
                 <h1>Schritt eins</h1>
                 <p>
@@ -103,7 +109,7 @@
                 this.errors = []; // small 'hack' to prevent appending multiple errors
 
                 console.log(this.inquiry.service);
-                if (confirm("Do you really want to delete this?")) {
+                if (confirm("Anfrage jetzt senden?")) {
                     axios.post(this.uri, {
                         name: this.inquiry.name,
                         email: this.inquiry.email,
@@ -116,14 +122,13 @@
                         q5: this.inquiry.q5
                     }).then(response => {
                         this.inquiries.push(response.data.inquiry);
-                        //this.resetFields();
                     }).catch(error => {
                         console.log(error);
                         if (error.response.data.errors.name) {
                             this.errors.push(error.response.data.errors.name[0]);
                         }
-                        if (error.response.data.errors.body) {
-                            this.errors.push(error.response.data.errors.body[0]);
+                        if (error.response.data.errors.email) {
+                            this.errors.push(error.response.data.errors.email[0]);
                         }
                     });
                 }
