@@ -18,6 +18,25 @@
                                 </div>
                             @endif
                             <h2>Willkommen {{ auth()->user()->name }}</h2>
+                                <h4>Du Hast neue Kontaktanfragen</h4>
+                                @if(!empty($inquiries))
+                                    <table class="table table-bordered table-hover table-sm table-responsive-sm">
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Name</th>
+                                            <th>email</th>
+                                        </tr>
+                                        @foreach($inquiries as $q)
+                                            <tr>
+                                                <td>{{ $q->id }} </td>
+                                                <td>{{ $q->name }} </td>
+                                                <td>{{ $q->email }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                @else
+                                    <p>Keine Kontakt vorhanden.</p>
+                                @endif
                         </div>
                     </div>
                 </div>

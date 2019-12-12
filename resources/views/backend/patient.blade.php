@@ -89,7 +89,7 @@
                                         <p class="validation-error">{{ $message }}</p>
                                         @enderror
                                         @error('city')
-                                        <p class="validation-error">{{ $message }}</p>
+                                        <p  class="validation-error">{{ $message }}</p>
                                         @enderror
                                         @error('country')
                                         <p class="validation-error">{{ $message }}</p>

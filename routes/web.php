@@ -26,7 +26,9 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
+//Route::get('/backend/f','InquiriesController@index');
 Route::get('/backend','HomeController@index')->name('frontend');
+
 Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
@@ -43,6 +45,7 @@ Route::group(["middleware" => ['auth']], function () {
         return view('backend');
     })->name('backend');
 
+       Route::get('/backend','InquiriesController@index')->name('backend');
     Route::group(["middleware" => ['hasPermission:admin-document']], function () {
         Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
         Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
