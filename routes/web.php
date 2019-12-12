@@ -69,6 +69,6 @@ Route::group(["middleware" => ['auth']], function () {
         })->name('appointments');
     });
 
-    /*Route::get('logout', 'Auth\LoginController@logout')->name('logout');*/
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 });
