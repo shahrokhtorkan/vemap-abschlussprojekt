@@ -13,6 +13,7 @@ class ContactFormController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request) {
+        // Validate form
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -25,12 +26,22 @@ class ContactFormController extends Controller
             'q5'=>'required',
         ]);
 
+        // Collect questions to one array
+        $questions = [];
+
+        array_push($questions, $request->q1);
+        array_push($questions, $request->q2);
+        array_push($questions, $request->q3);
+        array_push($questions, $request->q4);
+
+
+        // Save data from the form
         $inquiry = new Inquiry();
         $inquiry->name = $request->name;
         $inquiry->email = $request->email;
         $inquiry->phone = $request->phone;
         $inquiry->service = $request->service;
-        $inquiry->q1 = $request->q1;
+        $inquiry->q1 = json_encode($questions);
         $inquiry->q2 = $request->q2;
         $inquiry->q3 = $request->q3;
         $inquiry->q4 = $request->q4;
