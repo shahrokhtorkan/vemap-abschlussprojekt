@@ -10,27 +10,31 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 mb-5">
                     <div class="card">
-                        <div class="card-header text-dark card-top"><i class="fas fa-user-tie mr-1"></i>Instrumententafel</div>
+                        <div class="card-header text-dark card-top"><i class="fas fa-user-tie mr-1"></i>{{ auth()->user()->name }}'s Profil</div>
                         <div class="card-body">
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <h2 class="mb-4">Willkommen {{ auth()->user()->name }}</h2>
+                            <h3 class="mb-4">Willkommen {{ auth()->user()->name }}</h3>
                                 <h5>Sie haben neue Kontaktanfragen</h5>
                                 @if(!empty($inquiries))
                                     <table class="table table-bordered table-hover table-sm table-responsive-sm mb-5">
                                         <tr>
-                                            <th>id</th>
+                                            <th>Anfragenummer</th>
                                             <th>Name</th>
-                                            <th>email</th>
+                                            <th>Email</th>
+                                            <th>Telefon</th>
+                                            <th>hergestellt in</th>
                                         </tr>
                                         @foreach($inquiries as $q)
                                             <tr>
                                                 <td>{{ $q->id }} </td>
                                                 <td>{{ $q->name }} </td>
                                                 <td>{{ $q->email }}</td>
+                                                <td>{{ $q->phone }}</td>
+                                                <td>{{ $q->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </table>
