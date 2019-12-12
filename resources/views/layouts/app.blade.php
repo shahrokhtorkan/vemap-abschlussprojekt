@@ -59,6 +59,11 @@
                                 <a class="btn btn-primary btn-block" href="{{ route('documents') }}">{{ __('Document') }}</a>
                             </li>
                         @endcan
+                        @can('admin-calendar')
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('appointments') }}">{{ __('Termine') }}</a>
+                            </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

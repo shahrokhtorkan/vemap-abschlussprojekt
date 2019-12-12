@@ -62,6 +62,13 @@ Route::group(["middleware" => ['auth']], function () {
         Route::post('/patient/{id}/delete', 'PatientController@destroy');
     });
 
+    Route::group(["middleware" => ['hasPermission:admin-calendar']], function () {
+        Route::get('/appointments', function () {
+            session()->flash('message', 'Not implemented.');
+            return redirect('/backend');
+        })->name('appointments');
+    });
+
     /*Route::get('logout', 'Auth\LoginController@logout')->name('logout');*/
 
 });

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
+    public const APPOINTMENT_STATI = ['available', 'reserved', 'confirmed'];
     /**
      *  One Appointment belong to only one Patient
      *

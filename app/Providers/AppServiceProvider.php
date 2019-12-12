@@ -33,6 +33,6 @@ class AppServiceProvider extends ServiceProvider
         Gate::define($permissionName, function($user) use ($permissionName) {
             return $user->hasPermission($permissionName);
         });
-    }
+        }
     }
 }
