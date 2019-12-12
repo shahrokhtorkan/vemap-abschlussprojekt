@@ -1,5 +1,9 @@
 <?php
 
+use App\Document;
+use App\Patient;
+use App\Permission;
+use App\Role;
 use App\Appointment;
 use App\User;
 use Illuminate\Database\Seeder;

@@ -18,18 +18,18 @@
                                 @if($reservedSlots)
                                     <h1>Meine Terminreservierungen</h1>
                                 @else
-                                    <p>Es gibt keine Terminreservierungen.</p>
+                                    <p>Keine Terminreservierungen vorhanden.</p>
                                 @endif
 
                                 {{-- Slots where('status' is 'available') --}}
-                                    @if($availableSlots)
-                                        <h2>Du hast {{$availableSlots->count()}} freie Termine</h2>
-                                    @endif
+                                @if($availableSlots)
+                                    <h2>Du hast {{$availableSlots->count()}} freie Termine</h2>
+                                @endif
 
                                 {{-- Slots where('status' is 'confirmed') --}}
-                                    @if($confirmedSlots)
-                                        <h2>Du hast {{$confirmedSlots->count()}} bestätigte Termine</h2>
-                                    @endif
+                                @if($confirmedSlots)
+                                    <h2>Du hast {{$confirmedSlots->count()}} bestätigte Termine</h2>
+                                @endif
 
                             </div>
                         </div>
