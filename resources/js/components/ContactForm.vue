@@ -69,8 +69,6 @@
 
             </div>
         </form>
-
-        <br/><br/>Test: {{inquiry}}
     </div>
 </template>
 
