@@ -6,7 +6,6 @@
                     {{ error }}
                 </li>
             </div>
-            <!--Step one-->
             <div v-if="step === 1">
                 <h2>Schritt eins</h2>
                 <legend for="Leistungen">Leistungen:</legend>
@@ -19,10 +18,8 @@
                 </select>
                 <button @click.prevent="next()" class="btn btn-primary">Nächste</button>
             </div>
-            <!--Step two-->
             <div v-if="step === 2">
                 <h2>Schritt zwei</h2>
-
                     <p for="q1" class="mb-1">Welche Probleme haben Sie? Warum fühlen Sie sich nicht gut?</p>
                     <input type="text" id="q1" name="q1" v-model="inquiry.q1" class="form-control mb-2">
 
@@ -32,7 +29,7 @@
                     <p for="q3" class="mb-1">Wobei, bei welchen Tätigkeiten treten die Probleme?</p>
                     <input type="text" id="q3" name="q3" v-model="inquiry.q3" class="form-control mb-2">
 
-                    <p for="q4" class="mb-1">Was habe ich bisher unternommen?</p>
+                    <p for="q4" class="mb-1">Was haben Sie bisher unternommen?</p>
                     <input type="text" id="q4" name="q4" v-model="inquiry.q4" class="form-control mb-2">
 
                     <p for="q5" class="mb-1">Gibt es eine Vorbehandlung? Bei welcher Arztpraxis?</p>
@@ -40,13 +37,10 @@
 
                     <button @click.prevent="prev()" class="btn btn-primary">Zurück</button>
                     <button @click.prevent="next()" class="btn btn-primary">Nächste</button>
-
             </div>
-            <!--Step three-->
             <div v-if="step === 3">
                 <h2>Schritt drei</h2>
-
-                    <p for="name" class="mb-1">Ihre Name:</p>
+                    <p for="name" class="mb-1">Ihr Name:</p>
                     <input id="name" type="text" name="name" v-model="inquiry.name" class="form-control mb-2">
 
                     <p for="email" class="mb-1">Ihre Email:</p>
@@ -56,8 +50,10 @@
                     <input id="phone" name="phone" type="text" v-model="inquiry.phone" class="form-control mb-2">
 
                     <button @click.prevent="prev()" class="btn btn-primary">Zurück</button>
-                    <button @click.prevent="create()" type="button" class="btn btn-primary">Speichern</button>
-
+                    <button @click.prevent="create()" type="button" class="btn btn-primary">Absenden</button>
+            </div>
+            <div v-if="step === 4">
+                <h2>Danke!</h2>
             </div>
         </form>
     </div>
@@ -81,11 +77,8 @@
                     service: 'a',
                 },
                 inquiries: [],
-
                 errors: [],
-
                 uri: 'https://patient:8019/contact',
-
                 toastr: toastr.options = {
                     'positionClass': 'toast-bottom-right'
                 }
@@ -99,9 +92,7 @@
                 this.step++;
             },
             create() {
-                this.errors = []; // small 'hack' to prevent appending multiple errors
-
-                console.log(this.inquiry.service);
+                this.errors = [];
                 if (confirm("Anfrage jetzt senden?")) {
                     axios.post(this.uri, {
                         name: this.inquiry.name,
@@ -117,16 +108,22 @@
                         this.inquiries.push(response.data.inquiry);
                         toastr.success("Anfrage gesendet.");
                     }).catch(error => {
-                        console.log(error);
+                        console.log(error.response.data.errors);
                         if (error.response.data.errors.name) {
                             this.errors.push(error.response.data.errors.name[0]);
                         }
                         if (error.response.data.errors.email) {
                             this.errors.push(error.response.data.errors.email[0]);
                         }
+                        if (error.response.data.errors.email) {
+                            this.errors.push(error.response.data.errors.phone[0]);
+                        }
+                        if (error.response.data.errors.service) {
+                            this.errors.push(error.response.data.errors.service[0]);
+                        }
                     });
                 }
             }
-        },
+        }
     }
 </script>
