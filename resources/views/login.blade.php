@@ -8,7 +8,7 @@
         </div>--}}
         <div class="container mb-5">
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-5">
                     <div class="card">
                         <div class="card-header text-dark card-top"><i class="fas fa-sign-in-alt mr-1"></i>{{ __('Einloggen') }}</div>
                         <div class="card-body">

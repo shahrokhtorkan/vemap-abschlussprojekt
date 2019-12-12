@@ -9,7 +9,7 @@
         <div id="app">
             <div class="container mb-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-7">
+                    <div class="col-md-7 mb-5">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user-md mr-1"></i>{{ __('Über uns') }}</div>
                             <div class="card-body">

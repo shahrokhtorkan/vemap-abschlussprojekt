@@ -1899,10 +1899,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1937,9 +1933,7 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this = this;
 
-      this.errors = []; // small 'hack' to prevent appending multiple errors
-
-      console.log(this.inquiry.service);
+      this.errors = [];
 
       if (confirm("Anfrage jetzt senden?")) {
         axios.post(this.uri, {
@@ -1957,7 +1951,7 @@ __webpack_require__.r(__webpack_exports__);
 
           toastr.success("Anfrage gesendet.");
         })["catch"](function (error) {
-          console.log(error);
+          console.log(error.response.data.errors);
 
           if (error.response.data.errors.name) {
             _this.errors.push(error.response.data.errors.name[0]);
@@ -1965,6 +1959,14 @@ __webpack_require__.r(__webpack_exports__);
 
           if (error.response.data.errors.email) {
             _this.errors.push(error.response.data.errors.email[0]);
+          }
+
+          if (error.response.data.errors.email) {
+            _this.errors.push(error.response.data.errors.phone[0]);
+          }
+
+          if (error.response.data.errors.service) {
+            _this.errors.push(error.response.data.errors.service[0]);
           }
         });
       }
@@ -38059,7 +38061,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("p", { staticClass: "mb-1", attrs: { for: "q4" } }, [
-              _vm._v("Was habe ich bisher unternommen?")
+              _vm._v("Was haben Sie bisher unternommen?")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -38145,7 +38147,7 @@ var render = function() {
             _c("h2", [_vm._v("Schritt drei")]),
             _vm._v(" "),
             _c("p", { staticClass: "mb-1", attrs: { for: "name" } }, [
-              _vm._v("Ihre Name:")
+              _vm._v("Ihr Name:")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -38248,10 +38250,12 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Speichern")]
+              [_vm._v("Absenden")]
             )
           ])
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.step === 4 ? _c("div", [_c("h2", [_vm._v("Danke!")])]) : _vm._e()
     ])
   ])
 }
@@ -50494,6 +50498,7 @@ Vue.component('contact-form', __webpack_require__(/*! ./components/ContactForm.v
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
 var app = new Vue({
   el: '#app',
   data: function data() {

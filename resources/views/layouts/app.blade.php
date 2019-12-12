@@ -32,7 +32,7 @@
 </head>
 <body>
 <!-- Full Page Intro -->
-<div class="view" style="background-image:url({{url('images/bg.jpg')}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+{{--<div class="view" style="background-image:url({{url('images/bg.jpg')}}); background-repeat: no-repeat; background-size: cover; -o-background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-position: center center; background-attachment: fixed;">--}}
 
     <div id="app">
         <nav class="navbar navbar-expand-md bg-light navbar-light">
@@ -101,7 +101,7 @@
             </main>
         </div>
     </div>
-<div class="footer fixed-bottom pt-3 pb-3">
+<div class="footer fixed-bottom pt-2 pb-0">
     <div>
         <ul class="list-inline text-center mb-3">
             <li class="list-inline-item"><a class="text-dark" href="{{ url('about') }}">{{ __('Über uns') }}</a></li>|
@@ -116,7 +116,7 @@
             <li><a target="_blank" href="https://twitter.com"><i class="fab fa-twitter mr-3"></i></a></li>
             <li><a target="_blank" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>--}}
-        <h6 class="text-center">Copyright © vemap academy 2019 | Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></h6>
+        <p class="text-center">Copyright © vemap academy 2019 | Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></p>
     </div>
 </div>
 </body>

@@ -7,7 +7,7 @@
             <h1>Sample Title</h1>
         </div>--}}
         <div id="app">
-            <div class="container mb-5">
+            <div class="container mb-5 mb-5">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="card">
