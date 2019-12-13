@@ -69,7 +69,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <div class="nav-item dropdown mr-2">
+                        <div class="nav-item dropdown mr-2 mb-2">
                             <a id="navbarDropdown" class="dropdown-toggle btn btn-primary btn-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fas fa-user mr-1"></i>{{ __('Seiten') }}
                             </a>
@@ -91,7 +91,7 @@
                             </li>
                         @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <div class="nav-item dropdown mr-2 mb-2">
                                 <a id="navbarDropdown" class="dropdown-toggle btn btn-primary btn-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-user mr-1"></i>{{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -107,7 +107,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </div>
                         @endguest
                     </ul>
                 </div>
