@@ -10,11 +10,6 @@
 |
 */
 
-/**
- * Custom authentication, currently not different from Laravel's default
- * I prefer the syntax for all routes
- */
-
 Auth::routes();
 
 Route::get('/', function () {
@@ -26,7 +21,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
-//Route::get('/backend/f','InquiriesController@index');
+
 Route::get('/backend','HomeController@index')->name('frontend');
 
 Route::get('/about', 'AboutUsController@index')->name('about');
@@ -38,7 +33,6 @@ Route::post('/contact', 'ContactFormController@store')->name('contact');
 /**
  * Protected routes - only authenticated user can access
  */
-
 Route::group(["middleware" => ['auth']], function () {
 
     Route::get('/backend', function () {
@@ -63,10 +57,7 @@ Route::group(["middleware" => ['auth']], function () {
     });
 
     Route::group(["middleware" => ['hasPermission:admin-calendar']], function () {
-        Route::get('/appointments', function () {
-            session()->flash('message', 'Not implemented.');
-            return redirect('/backend');
-        })->name('appointments');
+        Route::get('/appointments', 'AppointmentController@index')->name('appointments');
     });
 
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
