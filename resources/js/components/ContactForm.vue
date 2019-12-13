@@ -56,7 +56,7 @@
             <div v-if="step === 4">
                 <h2>Danke Ihnen!</h2>
                 <p>Sie erhalten umgehend eine Nachricht bzw. einen Anruf.</p>
-                <a href="/backend" class="btn btn-primary">Zurück zur Hauptseite</a>
+                <a href="/" class="btn btn-primary">Zurück zur Hauptseite</a>
             </div>
         </form>
     </div>
