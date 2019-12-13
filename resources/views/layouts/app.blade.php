@@ -71,7 +71,7 @@
                         <!-- Authentication Links -->
                         <div class="nav-item dropdown mr-2 mb-2">
                             <a id="navbarDropdown" class="dropdown-toggle btn btn-primary btn-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-user mr-1"></i>{{ __('Seiten') }}
+                                <i class="fas fa-link mr-1"></i>{{ __('Seiten') }}
                             </a>
                             <span class="caret"></span>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
