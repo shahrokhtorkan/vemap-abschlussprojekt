@@ -26,7 +26,6 @@
                                                 <td>{{ $document->created_at->toDateString() }}</td>
                                                 <td>{{ $document->patient->firstname }} {{ $document->patient->lastname }}, {{ $document->patient->svnr }}</td>
                                                 <td>{{ $document->text }}</td>
-
                                                 <td><a href="{{$document->pdf}}"><i class="fas fa-file-pdf fa-2x"></i></a></td>
                                             </tr>
                                         @endforeach
