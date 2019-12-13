@@ -20,9 +20,8 @@
                                 <h3 class="mb-4">Willkommen {{ auth()->user()->name }}</h3>
                                 <h5>Sie haben neue Kontaktanfragen</h5>
                                 @if(!empty($inquiries))
-                                    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-5">
+                                    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
                                         <tr>
-                                            <th>AnfragenNr</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Telefon</th>
@@ -32,17 +31,22 @@
                                         </tr>
                                         @foreach($inquiries as $q)
                                             <tr>
-                                                <td>{{ $q->id }} </td>
                                                 <td>{{ $q->name }} </td>
                                                 <td>{{ $q->email }}</td>
                                                 <td>{{$q->phone}}</td>
                                                 <td>{{$q->created_at}}</td>
-                                                <td>{{$q->status}}</td>
-                                                <td><form method="post"  action="{{ route('update',$q)}}">
+                                                {{--<td>{{$q->status}}</td>--}}
+                                                <td>
+                                                    @if ($q->status == 0)
+                                                    <span><i class='fas fa-toggle-on ml-2 mt-2' style='font-size:20px; color:#3490dc'></i></span>
+                                                    @else
+                                                    <span><i class='fas fa-toggle-off ml-2 mt-2' style='font-size:20px; color:#464646'></i></span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <form method="post"  action="{{ route('update',$q)}}">
                                                         @csrf
                                                         <input class="form-check-input" type="hidden" name="status" value="0" checked/>
-
-                                                        {{--<input type="text" name="status" value="{{ $q->status }}">--}}
                                                         <input type="submit" value="absenden" class="btn btn-primary mt-1">
                                                     </form>
                                                 </td>
@@ -52,8 +56,6 @@
                                 @else
                                     <p>Keine Kontakt vorhanden.</p>
                                 @endif
-
-                                <h5>Meine Termine</h5>
 
                                 <h5>Termin buchen</h5>
                                 {{--<form method="post" action="/slot/reserve">--}}

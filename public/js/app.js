@@ -38278,11 +38278,9 @@ var render = function() {
               _vm._v("Sie erhalten umgehend eine Nachricht bzw. einen Anruf.")
             ]),
             _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "btn btn-primary", attrs: { href: "/backend" } },
-              [_vm._v("Zurück zur Hauptseite")]
-            )
+            _c("a", { staticClass: "btn btn-primary", attrs: { href: "/" } }, [
+              _vm._v("Zurück zur Hauptseite")
+            ])
           ])
         : _vm._e()
     ])
