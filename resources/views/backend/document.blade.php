@@ -16,13 +16,10 @@
                                 <p>Autor: {{ auth()->user()->name }}</p>
                                 <form method="post" enctype="multipart/form-data" action="{{ route('document', $patientId) }}">
                                     @csrf
-
                                     <textarea class="form-control mb-2" rows="5" name="text" placeholder="Text"></textarea>
-
-                                        <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
-                                        <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
-
-                                    <button class="btn btn-primary mt-0" type="submit">Speichern</button>
+                                    <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
+                                    <small id="fileHelp" class="form-text text-muted">Bitte laden Sie eine gültige PDF-Datei hoch. Die PDF-Größe sollte nicht mehr als 2 MB betragen.</small>
+                                    <button class="btn btn-primary mt-1" type="submit">Speichern</button>
                                 </form>
                             </div>
                         </div>
