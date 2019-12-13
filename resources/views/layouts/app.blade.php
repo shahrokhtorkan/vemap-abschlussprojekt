@@ -49,6 +49,10 @@
                             <a class="btn btn-primary btn-block" href="{{ route('backend') }}">{{ __('Home') }}</a>
                         </li>
                         @endcan
+                        <li class="nav-item mr-2 mb-2"><a class="btn btn-primary btn-block" href="{{ url('about') }}">{{ __('Über uns') }}</a></li>
+                        <li class="nav-item mr-2 mb-2"><a class="btn btn-primary btn-block" href="{{ route('services') }}">{{ __('Leistungen') }}</a></li>
+                        <li class="nav-item mr-2 mb-2"><a class="btn btn-primary btn-block" href="{{ route('contact') }}">{{ __('Kontakt') }}</a></li>
+                        <li class="nav-item mr-2 mb-2"><a class="btn btn-primary btn-block" href="{{ route('imprint') }}">{{ __('Impressum') }}</a></li>
                         @can('admin-patient')
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('patients') }}">{{ __('Patients') }}</a>
