@@ -8,7 +8,7 @@
             </div>--}}
             <div class="container mb-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 mb-5">
+                    <div class="col-md-9 mb-5">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user-tie mr-1"></i>{{ auth()->user()->name }}'s Profil</div>
                             <div class="card-body">
@@ -22,6 +22,7 @@
                                 @if(!empty($inquiries))
                                     <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
                                         <tr>
+                                            <th>Leistung</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Telefon</th>
@@ -31,6 +32,7 @@
                                         </tr>
                                         @foreach($inquiries as $q)
                                             <tr>
+                                                <td>{{ $q->service }} </td>
                                                 <td>{{ $q->name }} </td>
                                                 <td>{{ $q->email }}</td>
                                                 <td>{{$q->phone}}</td>
@@ -56,16 +58,6 @@
                                 @else
                                     <p>Keine Kontakt vorhanden.</p>
                                 @endif
-
-                                <h5>Termin buchen</h5>
-                                {{--<form method="post" action="/slot/reserve">--}}
-                                @csrf
-                                {{--<select>--}}
-
-                                {{--</select>--}}
-                                <p>Buchungen sind erst nach Bestätigung durch den Behandler verbindlich.</p>
-                                <button type="submit" class="btn btn-primary">Buchen</button>
-                                {{--</form>--}}
                             </div>
                         </div>
                     </div>
