@@ -42,21 +42,18 @@
                                     <p>Keine Kontakt vorhanden.</p>
                                 @endif
 
-                                    <h5>Meine Stammdaten</h5>
+                                <h5>Meine Termine</h5>
 
 
-                                    <h5>Meine Termine</h5>
+                                <h5>Termin buchen</h5>
+                                {{--<form method="post" action="/slot/reserve">--}}
+                                    @csrf
+                                    {{--<select>--}}
 
-
-                                    <h5>Termin buchen</h5>
-                                    {{--<form method="post" action="/slot/reserve">--}}
-                                        @csrf
-                                        {{--<select>--}}
-
-                                        {{--</select>--}}
-                                        <p>Buchungen sind erst nach Bestätigung durch den Behandler verbindlich.</p>
-                                        <button type="submit" class="btn btn-primary">Buchen</button>
-                                    {{--</form>--}}
+                                    {{--</select>--}}
+                                    <p>Buchungen sind erst nach Bestätigung durch den Behandler verbindlich.</p>
+                                    <button type="submit" class="btn btn-primary">Buchen</button>
+                                {{--</form>--}}
 
                         </div>
                     </div>
