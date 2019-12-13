@@ -39,8 +39,8 @@
                                                 <td><form method="post"  action="{{ route('update',$q)}}">
                                                         @csrf
                                                         <input class="form-check-input" type="hidden" name="status" value="0" checked/>
-                                                        <input class="form-check-input" type="checkbox" name="status" value="1" checked/>
-{{--                                                        <input type="text" name="status" value="{{ $q->status }}">--}}
+
+{{--                                                <input type="text" name="status" value="{{ $q->status }}">--}}
                                                     <input type="submit"></form></td>
                                             </tr>
                                         @endforeach

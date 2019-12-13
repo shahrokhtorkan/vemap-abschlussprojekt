@@ -76,6 +76,7 @@ class InquiriesController extends Controller
         $inquiries->status = $request->status;
         $inquiries->save();
 //        return view('backend');
+        session()->flash("message", "inquiries {$inquiries->status} wurde gespeichert.");
         return redirect()->back();
     }
 
