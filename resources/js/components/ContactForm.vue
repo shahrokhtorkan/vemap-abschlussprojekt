@@ -1,25 +1,26 @@
 <template>
     <div id="contact-form">
         <form>
-            <div v-if="errors.length > 0" class="alert alert-danger" >
+            <div v-if="errors.length" class="alert alert-danger" >
                 <li v-for="error in errors">
                     {{ error }}
                 </li>
             </div>
             <div v-if="step === 1">
-                <h2>Schritt eins</h2>
-                <legend for="Leistungen">Leistungen:</legend>
-                <select id="Leistungen" name="Leistungen" v-model="inquiry.service" class="form-control mb-2">
-                    <option value="a">Therapie Aktiv Betreuungsprogramm</option>
-                    <option value="b">Marcoumar-Einstellung</option>
-                    <option value="c">Schmerztherapie</option>
-                    <option value="d">Nahtentfernung</option>
-                    <option value="e">Verbandwechsel</option>
+                <h2>Schritt 1/3</h2>
+                <p>Wählen sie bitte die entsprechende Leistung aus und füllen Sie das Formular vollständig aus.</p>
+                <select id="service" name="service" v-model="inquiry.service" class="form-control mb-2">
+                    <option value="" disabled selected> -- wählen Sie Ihre gewünschte Leistung -- </option>
+                    <option value="Therapie Aktiv Betreuungsprogramm">Therapie Aktiv Betreuungsprogramm</option>
+                    <option value="Marcoumar-Einstellung">Marcoumar-Einstellung</option>
+                    <option value="Schmerztherapie">Schmerztherapie</option>
+                    <option value="Nahtentfernung">Nahtentfernung</option>
+                    <option value="Verbandwechsel">Verbandwechsel</option>
                 </select>
-                <button @click.prevent="next()" class="btn btn-primary">Nächste</button>
+                <button @click.prevent="next()" class="btn btn-primary">Weiter</button>
             </div>
             <div v-if="step === 2">
-                <h2>Schritt zwei</h2>
+                <h2>Schritt 2/3</h2>
                     <p for="q1" class="mb-1">Welche Probleme haben Sie? Warum fühlen Sie sich nicht gut?</p>
                     <input type="text" id="q1" name="q1" v-model="inquiry.q1" class="form-control mb-2">
 
@@ -36,10 +37,10 @@
                     <input type="text" id="q5" name="q5" v-model="inquiry.q5" class="form-control mb-2">
 
                     <button @click.prevent="prev()" class="btn btn-primary">Zurück</button>
-                    <button @click.prevent="next()" class="btn btn-primary">Nächste</button>
+                    <button @click.prevent="next()" class="btn btn-primary">Weiter</button>
             </div>
             <div v-if="step === 3">
-                <h2>Schritt drei</h2>
+                <h2>Schritt 3/3</h2>
                     <p for="name" class="mb-1">Ihr Name:</p>
                     <input id="name" type="text" name="name" v-model="inquiry.name" class="form-control mb-2">
 
@@ -53,7 +54,9 @@
                     <button @click.prevent="create()" type="button" class="btn btn-primary">Absenden</button>
             </div>
             <div v-if="step === 4">
-                <h2>Danke!</h2>
+                <h2>Danke Ihnen!</h2>
+                <p>Sie erhalten umgehend eine Nachricht bzw. einen Anruf.</p>
+                <a href="/" class="btn btn-primary">Zurück zur Hauptseite</a>
             </div>
         </form>
     </div>
@@ -74,7 +77,7 @@
                     q3: null,
                     q4: null,
                     q5: null,
-                    service: 'a',
+                    service: "",
                 },
                 inquiries: [],
                 errors: [],
@@ -106,9 +109,10 @@
                         q5: this.inquiry.q5
                     }).then(response => {
                         this.inquiries.push(response.data.inquiry);
-                        toastr.success("Anfrage gesendet.");
+                        this.step++;
+                        this.$forceUpdate(); // Refresh component
                     }).catch(error => {
-                        console.log(error.response.data.errors);
+                        //console.log(error.response.data.errors);
                         if (error.response.data.errors.name) {
                             this.errors.push(error.response.data.errors.name[0]);
                         }
