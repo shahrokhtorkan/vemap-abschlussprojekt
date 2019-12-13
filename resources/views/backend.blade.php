@@ -8,7 +8,7 @@
             </div>--}}
             <div class="container mb-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-9 mb-5">
+                    <div class="col-md-10 mb-5">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user-tie mr-1"></i>{{ auth()->user()->name }}'s Profil</div>
                             <div class="card-body">

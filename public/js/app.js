@@ -38278,9 +38278,11 @@ var render = function() {
               _vm._v("Sie erhalten umgehend eine Nachricht bzw. einen Anruf.")
             ]),
             _vm._v(" "),
-            _c("a", { staticClass: "btn btn-primary", attrs: { href: "/" } }, [
-              _vm._v("Zurück zur Hauptseite")
-            ])
+            _c(
+              "a",
+              { staticClass: "btn btn-primary", attrs: { href: "/backend" } },
+              [_vm._v("Zurück zur Hauptseite")]
+            )
           ])
         : _vm._e()
     ])
@@ -50737,8 +50739,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\laravel_patient\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\final\vemap-abschlussprojekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

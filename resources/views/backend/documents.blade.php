@@ -19,12 +19,15 @@
                                             <th>Datum</th>
                                             <th>Patient</th>
                                             <th>Text</th>
+                                            <th>Pdf</th>
                                         </tr>
                                         @foreach($documents as $document)
                                             <tr>
                                                 <td>{{ $document->created_at->toDateString() }}</td>
                                                 <td>{{ $document->patient->firstname }} {{ $document->patient->lastname }}, {{ $document->patient->svnr }}</td>
                                                 <td>{{ $document->text }}</td>
+
+                                                <td><a href="{{$document->pdf}}">Pdf</a></td>
                                             </tr>
                                         @endforeach
                                     </table>

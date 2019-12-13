@@ -20,6 +20,7 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('patient_id');
             /*$table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');*/
             $table->text('text');
+            $table->string('pdf')->default('pdf');
             $table->timestamps();
         });
     }

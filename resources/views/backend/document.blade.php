@@ -14,9 +14,14 @@
                             <div class="card-header text-dark card-top"><i class="fas fa-user mr-1"></i>{{ __('Neue Dokument erstellen') }}</div>
                             <div class="card-body">
                                 <p>Autor: {{ auth()->user()->name }}</p>
-                                <form method="post" action="{{ route('document', $patientId) }}">
+                                <form method="post" enctype="multipart/form-data" action="{{ route('document', $patientId) }}">
                                     @csrf
+
                                     <textarea class="form-control mb-2" rows="5" name="text" placeholder="Text"></textarea>
+
+                                        <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
+                                        <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+
                                     <button class="btn btn-primary mt-0" type="submit">Speichern</button>
                                 </form>
                             </div>

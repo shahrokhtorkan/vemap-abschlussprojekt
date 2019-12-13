@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use App\Patient;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -37,17 +39,26 @@ class DocumentController extends Controller
      * @param int $patientId
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request, int $patientId)
+    public function store(Request $request, int $id)
     {
-        $patient = Patient::findOrFail($patientId);
 
-        $documents = new Document();
-        $documents->user()->associate(auth()->user());
-        $documents->patient()->associate($patient);
-        $documents->text = $request->text;
-        $documents->save();
+        $request->validate([
+            'text' => 'required',
+            'file' => 'required|mimes:doc,docx,pdf,txt|max:2048',
+        ]);
+         $patien = Patient::findOrFail($id);
+//        $user = User::findOrFail($patien->user_id);
+        $uploded_file = $request->file('file');
+        $name = $request->text;
+        $doc_path = Storage::disk('upload_doc')->put($patien->firstname . $patien->lastname, $uploded_file);
 
-        return redirect()->route('patient', $patientId);
+        $document = new Document();
+        $document->user()->associate(auth()->user());
+        $document->patient()->associate($patien);
+        $document->text = $name;
+        $document->pdf = "/upload_doc/" . $doc_path;
+        $document->save();
+        return redirect()->route('patient', $id);
     }
 
     /**
