@@ -45,8 +45,8 @@ Route::group(["middleware" => ['auth']], function () {
         return view('backend');
     })->name('backend');
 
-    Route::get('/backend','InquiriesController@index')->name('backend');
-
+       Route::get('/backend','InquiriesController@index')->name('backend');
+      Route::post('/backend/{qid}', 'InquiriesController@update')->name('update');
     Route::group(["middleware" => ['hasPermission:admin-document']], function () {
         Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
         Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
