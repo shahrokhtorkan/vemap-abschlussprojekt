@@ -36,7 +36,7 @@
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel Events framework!
+Thank you for considering contributing to the Laravel framework!
 
 ## Security Vulnerabilities
 
