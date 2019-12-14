@@ -27,29 +27,25 @@
                                             <th>Email</th>
                                             <th>Telefon</th>
                                             <th>hergestellt in</th>
-                                            <th>Status</th>
+                                            {{--<th>Status</th>--}}
                                             <th>Action</th>
                                         </tr>
                                         @foreach($inquiries as $q)
                                             <tr>
                                                 <td>{{ $q->service }} </td>
                                                 <td>{{ $q->name }} </td>
-                                                <td>{{ $q->email }}</td>
+                                                <td><a href="mailto:{{ $q->email }}" class="text-dark">{{ $q->email }}</a></td>
                                                 <td>{{$q->phone}}</td>
                                                 <td>{{$q->created_at}}</td>
-                                                {{--<td>{{$q->status}}</td>--}}
-                                                <td>
-                                                    @if ($q->status == 0)
-                                                    <span><i class='fas fa-toggle-on ml-2 mt-2' style='font-size:20px; color:#3490dc'></i></span>
-                                                    @else
-                                                    <span><i class='fas fa-toggle-off ml-2 mt-2' style='font-size:20px; color:#464646'></i></span>
-                                                    @endif
-                                                </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <form method="post"  action="{{ route('update',$q)}}">
                                                         @csrf
                                                         <input class="form-check-input" type="hidden" name="status" value="0" checked/>
-                                                        <input type="submit" value="absenden" class="btn btn-primary mt-1">
+                                                        @if ($q->status == 0)
+                                                            <input type="submit" value="bestätigt" class="btn btn-success mt-1">
+                                                        @else
+                                                            <input type="submit" value="bestätigen" class="btn btn-primary mt-1">
+                                                        @endif
                                                     </form>
                                                 </td>
                                             </tr>
