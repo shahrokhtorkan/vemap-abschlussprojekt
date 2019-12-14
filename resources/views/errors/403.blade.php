@@ -14,7 +14,7 @@
                             <div class="card-header text-dark card-top"><i class="fas fa-exclamation-triangle mr-1"></i>{{ __('403 | This action is unauthorized.') }}</div>
                             <div class="card-body">
                                 <p><img src="../images/403.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"></p>
-                                <a href="/backend" class="btn btn-primary">Zurück zur Hauptseite</a>
+                                <a href="/" class="btn btn-primary">Zurück zur Hauptseite</a>
                             </div>
                         </div>
                     </div>
