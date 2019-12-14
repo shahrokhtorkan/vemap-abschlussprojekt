@@ -24,10 +24,15 @@
 ## Aufgabe:
 
 - Login/Register/Password Reset.
-- Contact Form.
+- Contact Form with Vue.
 - Responsive layout.
 - Bootstrap Template.
+- User, Patients, Appointment Factory.
 - User Roles and Permissions.
+- Middleware.
+- List patients with filtering and sorting system.
+- List patients document.
+- Appointment.
 
 ## Contributing
 
