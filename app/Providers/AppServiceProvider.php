@@ -27,12 +27,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Builder::defaultStringLength(191);
-        foreach (Permission::all() as $permission) {
-        $permissionName = $permission->name;
 
-        Gate::define($permissionName, function($user) use ($permissionName) {
+        foreach (Permission::all() as $permission) {
+            $permissionName = $permission->name;
+
+            Gate::define($permissionName, function($user) use ($permissionName) {
             return $user->hasPermission($permissionName);
-        });
+            });
         }
     }
 }
