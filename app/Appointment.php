@@ -7,23 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     public const APPOINTMENT_STATI = ['available', 'reserved', 'confirmed'];
-    /**
-     *  One Appointment belong to only one Patient
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function patient()
-    {
-        return $this->belongsTo('App\Patient');
-    }
 
     /**
-     * No Appointments or one Appointment belongs to User (0 .. 1 to m)
-     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function patient()
+    {
+        return $this->belongsTo('App\Patient', 'Patient_id');
     }
 }

@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
+    protected $fillable = [
+        'user_id', 'firstname', 'lastname', 'email','svnr', 'address', 'plz', 'city', 'country',
+    ];
+
     /**
-     * One User is one Patient
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 
     /**
@@ -33,6 +35,6 @@ class Patient extends Model
      */
     public function appointments()
     {
-        return $this->hasMany('App\Appointment');
+        return $this->hasMany('App\Appointment')->orderBy('id', 'desc');
     }
 }

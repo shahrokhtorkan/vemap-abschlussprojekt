@@ -38,11 +38,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function patient()
     {
-        return $this->belongsTo('App\Patient');
+        return $this->hasOne('App\Patient');
     }
 
     /**
