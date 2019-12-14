@@ -13,6 +13,7 @@
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-toolbox mr-1"></i>{{ __('Leistungen') }}</div>
                             <div class="card-body">
+                                <p><img src="../images/services.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"></p>
                                 <p>Physiotherapie<P>
                                 <p>Sport-Physiotherapie</p>
                                 <p>Fußreflexzonenmassage</p>

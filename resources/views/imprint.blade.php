@@ -13,6 +13,7 @@
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</div>
                             <div class="card-body">
+                                <p><img src="../images/imprint.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"></p>
                                 <h2>Patient</h2>
                                 <p>Unsere Sekretariatsöffnungszeiten sind:</P>
                                 <P><i class="fas fa-calendar-alt mr-1"></i>Montag - Freitag  8:00 - 11:00</P>
