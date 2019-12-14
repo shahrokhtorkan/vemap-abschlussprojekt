@@ -20,7 +20,7 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('patient_id');
             /*$table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');*/
             $table->text('text');
-            $table->string('pdf')->default('/upload_doc/FlorianBachmann/o80SDjbysPjkApkW0zoWhk2p804Uizw3gDYVFkNo.pdf');
+            $table->string('pdf')->default('/upload_doc/sample.pdf');
             $table->timestamps();
         });
     }
