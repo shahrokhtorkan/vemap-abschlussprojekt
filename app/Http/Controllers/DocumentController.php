@@ -46,19 +46,20 @@ class DocumentController extends Controller
             'text' => 'required',
             'file' => 'required|mimes:doc,docx,pdf,txt|max:2048',
         ]);
-         $patien = Patient::findOrFail($id);
-//        $user = User::findOrFail($patien->user_id);
+
+        $patient = Patient::findOrFail($id);
+        /*$user = User::findOrFail($patient->user_id);*/
         $uploded_file = $request->file('file');
         $name = $request->text;
-        $doc_path = Storage::disk('upload_doc')->put($patien->firstname . $patien->lastname, $uploded_file);
+        $doc_path = Storage::disk('upload_doc')->put($patient->firstname . $patient->lastname, $uploded_file);
 
         $document = new Document();
         $document->user()->associate(auth()->user());
-        $document->patient()->associate($patien);
+        $document->patient()->associate($patient);
         $document->text = $name;
         $document->pdf = "/upload_doc/" . $doc_path;
         $document->save();
-        return redirect()->route('patient', $id);
+        return redirect()->route('patients', $id);
     }
 
     /**

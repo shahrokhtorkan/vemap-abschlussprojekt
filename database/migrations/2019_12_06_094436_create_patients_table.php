@@ -20,7 +20,7 @@ class CreatePatientsTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
-            $table->string('svnr');
+            $table->string('svnr')->unique();
             $table->text('address');
             $table->string('plz');
             $table->string('city');
