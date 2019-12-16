@@ -3,9 +3,6 @@
 @section('content')
 <div class="flex-center position-ref full-height mt-4">
     <div class="content">
-        {{--<div class="title text-center text-dark display-1 mb-5">
-            <h1>Neue Dokument erstellen</h1>
-        </div>--}}
         <div id="app">
             <div class="container mb-5">
                 <div class="row justify-content-center">
