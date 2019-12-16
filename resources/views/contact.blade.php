@@ -14,7 +14,7 @@
                             <div class="card-header text-dark card-top"><i class="fas fa-envelope mr-1"></i>{{ __('Kontakt') }}</div>
                             <div class="card-body">
                                 <div class="card-body">
-                                    <p><img src="../images/contact.png" class="img-fluid rounded mx-auto d-block mt-0 pt-0" alt="Responsive image"></p>
+                                    <p><img src="../images/contact.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image"></p>
                                     <contact-form></contact-form>
                                 </div>
                             </div>
