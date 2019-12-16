@@ -33,6 +33,11 @@ class UsersTableSeeder extends Seeder
                 'password' => 'admin',
                 'roles' => ['assistant'],
             ],
+            'Test' => [
+                'email' => 'test.patientproject@gmail.com',
+                'password' => 'patient',
+                'roles' => ['patient'],
+            ],
             'Shahrokh' => [
                 'email' => 'shahrokh@example.com',
                 'password' => 'shahrokh',
