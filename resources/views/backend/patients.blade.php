@@ -4,7 +4,7 @@
     <div class="flex-center position-ref full-height mt-4">
         <div class="content">
             <div id="app">
-                <div class="container mb-5">
+                <div class="container mb-4">
                     <div class="row justify-content-center">
                         <div class="col-md-12 mb-5">
                             <div class="card">
