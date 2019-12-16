@@ -118,14 +118,14 @@
             </main>
         </div>
     </div>
-<div class="footer fixed-bottom pt-2 pb-0">
+<div class="footer fixed-bottom pt-3 pb-0">
     <div>
-        <ul class="list-inline text-center mb-3">
+        {{--<ul class="list-inline text-center mb-3">
             <li class="list-inline-item"><a class="text-dark" href="{{ url('about') }}">{{ __('Über uns') }}</a></li>|
             <li class="list-inline-item"><a class="text-dark" href="{{ route('services') }}">{{ __('Leistungen') }}</a></li>|
             <li class="list-inline-item"><a class="text-dark" href="{{ route('contact') }}">{{ __('Kontakt') }}</a></li>|
             <li class="list-inline-item"><a class="text-dark" href="{{ route('imprint') }}">{{ __('Impressum') }}</a></li>
-        </ul>
+        </ul>--}}
         {{--<h3 class="text-center">FOLGE UNS</h3>
         <ul class="social-icons list-inline text-center mb-3">
             <li><a target="_blank" href="https://www.facebook.com"><i class="fab fa-facebook-square mr-3"></i></a></li>
