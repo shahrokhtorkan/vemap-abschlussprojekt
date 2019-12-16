@@ -11746,7 +11746,8 @@ ul {
 }
 
 .footer {
-  background-color: rgba(50, 144, 220, 0.3) !important;
+  /*background-color: rgba(50, 144, 220, 0.300) !important;*/
+  background-color: rgba(50, 144, 220, 0.9) !important;
 }
 
 .new-patient {

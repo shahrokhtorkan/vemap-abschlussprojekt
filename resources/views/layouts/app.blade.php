@@ -133,7 +133,7 @@
             <li><a target="_blank" href="https://twitter.com"><i class="fab fa-twitter mr-3"></i></a></li>
             <li><a target="_blank" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>--}}
-        <p class="text-center">Copyright © vemap academy 2019 | Application Services powered by <a target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></p>
+        <p class="text-center text-light">Copyright © vemap academy 2019 | Application Services powered by <a class="text-light" target="_blank" href="https://www.vemapacademy.at">vemapacademy.at</a></p>
     </div>
 </div>
 </body>
