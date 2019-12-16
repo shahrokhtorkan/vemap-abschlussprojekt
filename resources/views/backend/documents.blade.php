@@ -20,7 +20,7 @@
                                             <th>Patient</th>
                                             <th>Text</th>
                                             <th>Pdf</th>
-                                            <th>Aktion</th>
+                                            <th class="text-center">Aktion</th>
                                         </tr>
                                         @foreach($documents as $document)
                                             <tr>
@@ -28,10 +28,12 @@
                                                 <td>{{ $document->patient->firstname }} {{ $document->patient->lastname }}, {{ $document->patient->svnr }}</td>
                                                 <td>{{ $document->text }}</td>
                                                 <td><a href="{{$document->pdf}}"><i class="fas fa-file-pdf fa-2x"></i></a></td>
-                                                <td> <form method="post" action="/documents/{{$document->id}}/delete">
+                                                <td class="text-center">
+                                                    <form method="post" action="/documents/{{$document->id}}/delete">
                                                         @csrf
                                                         <button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-trash"></i></button>
-                                                    </form></td>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>
