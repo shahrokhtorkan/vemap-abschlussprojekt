@@ -48,6 +48,7 @@ class DocumentController extends Controller
         ]);
 
         $patient = Patient::findOrFail($id);
+
         /*$user = User::findOrFail($patient->user_id);*/
         $uploded_file = $request->file('file');
         $name = $request->text;
