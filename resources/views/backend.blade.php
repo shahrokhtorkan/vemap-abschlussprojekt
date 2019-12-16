@@ -44,7 +44,7 @@
                                                         @if ($q->status == 0)
                                                             <input type="submit" value="erledigt" class="btn btn-success mt-1">
                                                         @else
-                                                            <input type="submit" value="öffnen" class="btn btn-primary mt-1">
+                                                            <input type="submit" value="offen" class="btn btn-primary mt-1">
                                                         @endif
                                                     </form>
                                                 </td>
