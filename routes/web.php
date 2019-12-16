@@ -22,7 +22,7 @@ Route::get('/login', function () {
 
 Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
 
-Route::get('/backend','HomeController@index')->name('frontend');
+//Route::get('/backend','HomeController@index')->name('frontend');
 
 Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');

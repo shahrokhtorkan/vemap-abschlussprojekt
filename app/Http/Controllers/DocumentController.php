@@ -49,8 +49,12 @@ class DocumentController extends Controller
 
         $patient = Patient::findOrFail($id);
 
-        // Send a mail; todo throw exception if fails
-        \Mail::to($patient->email)->send(new \App\Mail\PatientDocumentNotification());
+        // Send a mail notification
+        try {
+            \Mail::to($patient->email)->send(new \App\Mail\PatientDocumentNotification());
+        } catch(\Exception $e){
+            dd ($e->getMessage());
+        }
 
         /*$user = User::findOrFail($patient->user_id);*/
         $uploded_file = $request->file('file');
