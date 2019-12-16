@@ -22,7 +22,7 @@ class CreateAppointmentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('patient_id')->nullable();
-            /*$table->foreign('patient_id')->references('id')->on('patients');*/
+            $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE appointments ADD CONSTRAINT chk_status CHECK ( status IN ('".implode("' ,'", Appointment::APPOINTMENT_STATI) ."'))");
