@@ -6,7 +6,7 @@
         <div id="app">
             <div class="container mb-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-7 mb-5">
+                    <div class="col-md-8 mb-5">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-envelope mr-1"></i>{{ __('Kontakt') }}</div>
                             <div class="card-body">
