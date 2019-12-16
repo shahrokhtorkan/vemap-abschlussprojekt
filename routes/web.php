@@ -46,6 +46,7 @@ Route::group(["middleware" => ['auth']], function () {
         Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
         Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
         Route::get('/documents', 'DocumentController@index')->name('documents');
+        Route::post('/documents/{patientId}/delete', 'DocumentController@destroy');
     });
 
     Route::group(["middleware" => ['hasPermission:admin-patient']], function () {

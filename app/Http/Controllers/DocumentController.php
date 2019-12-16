@@ -104,6 +104,8 @@ class DocumentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $document = Document::findOrFail($id);
+        $document->delete();
+        return redirect(route('documents'));
     }
 }
