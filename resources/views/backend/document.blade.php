@@ -16,8 +16,8 @@
                                 <p>Autor: {{ auth()->user()->name }}</p>
                                 <form method="post" enctype="multipart/form-data" action="{{ route('document', $patientId) }}">
                                     @csrf
-                                    Name :
-                                    <input class="form-control mb-2" rows="5" type="text" name="text" >
+                                    <label>Beschreibung:</label>
+                                    <input type="text" name="description" class="form-control mb-2">
                                     <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
                                     <small id="fileHelp" class="form-text text-muted">Bitte laden Sie eine gültige PDF-Datei hoch. Die PDF-Größe sollte nicht mehr als 2 MB betragen.</small>
                                     <button class="btn btn-primary mt-1" type="submit">Speichern</button>
