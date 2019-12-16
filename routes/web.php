@@ -63,10 +63,4 @@ Route::group(["middleware" => ['auth']], function () {
     });
 
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-    Route::get('send-mail', function () {
-        \Mail::to('lubomir.mitana@gmail.com')->send(new \App\Mail\PatientDocumentNotification());
-        dd("Mail verschickt.");
-
-    });
 });
