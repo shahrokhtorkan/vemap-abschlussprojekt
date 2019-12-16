@@ -42,9 +42,9 @@
                                                         @csrf
                                                         <input class="form-check-input" type="hidden" name="status" value="0" checked/>
                                                         @if ($q->status == 0)
-                                                            <input type="submit" value="bestätigt" class="btn btn-success mt-1">
+                                                            <input type="submit" value="öffnen" class="btn btn-success mt-1">
                                                         @else
-                                                            <input type="submit" value="bestätigen" class="btn btn-primary mt-1">
+                                                            <input type="submit" value="erledigt" class="btn btn-primary mt-1">
                                                         @endif
                                                     </form>
                                                 </td>
