@@ -25,22 +25,22 @@ Route::get('/login', function () {
 
 Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
 
-/*Route::get('/backend','HomeController@index')->name('frontend');*/
+/**
+ * Public routes - all user can access
+ */
 
 Route::get('/about', 'AboutUsController@index')->name('about');
 Route::get('/services', 'ServicesController@index')->name('services');
 Route::get('/imprint', 'ImprintController@index')->name('imprint');
 Route::get('/contact', 'ContactFormController@index')->name('contact');
 Route::post('/contact', 'ContactFormController@store')->name('contact');
+/*Route::get('/backend','HomeController@index')->name('frontend');*/
 
 /**
  * Protected routes - only authenticated user can access
  */
-Route::group(["middleware" => ['auth']], function () {
 
-    /*Route::get('/backend', function () {
-        return view('backend');
-    })->name('backend');*/
+Route::group(["middleware" => ['auth']], function () {
 
     Route::get('/backend', function () {
         User::requirePermission('login');
@@ -51,39 +51,47 @@ Route::group(["middleware" => ['auth']], function () {
         }else {
             $documents = [];
         }
-        return view('backend', ['user' => $user, 'patient' => $patient, 'documents' => $documents])  ;
+        return view('backend', ['user' => $user, 'patient' => $patient, 'documents' => $documents/*, 'mySlots' => Appointment::getMyReservedAndConfirmedSlots(), 'availableSlots' => Appointment::getAvailableSlots()*/])  ;
     })->name('backend');
 
+    /**
+     * Protected routes Inquiries - 'admin-contact'
+     */
     Route::get('/inquiries','InquiriesController@index')->name('inquiries');
     Route::post('/inquiries/{qid}', 'InquiriesController@update')->name('update');
 
-    /*Route::group(["middleware" => ['hasPermission:admin-document']], function () {*/
-        Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
-        Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
-        Route::get('/documents', 'DocumentController@index')->name('documents');
-        Route::post('/documents/{patientId}/delete', 'DocumentController@destroy');
-    /*});*/
+    /**
+     * Protected routes Documents - 'admin-document'
+     */
+    Route::get('/document/{patientId}', 'DocumentController@create')->name('newdocument');
+    Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
+    Route::get('/documents', 'DocumentController@index')->name('documents');
+    Route::post('/documents/{patientId}/delete', 'DocumentController@destroy');
 
-    /*Route::group(["middleware" => ['hasPermission:admin-patient']], function () {*/
-        Route::get('/patients', 'PatientController@index')->name('patients');
-        Route::get('/patient/{id}', 'PatientController@edit')->name('patient');
-        Route::get('/patient/', 'PatientController@create')->name('newpatient');
-        Route::post('/patient/', 'PatientController@store')->name('newpatient');
-        Route::post('/patient/{id}', 'PatientController@update')->name('patient');
-        Route::post('/patient/{id}/newaccount', 'PatientController@newAccount');
-        Route::post('/patient/{id}/delete', 'PatientController@destroy');
-        Route::get('/patients.json', 'PatientController@indexJSON');
-    /*});*/
+    /**
+     * Protected routes Patients - 'admin-patient'
+     */
+    Route::get('/patients', 'PatientController@index')->name('patients');
+    Route::get('/patient/{id}', 'PatientController@edit')->name('patient');
+    Route::get('/patient/', 'PatientController@create')->name('newpatient');
+    Route::post('/patient/', 'PatientController@store')->name('newpatient');
+    Route::post('/patient/{id}', 'PatientController@update')->name('patient');
+    Route::post('/patient/{id}/newaccount', 'PatientController@newAccount');
+    Route::post('/patient/{id}/delete', 'PatientController@destroy');
+    Route::get('/patients.json', 'PatientController@indexJSON');
 
-    /*Route::group(["middleware" => ['hasPermission:admin-calendar']], function () {*/
-        Route::get('/appointments', 'AppointmentController@index')->name('appointments');
-        Route::post('/appointments/create', 'AppointmentController@createForDay');
-        Route::post('/appointment/{id}/assignpatient', 'AppointmentController@assignPatient');
-        Route::post('/appointment/{id}/setstatus', 'AppointmentController@setStatus');
-        Route::post('/appointment/{id}/destroy', 'AppointmentController@destroy');
-        Route::post('/appointment/{id}/cancel', 'AppointmentController@cancel');
-        Route::post('/appointment/reserve', 'AppointmentController@reserve');
-    /*});*/
-
+    /**
+     * Protected routes Appointments - 'admin-calendar'
+     */
+    Route::get('/appointments', 'AppointmentController@index')->name('appointments');
+    Route::post('/appointments/create', 'AppointmentController@createForDay');
+    Route::post('/appointment/{id}/assignpatient', 'AppointmentController@assignPatient');
+    Route::post('/appointment/{id}/setstatus', 'AppointmentController@setStatus');
+    Route::post('/appointment/{id}/destroy', 'AppointmentController@destroy');
+    Route::post('/appointment/{id}/cancel', 'AppointmentController@cancel');
+    Route::post('/appointment/reserve', 'AppointmentController@reserve');
+    /**
+     * Logout
+     */
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });

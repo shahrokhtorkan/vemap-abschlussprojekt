@@ -20,7 +20,7 @@
                                     Berechtigungen: {{ implode(", ", $user->getPermissionNames()) }}
                                 </p>
                                 @if(App\User::hasRole('assistant'))
-                                        <p>Sie sind Assistant!</p>
+                                    <p>Sie sind Assistant!</p>
                                 @else
                                     @if(App\User::hasPermission('view-own-data') && $patient)
                                         <p>Sie sind Patient!</p>
@@ -37,16 +37,16 @@
                                                 <th>city</th>
                                                 <th>country</th>
                                             </tr>
-                                                <tr>
-                                                    <td>{{ $patient->firstname }}</td>
-                                                    <td>{{ $patient->lastname }}</td>
-                                                    <td>{{ $patient->email }}</td>
-                                                    <td>{{$patient->svnr}}</td>
-                                                    <td>{{$patient->address}}</td>
-                                                    <td>{{$patient->plz}}</td>
-                                                    <td>{{$patient->city}}</td>
-                                                    <td>{{$patient->country}}</td>
-                                                </tr>
+                                            <tr>
+                                                <td>{{ $patient->firstname }}</td>
+                                                <td>{{ $patient->lastname }}</td>
+                                                <td>{{ $patient->email }}</td>
+                                                <td>{{$patient->svnr}}</td>
+                                                <td>{{$patient->address}}</td>
+                                                <td>{{$patient->plz}}</td>
+                                                <td>{{$patient->city}}</td>
+                                                <td>{{$patient->country}}</td>
+                                            </tr>
                                         </table>
                                     @else
                                         Sie sind kein Patient.
@@ -74,6 +74,8 @@
                                     @endif
 
                                     <h2>Meine Termine</h2>
+
+                                    {{--@include('backend.includes.patient-slot-table', ['appointments' => $mySlots])--}}
 
                                     <h2>Termin buchen</h2>
                                 @endif
