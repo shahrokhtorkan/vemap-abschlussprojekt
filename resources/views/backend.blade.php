@@ -20,10 +20,10 @@
                                     Berechtigungen: {{ implode(", ", $user->getPermissionNames()) }}
                                 </p>
                                 @if(App\User::hasRole('assistant'))
-                                        <p>Willkommen, Assistant!</p>
+                                        <p>Sie sind Assistant!</p>
                                 @else
                                     @if(App\User::hasPermission('view-own-data') && $patient)
-                                        <p>Sie sind Patient.</p>
+                                        <p>Sie sind Patient!</p>
 
                                         <h2>Meine Stammdaten</h2>
                                         <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
