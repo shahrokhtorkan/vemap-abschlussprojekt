@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex-center position-ref full-height mt-5">
+    <div class="flex-center position-ref full-height mt-4">
         <div class="content">
-            <div class="container mb-5">
+            <div class="container mb-4">
                 <div class="row justify-content-center">
-                    <div class="col-md-10 mb-5">
+                    <div class="col-md-12 mb-4">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-question-circle mr-1"></i>{{ __('Anfragen') }}</div>
                             <div class="card-body">
@@ -18,7 +18,7 @@
 
                                 <h5>Sie haben neue Kontaktanfragen</h5>
                                 @if(!empty($inquiries))
-                                    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
+                                    <table class="table table-bordered table-hover table-sm table-responsive-sm">
                                         <tr>
                                             <th>Leistung</th>
                                             <th>Name</th>
@@ -35,7 +35,7 @@
                                                 <td>{{$q->phone}}</td>
                                                 <td>{{$q->created_at}}</td>
                                                 <td class="text-center">
-                                                    <form method="post"  action="{{ route('update',$q)}}">
+                                                    <form method="post" action="{{ route('update',$q)}}">
                                                         @csrf
                                                         <input class="form-check-input" type="hidden" name="status" value="0" checked/>
                                                         @if ($q->status == 0)
