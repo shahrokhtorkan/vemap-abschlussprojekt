@@ -17,6 +17,7 @@
                                     &ndash;
                             </div>
                             <div class="card-body">
+                                <a href="{{ route('patients') }}" class="btn btn-primary float-right">Alle Patienten anzeigen</a>
                                 @if($patient)
                                     <h2 xmlns="http://www.w3.org/1999/html">{{$patient->firstname}} {{$patient->lastname}}</h2>
                                 @endif
@@ -124,8 +125,7 @@
                                                 <input class="form-control" type="text" name="country" value="{{$patient ? $patient->country: old('country')}}" placeholder="Land">
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary mr-1" type="submit">{{ $patient ? 'Anlegen' : 'Speichern' }}</button>
-                                        <a href="{{ route('patients') }}" class="btn btn-primary">Alle Patienten anzeigen.</a>
+                                        <button class="btn btn-primary mr-1" type="submit">{{ $patient ? 'Speichern' : 'Speichern' }}</button>
                                     </div>
                                 </form>
 

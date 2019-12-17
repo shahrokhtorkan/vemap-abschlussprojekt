@@ -51,12 +51,12 @@
                         @endif
                         @if (App\User::hasPermission('admin-patient'))
                             <li class="nav-item mr-2 mb-2">
-                                <a class="btn btn-primary btn-block" href="{{ route('patients') }}">Patients</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('patients') }}">Patienten</a>
                             </li>
                         @endif
                         @if (App\User::hasPermission('admin-document'))
                             <li class="nav-item mr-2 mb-2">
-                                <a class="btn btn-primary btn-block" href="{{ route('documents') }}">Dokument</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('documents') }}">Dokumenten</a>
                             </li>
                         @endif
                         @if (App\User::hasPermission('admin-calendar'))

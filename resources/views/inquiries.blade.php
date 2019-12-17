@@ -24,7 +24,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Telefon</th>
-                                            <th>hergestellt in</th>
+                                            <th>Datum</th>
                                             <th class="text-center">Status</th>
                                         </tr>
                                         @foreach($inquiries as $q)

@@ -7,7 +7,7 @@
 
     <body>
         <h1>Änderungen in Ihrem Konto</h1>
-        <p>Ein Dokument wurde zum Ihr Konto hochgeladen.</p>
+        <p>Ein Dokument wurde in Ihr Konto hochgeladen.</p>
         <p>Mit freundlichen Grüßen</p>
         <p>Dr. Richard Zauner<br>
            +43/123 123 123 123<br>

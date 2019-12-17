@@ -28,24 +28,24 @@
                                         <h2>Meine Stammdaten</h2>
                                         <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
                                             <tr>
-                                                <th>firstname</th>
-                                                <th>lastname</th>
+                                                <th>Vorname</th>
+                                                <th>Nachname</th>
                                                 <th>Email</th>
-                                                <th>svnr</th>
-                                                <th>address</th>
-                                                <th>plz</th>
-                                                <th>city</th>
-                                                <th>country</th>
+                                                <th>SVNr</th>
+                                                <th>Adresse</th>
+                                                <th>PLZ</th>
+                                                <th>Stadt</th>
+                                                <th>Land</th>
                                             </tr>
                                             <tr>
                                                 <td>{{ $patient->firstname }}</td>
                                                 <td>{{ $patient->lastname }}</td>
                                                 <td>{{ $patient->email }}</td>
-                                                <td>{{$patient->svnr}}</td>
-                                                <td>{{$patient->address}}</td>
-                                                <td>{{$patient->plz}}</td>
-                                                <td>{{$patient->city}}</td>
-                                                <td>{{$patient->country}}</td>
+                                                <td>{{ $patient->svnr}}</td>
+                                                <td>{{ $patient->address}}</td>
+                                                <td>{{ $patient->plz}}</td>
+                                                <td>{{ $patient->city}}</td>
+                                                <td>{{ $patient->country}}</td>
                                             </tr>
                                         </table>
                                     @else
@@ -56,9 +56,9 @@
                                         <h2>Meine Dokumente</h2>
                                         <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
                                             <tr>
-                                                <th>Text</th>
+                                                <th>Beschreibung</th>
                                                 <th>Pdf</th>
-                                                <th>Erstellt in</th>
+                                                <th>Datum</th>
                                             </tr>
 
                                             @foreach($documents as $document)
