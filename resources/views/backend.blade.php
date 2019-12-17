@@ -5,7 +5,7 @@
         <div class="content">
             <div class="container mb-4">
                 <div class="row justify-content-center">
-                    <div class="col-md-12 mb-4">
+                    <div class="col-md-12 mb-5">
                         <div class="card">
                             <div class="card-header text-dark card-top"><i class="fas fa-user-tie mr-1"></i>{{ auth()->user()->name }}-Profil</div>
                             <div class="card-body">
