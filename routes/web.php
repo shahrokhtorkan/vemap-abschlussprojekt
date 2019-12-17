@@ -59,7 +59,6 @@ Route::group(["middleware" => ['auth']], function () {
      */
     Route::get('/inquiries','InquiriesController@index')->name('inquiries');
     Route::post('/inquiries/{qid}', 'InquiriesController@update')->name('update');
-
     /**
      * Protected routes Documents - 'admin-document'
      */
@@ -67,7 +66,6 @@ Route::group(["middleware" => ['auth']], function () {
     Route::post('/document/{patientId}', 'DocumentController@store')->name('document');
     Route::get('/documents', 'DocumentController@index')->name('documents');
     Route::post('/documents/{patientId}/delete', 'DocumentController@destroy');
-
     /**
      * Protected routes Patients - 'admin-patient'
      */
@@ -79,7 +77,6 @@ Route::group(["middleware" => ['auth']], function () {
     Route::post('/patient/{id}/newaccount', 'PatientController@newAccount');
     Route::post('/patient/{id}/delete', 'PatientController@destroy');
     Route::get('/patients.json', 'PatientController@indexJSON');
-
     /**
      * Protected routes Appointments - 'admin-calendar'
      */
