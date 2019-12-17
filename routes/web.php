@@ -29,10 +29,10 @@ Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
  * Public routes - all user can access
  */
 
-Route::get('/about', 'AboutUsController@index')->name('about');
-Route::get('/services', 'ServicesController@index')->name('services');
-Route::get('/imprint', 'ImprintController@index')->name('imprint');
-Route::get('/contact', 'ContactFormController@index')->name('contact');
+Route::view('/about', 'frontend.about')->name('about');
+Route::view('/services', 'frontend.services')->name('services');
+Route::view('/imprint', 'frontend.imprint')->name('imprint');
+Route::view('/contact', 'frontend.contact')->name('contact');
 Route::post('/contact', 'ContactFormController@store')->name('contact');
 /*Route::get('/backend','HomeController@index')->name('frontend');*/
 
