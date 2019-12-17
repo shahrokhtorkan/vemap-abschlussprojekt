@@ -21,12 +21,12 @@
                                     Berechtigungen: {{ implode(", ", $user->getPermissionNames()) }}
                                 </p>
 
-                                @if(App\User::hasPermission('view-own-data') && $user)
+                                @if(App\User::hasPermission('view-own-data') && $patient)
                                     <p>Sie sind Patient.</p>
 
                                     <h2>Meine Stammdaten</h2>
-                                    <p>{{ $user->firstname }} {{ $user->lastname }} &lt;{{$user->email}}&gt;, {{ $user->svnr }}</p>
-                                    <p>{{ $user->address }}, {{ $user->plz }} {{ $user->city }}, {{ $user->country }}</p>
+                                    <p>{{ $patient->firstname }} {{ $patient->lastname }} &lt;{{$patient->email}}&gt;, {{ $patient->svnr }}</p>
+                                    <p>{{ $patient->address }}, {{ $patient->plz }} {{ $patient->city }}, {{ $patient->country }}</p>
 
                                     <h2>Meine Termine</h2>
 

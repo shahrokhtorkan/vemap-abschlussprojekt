@@ -69,6 +69,22 @@
                                 <a class="btn btn-primary btn-block" href="{{ route('inquiries') }}">{{ __('Anfragen') }}</a>
                             </li>
                         @endif
+                        @auth
+                            {{-- No frontend items for logged-in users --}}
+                        @else
+                            <div class="nav-item dropdown mr-2 mb-2">
+                                <a id="navbarDropdown" class="dropdown-toggle btn btn-primary btn-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-link mr-1"></i>{{ __('Seiten') }}
+                                </a>
+                                <span class="caret"></span>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('about') }}"><i class="fas fa-user-md mr-1"></i>{{ __('Über uns') }}</a>
+                                    <a class="dropdown-item" href="{{ route('services') }}"><i class="fas fa-toolbox mr-1"></i>{{ __('Leistungen') }}</a>
+                                    <a class="dropdown-item" href="{{ route('contact') }}"><i class="fas fa-envelope mr-1"></i>{{ __('Kontakt') }}</a>
+                                    <a class="dropdown-item" href="{{ route('imprint') }}"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</a>
+                                </div>
+                            </div>
+                        @endauth
                         {{--@can('view-own-data')
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('backend') }}"><i class="fas fa-home mr-1"></i>{{ __('Home') }}</a>
@@ -94,18 +110,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <div class="nav-item dropdown mr-2 mb-2">
-                            <a id="navbarDropdown" class="dropdown-toggle btn btn-primary btn-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-link mr-1"></i>{{ __('Seiten') }}
-                            </a>
-                            <span class="caret"></span>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('about') }}"><i class="fas fa-user-md mr-1"></i>{{ __('Über uns') }}</a>
-                                <a class="dropdown-item" href="{{ route('services') }}"><i class="fas fa-toolbox mr-1"></i>{{ __('Leistungen') }}</a>
-                                <a class="dropdown-item" href="{{ route('contact') }}"><i class="fas fa-envelope mr-1"></i>{{ __('Kontakt') }}</a>
-                                <a class="dropdown-item" href="{{ route('imprint') }}"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</a>
-                            </div>
-                        </div>
                         @guest
                             <li class="nav-item mr-2 mb-2">
                                 <a class="btn btn-primary btn-block" href="{{ route('login') }}">{{ __('Einloggen') }}</a>

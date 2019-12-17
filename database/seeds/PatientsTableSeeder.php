@@ -1,5 +1,7 @@
 <?php
 
+use App\Patient;
+use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Carbon;
@@ -28,6 +30,10 @@ class PatientsTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
+
+        $user = User::findOrFail(2);
+        $patient = Patient::findOrFail(1);
+        $user->patient()->save($patient);
     }
 
     /**
