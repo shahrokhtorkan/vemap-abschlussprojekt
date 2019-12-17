@@ -77,6 +77,12 @@ Route::group(["middleware" => ['auth']], function () {
 
     /*Route::group(["middleware" => ['hasPermission:admin-calendar']], function () {*/
         Route::get('/appointments', 'AppointmentController@index')->name('appointments');
+        Route::post('/appointments/create', 'AppointmentController@createForDay');
+        Route::post('/appointment/{id}/assignpatient', 'AppointmentController@assignPatient');
+        Route::post('/appointment/{id}/setstatus', 'AppointmentController@setStatus');
+        Route::post('/appointment/{id}/destroy', 'AppointmentController@destroy');
+        Route::post('/appointment/{id}/cancel', 'AppointmentController@cancel');
+        Route::post('/appointment/reserve', 'AppointmentController@reserve');
     /*});*/
 
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
