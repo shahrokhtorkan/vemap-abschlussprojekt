@@ -30,6 +30,8 @@ class CreateRoleUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_user');
+        Schema::table('role_user', function (Blueprint $table) {
+            //
+        });
     }
 }

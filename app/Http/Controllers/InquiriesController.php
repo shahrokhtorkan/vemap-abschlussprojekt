@@ -16,7 +16,7 @@ class InquiriesController extends Controller
     {
         $inquiries = Inquiries::orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'));
 //        dd($inquiries);
-    return view('backend',compact('inquiries'));
+    return view('inquiries',compact('inquiries'));
 
     }
 

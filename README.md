@@ -24,14 +24,19 @@
 ## Aufgabe:
 
 - Login/Register/Password Reset.
-- Contact Form.
+- Contact Form with Vue.
 - Responsive layout.
 - Bootstrap Template.
+- User, Patients, Appointment Factory.
 - User Roles and Permissions.
+- Middleware.
+- List patients with filtering and sorting system.
+- List patients document.
+- Appointment.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel Events framework!
+Thank you for considering contributing to the Laravel framework!
 
 ## Security Vulnerabilities
 
@@ -39,4 +44,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel Events framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

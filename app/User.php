@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -38,26 +38,83 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function patient()
-    {
-        return $this->belongsTo('App\Patient');
-    }
-
-    /**
-     * One User has many Documents
-     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function documents()
+    public function document()
     {
         return $this->hasMany('App\Document');
     }
 
     /**
-     * One User has more Appointments or no Appointments
-     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getRoleNames()
+    {
+        $result = [];
+        foreach ($this->roles as $role) {
+            array_push($result, $role->name);
+        }
+        return $result;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getPermissionNames()
+    {
+        $result = [];
+        foreach ($this->roles as $role) {
+            $result = array_merge($role->getPermissionNames(), $result);
+        }
+        return $result;
+    }
+
+    /**
+     * @param string $permissionName
+     * @return bool
+     */
+    public static function hasPermission(string $permissionName): bool
+    {
+        $currentUser = auth()->user();
+        if ($currentUser) {
+            $currentUserPermissionNames = $currentUser->getPermissionNames();
+            return in_array($permissionName, $currentUserPermissionNames) ? true : false;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @param string $permissionName
+     * @throws AuthorizationException
+     */
+    public static function requirePermission(string $permissionName)
+    {
+        $currentUser = auth()->user();
+        if (!$currentUser) {
+            throw new AuthorizationException("Not logged in, so user does not have the '{$permissionName}' permission.");
+        } elseif (!$currentUser->hasPermission($permissionName)) {
+            throw new AuthorizationException("User '{$currentUser->name}' does not have '{$permissionName}' permission.");
+        }
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function patient()
+    {
+        return $this->hasOne('App\Patient');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function appointments()
@@ -66,40 +123,13 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @param $userRoleName
      */
-    public function roles() {
-        return $this->belongsToMany('App\Role');
+    public function addRole($userRoleName): void
+    {
+        if(!$this->id) { throw new \Exception("Please save the object before trying to access its relations."); }
+        $role = Role::where('name', $userRoleName)->firstOrFail();
+        $this->roles()->attach($role->id);
     }
 
-    public function addRole(string $roleName) {
-        $role = Role::where('name', $roleName)->firstOrFail();
-        $this->roles()->save($role);
-    }
-
-    public function hasRole(string $roleName) {
-        $result = false;
-        foreach (auth()->user()->roles as $role) {
-            if($role->name == $roleName) {
-                $result = true;
-                break;
-            }
-        }
-        return $result;
-    }
-
-    public function hasPermission(string $permissionName): bool {
-
-        $hasPermission = false;
-
-        foreach($this->roles as $role) {
-            if($role->hasPermission($permissionName)) {
-                $hasPermission=true;
-                break;
-            }
-        }
-
-        return $hasPermission;
-
-    }
 }

@@ -4,7 +4,7 @@ body,
 header,
 .view {
     height: 100%;
-    background: url(../images/bg.jpg) no-repeat center center fixed;
+    background: url('../images/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -148,7 +148,8 @@ ul {
 }
 
 .footer {
-    background-color: rgba(50, 144, 220, 0.300) !important;
+    /*background-color: rgba(50, 144, 220, 0.300) !important;*/
+    background-color: rgba(50, 144, 220, 0.9) !important;
 }
 
 .new-patient {

@@ -18,8 +18,9 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('patient_id');
-            /*$table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');*/
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->text('text');
+            $table->string('pdf')->default('/upload_doc/sample.pdf')->nullable();
             $table->timestamps();
         });
     }
