@@ -73,6 +73,9 @@
                             {{-- No frontend items for logged-in users --}}
                         @else
                             <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('/') }}">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item mr-2 mb-2">
                                 <a class="btn btn-primary btn-block" href="{{ route('about') }}">{{ __('Über uns') }}</a>
                             </li>
                             <li class="nav-item mr-2 mb-2">
