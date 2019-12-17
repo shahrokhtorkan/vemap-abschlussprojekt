@@ -14,8 +14,8 @@
                                     <table class="table table-bordered table-hover table-sm table-responsive-sm">
                                         <tr>
                                             <th>Datum</th>
-                                            <th>Patient</th>
-                                            <th>Text</th>
+                                            <th>Patienten</th>
+                                            <th>Beschreibung</th>
                                             <th>Pdf</th>
                                             <th class="text-center">Aktion</th>
                                         </tr>
