@@ -15,14 +15,12 @@
                                     </div>
                                 @endif
                                 <h3 class="mb-4">Willkommen {{ auth()->user()->name }}</h3>
-
                                 <p>
                                     Sie haben aufgrund Ihrer Rolle(n) {{ implode(", ", $user->getRoleNames()) }} die folgenden
                                     Berechtigungen: {{ implode(", ", $user->getPermissionNames()) }}
                                 </p>
-
                                 @if(App\User::hasRole('assistant'))
-                                    Welcome, Assistant!
+                                        <p>Willkommen, Assistant!</p>
                                 @else
                                     @if(App\User::hasPermission('view-own-data') && $patient)
                                         <p>Sie sind Patient.</p>
@@ -55,7 +53,6 @@
                                     @endif
 
                                     @if(App\User::hasPermission('view-own-data'))
-
                                         <h2>Meine Dokumente</h2>
                                         <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
                                             <tr>
