@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex-center position-ref full-height mt-5">
         <div class="content">
-            <div class="container mb-5">
+            <div class="container mb-4">
                 <div class="row justify-content-center">
                     <div class="col-md-10 mb-5">
                         <div class="card">
