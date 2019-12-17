@@ -25,9 +25,28 @@
                                     <p>Sie sind Patient.</p>
 
                                     <h2>Meine Stammdaten</h2>
-                                    <p>{{ $patient->firstname }} {{ $patient->lastname }} &lt;{{$patient->email}}&gt;, {{ $patient->svnr }}</p>
-                                    <p>{{ $patient->address }}, {{ $patient->plz }} {{ $patient->city }}, {{ $patient->country }}</p>
-
+                                    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
+                                        <tr>
+                                            <th>firstname</th>
+                                            <th>lastname</th>
+                                            <th>Email</th>
+                                            <th>svnr</th>
+                                            <th>address</th>
+                                            <th>plz</th>
+                                            <th>city</th>
+                                            <th>country</th>
+                                        </tr>
+                                            <tr>
+                                                <td>{{ $patient->firstname }} </td>
+                                                <td>{{ $patient->lastname }} </td>
+                                                <td>{{ $patient->email }} </td>
+                                                <td>{{$patient->svnr}}</td>
+                                                <td>{{$patient->address}}</td>
+                                                <td>{{$patient->plz}}</td>
+                                                <td>{{$patient->city}}</td>
+                                                <td>{{$patient->country}}</td>
+                                            </tr>
+                                    </table>
                                     <h2>Meine Termine</h2>
 
                                     <h2>Termin buchen</h2>

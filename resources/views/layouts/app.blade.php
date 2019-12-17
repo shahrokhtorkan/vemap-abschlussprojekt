@@ -72,7 +72,7 @@
                         @auth
                             {{-- No frontend items for logged-in users --}}
                         @else
-                            <div class="nav-item dropdown mr-2 mb-2">
+                            {{--<div class="nav-item dropdown mr-2 mb-2">
                                 <a id="navbarDropdown" class="dropdown-toggle btn btn-primary btn-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-link mr-1"></i>{{ __('Seiten') }}
                                 </a>
@@ -83,28 +83,20 @@
                                     <a class="dropdown-item" href="{{ route('contact') }}"><i class="fas fa-envelope mr-1"></i>{{ __('Kontakt') }}</a>
                                     <a class="dropdown-item" href="{{ route('imprint') }}"><i class="fas fa-clinic-medical mr-1"></i>{{ __('Impressum') }}</a>
                                 </div>
-                            </div>
+                            </div>--}}
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('about') }}">{{ __('Über uns') }}</a>
+                            </li>
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('services') }}">{{ __('Leistungen') }}</a>
+                            </li>
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('contact') }}">{{ __('Kontakt') }}</a>
+                            </li>
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('imprint') }}">{{ __('Impressum') }}</a>
+                            </li>
                         @endauth
-                        {{--@can('view-own-data')
-                        <li class="nav-item mr-2 mb-2">
-                            <a class="btn btn-primary btn-block" href="{{ route('backend') }}"><i class="fas fa-home mr-1"></i>{{ __('Home') }}</a>
-                        </li>
-                        @endcan
-                        @can('admin-patient')
-                        <li class="nav-item mr-2 mb-2">
-                            <a class="btn btn-primary btn-block" href="{{ route('patients') }}"><i class="fas fa-user mr-1"></i>{{ __('Patients') }}</a>
-                        </li>
-                        @endcan
-                        @can('admin-document')
-                            <li class="nav-item mr-2 mb-2">
-                                <a class="btn btn-primary btn-block" href="{{ route('documents') }}"><i class="fas fa-file-alt mr-1"></i>{{ __('Document') }}</a>
-                            </li>
-                        @endcan
-                        @can('admin-calendar')
-                            <li class="nav-item mr-2 mb-2">
-                                <a class="btn btn-primary btn-block" href="{{ route('appointments') }}"><i class="fas fa-calendar-alt mr-1"></i>{{ __('Termine') }}</a>
-                            </li>
-                        @endcan--}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
