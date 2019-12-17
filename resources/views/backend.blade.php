@@ -64,7 +64,7 @@
                                             @foreach($documents as $document)
                                                 <tr>
                                                     <td>{{ $document->text }}</td>
-                                                    <td>{{ $document->pdf }}</td>
+                                                    <td><a href="{{$document->pdf}}"><i class="fas fa-file-pdf fa-2x"></i></a></td>
                                                     <td>{{ $document->created_at }}</td>
                                                 </tr>
                                             @endforeach
