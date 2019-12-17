@@ -2,9 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Patient;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +16,16 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Patient::class, function (Faker $faker) {
+
     return [
-        'name' => $faker->name,
+        'firstname' => $faker->firstName,
+        'lastname' => $faker->lastName,
+        'svnr' => rand(1000, 9999) . sprintf("%02s%02s%02s", rand(1, 28), rand(1, 12), rand(1, 99)),
+        'plz' => $faker->postcode,
+        'city' => $faker->city,
+        'country' => 'Österreich',
+        'address' => $faker->streetAddress,
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
     ];
 });
