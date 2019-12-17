@@ -25,7 +25,7 @@ class CreateAppointmentsTable extends Migration
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE appointments ADD CONSTRAINT chk_status CHECK ( status IN ('".implode("' ,'", Appointment::APPOINTMENT_STATI) ."'))");
+        DB::statement("ALTER TABLE appointments ADD CONSTRAINT chk_status CHECK ( status IN ('".implode("' ,'", Appointment::STATUS) ."'))");
     }
 
     /**

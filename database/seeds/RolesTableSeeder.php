@@ -34,6 +34,7 @@ class RolesTableSeeder extends Seeder
         $adminPatientPermission = Permission::where('name','admin-patient')->first();
         $adminCalendarPermission = Permission::where('name','admin-calendar')->first();
         $adminDocumentPermission = Permission::where('name','admin-document')->first();
+        $adminContactPermission = Permission::where('name','admin-contact')->first();
 
         $patientRole=Role::where('name', 'patient')->first();
         $assistantRole=Role::where('name', 'assistant')->first();
@@ -47,5 +48,6 @@ class RolesTableSeeder extends Seeder
         $assistantRole->permissions()->attach($adminPatientPermission->id);
         $assistantRole->permissions()->attach($adminCalendarPermission->id);
         $assistantRole->permissions()->attach($adminDocumentPermission->id);
+        $assistantRole->permissions()->attach($adminContactPermission->id);
     }
 }

@@ -20,7 +20,8 @@ class PermissionsTableSeeder extends Seeder
             'view-own-data',
             'admin-patient',
             'admin-calendar',
-            'admin-document'
+            'admin-document',
+            'admin-contact'
         ];
 
         foreach ($permissionNames as $permissionName) {

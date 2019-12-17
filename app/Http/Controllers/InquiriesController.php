@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inquiries;
+use App\User;
 use Illuminate\Http\Request;
 
 class InquiriesController extends Controller
@@ -14,10 +15,10 @@ class InquiriesController extends Controller
      */
     public function index()
     {
-        $inquiries = Inquiries::orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'));
-//        dd($inquiries);
-    return view('inquiries',compact('inquiries'));
+        User::requirePermission('admin-contact');
 
+        $inquiries = Inquiries::orderBy('id', 'desc')->paginate(3);
+        return view('inquiries',compact('inquiries'));
     }
 
     /**
@@ -72,10 +73,11 @@ class InquiriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        User::requirePermission('admin-contact');
+
         $inquiries = Inquiries::find($id);
         $inquiries->status = $request->status;
         $inquiries->save();
-//        return view('backend');
         session()->flash("message", "inquiries {$inquiries->status} wurde gespeichert.");
         return redirect()->back();
     }
