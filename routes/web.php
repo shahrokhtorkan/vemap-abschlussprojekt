@@ -34,7 +34,6 @@ Route::view('/services', 'frontend.services')->name('services');
 Route::view('/imprint', 'frontend.imprint')->name('imprint');
 Route::view('/contact', 'frontend.contact')->name('contact');
 Route::post('/contact', 'ContactFormController@store')->name('contact');
-/*Route::get('/backend','HomeController@index')->name('frontend');*/
 
 /**
  * Protected routes - only authenticated user can access
