@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -127,9 +128,20 @@ class User extends Authenticatable
      */
     public function addRole($userRoleName): void
     {
-        if(!$this->id) { throw new \Exception("Please save the object before trying to access its relations."); }
+        if (!$this->id) {
+            throw new \Exception("Please save the object before trying to access its relations.");
+        }
         $role = Role::where('name', $userRoleName)->firstOrFail();
         $this->roles()->attach($role->id);
     }
 
+    public static function hasRole($roleName): bool
+    {
+        $user = Auth::user();
+        if ($user && $user->roles()->where('name', $roleName)->count() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

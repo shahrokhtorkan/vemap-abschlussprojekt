@@ -45,7 +45,13 @@ Route::group(["middleware" => ['auth']], function () {
     Route::get('/backend', function () {
         User::requirePermission('login');
         $user = auth()->user();
-        return view('backend', ['user' => $user, 'patient' => $user->patient])  ;
+        $patient = $user->patient;
+        if ($patient) {
+            $documents = $patient->documents;
+        }else {
+            $documents = [];
+        }
+        return view('backend', ['user' => $user, 'patient' => $patient, 'documents' => $documents])  ;
     })->name('backend');
 
     Route::get('/inquiries','InquiriesController@index')->name('inquiries');

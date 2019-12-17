@@ -21,38 +21,64 @@
                                     Berechtigungen: {{ implode(", ", $user->getPermissionNames()) }}
                                 </p>
 
-                                @if(App\User::hasPermission('view-own-data') && $patient)
-                                    <p>Sie sind Patient.</p>
+                                @if(App\User::hasRole('assistant'))
+                                    Welcome, Assistant!
+                                @else
+                                    @if(App\User::hasPermission('view-own-data') && $patient)
+                                        <p>Sie sind Patient.</p>
 
-                                    <h2>Meine Stammdaten</h2>
-                                    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
-                                        <tr>
-                                            <th>firstname</th>
-                                            <th>lastname</th>
-                                            <th>Email</th>
-                                            <th>svnr</th>
-                                            <th>address</th>
-                                            <th>plz</th>
-                                            <th>city</th>
-                                            <th>country</th>
-                                        </tr>
+                                        <h2>Meine Stammdaten</h2>
+                                        <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
                                             <tr>
-                                                <td>{{ $patient->firstname }} </td>
-                                                <td>{{ $patient->lastname }} </td>
-                                                <td>{{ $patient->email }} </td>
-                                                <td>{{$patient->svnr}}</td>
-                                                <td>{{$patient->address}}</td>
-                                                <td>{{$patient->plz}}</td>
-                                                <td>{{$patient->city}}</td>
-                                                <td>{{$patient->country}}</td>
+                                                <th>firstname</th>
+                                                <th>lastname</th>
+                                                <th>Email</th>
+                                                <th>svnr</th>
+                                                <th>address</th>
+                                                <th>plz</th>
+                                                <th>city</th>
+                                                <th>country</th>
                                             </tr>
-                                    </table>
+                                                <tr>
+                                                    <td>{{ $patient->firstname }}</td>
+                                                    <td>{{ $patient->lastname }}</td>
+                                                    <td>{{ $patient->email }}</td>
+                                                    <td>{{$patient->svnr}}</td>
+                                                    <td>{{$patient->address}}</td>
+                                                    <td>{{$patient->plz}}</td>
+                                                    <td>{{$patient->city}}</td>
+                                                    <td>{{$patient->country}}</td>
+                                                </tr>
+                                        </table>
+                                    @else
+                                        Sie sind kein Patient.
+                                    @endif
+
+                                    @if(App\User::hasPermission('view-own-data'))
+
+                                        <h2>Meine Dokumente</h2>
+                                        <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
+                                            <tr>
+                                                <th>Text</th>
+                                                <th>Pdf</th>
+                                                <th>Erstellt in</th>
+                                            </tr>
+
+                                            @foreach($documents as $document)
+                                                <tr>
+                                                    <td>{{ $document->text }}</td>
+                                                    <td>{{ $document->pdf }}</td>
+                                                    <td>{{ $document->created_at }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @else
+                                        Sie haben kein Dokument.
+                                    @endif
+
                                     <h2>Meine Termine</h2>
 
                                     <h2>Termin buchen</h2>
-
-                                @else
-                                    Sie sind kein Patient.
                                 @endif
                             </div>
                         </div>

@@ -40,5 +40,19 @@ class DocumentsTableSeeder extends Seeder
                 $documents->save();
             }
         }
+
+        $user = User::findOrFail(2);
+        $document = Document::findOrFail(1);
+        $user->document()->save($document);
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('documents');
     }
 }
