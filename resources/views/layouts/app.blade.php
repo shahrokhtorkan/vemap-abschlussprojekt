@@ -64,7 +64,7 @@
                                 <a class="btn btn-primary btn-block" href="{{ route('appointments') }}">Termine</a>
                             </li>
                         @endif
-                        @if (App\User::hasPermission('admin-patient'))
+                        @if (App\User::hasPermission('admin-contact'))
                             <li class="nav-item mr-2 mb-2">
                                 <a class="btn btn-primary btn-block" href="{{ route('inquiries') }}">{{ __('Anfragen') }}</a>
                             </li>

@@ -18,7 +18,7 @@ class InquiriesController extends Controller
         User::requirePermission('admin-contact');
 
         $inquiries = Inquiries::orderBy('id', 'desc')->paginate(3);
-        return view('inquiries',compact('inquiries'));
+        return view('backend.inquiries',compact('inquiries'));
     }
 
     /**
