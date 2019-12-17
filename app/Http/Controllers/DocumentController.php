@@ -17,11 +17,9 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $documents = Document::orderBy('id', 'desc')->paginate(6);
-//        dd($documents);
-//        return view('backend.documents', array(
-//            'documents' => auth()->user()->documents()->orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'))
-//        ));
+        User::requirePermission('admin-document');
+
+        $documents = Document::orderBy('id', 'desc')->paginate(9);
         return view('backend.documents',compact('documents'));
     }
 
@@ -31,7 +29,12 @@ class DocumentController extends Controller
      */
     public function create(int $patientId)
     {
-        return view('backend.document', [ 'patientId' => $patientId]);
+        User::requirePermission('admin-document');
+
+        $patient = Patient::findOrFail($patientId);
+        $user = auth()->user();
+
+        return view('backend.document', [ 'patientId' => $patientId, 'patient' => $patient, 'user' => $user]);
     }
 
     /**
@@ -39,15 +42,16 @@ class DocumentController extends Controller
      * @param int $patientId
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request, int $id)
+    public function store(Request $request, int $patientId)
     {
+        User::requirePermission('admin-document');
 
         $request->validate([
             'text' => 'required',
             'file' => 'required|mimes:doc,docx,pdf,txt|max:2048',
         ]);
 
-        $patient = Patient::findOrFail($id);
+        $patient = Patient::findOrFail($patientId);
 
         // Send a mail notification
         try {
@@ -67,7 +71,7 @@ class DocumentController extends Controller
         $document->text = $name;
         $document->pdf = "/upload_doc/" . $doc_path;
         $document->save();
-        return redirect()->route('patients', $id);
+        return redirect()->route('patients', $patientId);
     }
 
     /**
@@ -110,9 +114,11 @@ class DocumentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($patientId)
     {
-        $document = Document::findOrFail($id);
+        User::requirePermission('admin-document');
+
+        $document = Document::findOrFail($patientId);
         $document->delete();
         return redirect(route('documents'));
     }

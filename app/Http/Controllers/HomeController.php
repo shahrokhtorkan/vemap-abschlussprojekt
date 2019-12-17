@@ -26,6 +26,6 @@ class HomeController extends Controller
     {
         $inquiries = Inquiries::orderBy('id', 'desc')->paginate(5);
 
-        return view('backend',compact('inquiries'));
+        return view('inquiries',compact('inquiries'));
     }
 }

@@ -15,41 +15,25 @@
                                     </div>
                                 @endif
                                 <h3 class="mb-4">Willkommen {{ auth()->user()->name }}</h3>
-                                <h5>Sie haben neue Kontaktanfragen</h5>
-                                @if(!empty($inquiries))
-                                    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
-                                        <tr>
-                                            <th>Leistung</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Telefon</th>
-                                            <th>hergestellt in</th>
-                                            {{--<th>Status</th>--}}
-                                            <th>Action</th>
-                                        </tr>
-                                        @foreach($inquiries as $q)
-                                            <tr>
-                                                <td>{{ $q->service }} </td>
-                                                <td>{{ $q->name }} </td>
-                                                <td><a href="mailto:{{ $q->email }}" class="text-dark">{{ $q->email }}</a></td>
-                                                <td>{{$q->phone}}</td>
-                                                <td>{{$q->created_at}}</td>
-                                                <td class="text-center">
-                                                    <form method="post"  action="{{ route('update',$q)}}">
-                                                        @csrf
-                                                        <input class="form-check-input" type="hidden" name="status" value="0" checked/>
-                                                        @if ($q->status == 0)
-                                                            <input type="submit" value="erledigt" class="btn btn-success mt-1">
-                                                        @else
-                                                            <input type="submit" value="offen" class="btn btn-primary mt-1">
-                                                        @endif
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
+
+                                <p>
+                                    Sie haben aufgrund Ihrer Rolle(n) {{ implode(", ", $user->getRoleNames()) }} die folgenden
+                                    Berechtigungen: {{ implode(", ", $user->getPermissionNames()) }}
+                                </p>
+
+                                @if(App\User::hasPermission('view-own-data') && $user)
+                                    <p>Sie sind Patient.</p>
+
+                                    <h2>Meine Stammdaten</h2>
+                                    <p>{{ $user->firstname }} {{ $user->lastname }} &lt;{{$user->email}}&gt;, {{ $user->svnr }}</p>
+                                    <p>{{ $user->address }}, {{ $user->plz }} {{ $user->city }}, {{ $user->country }}</p>
+
+                                    <h2>Meine Termine</h2>
+
+                                    <h2>Termin buchen</h2>
+
                                 @else
-                                    <p>Keine Kontakt vorhanden.</p>
+                                    Sie sind kein Patient.
                                 @endif
                             </div>
                         </div>

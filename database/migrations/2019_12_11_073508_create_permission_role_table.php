@@ -30,6 +30,8 @@ class CreatePermissionRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission_role');
+        Schema::table('permission_role', function (Blueprint $table) {
+            //
+        });
     }
 }

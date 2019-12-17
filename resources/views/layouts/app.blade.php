@@ -44,7 +44,32 @@
                 <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
-                        @can('login')
+                        @if (App\User::hasPermission('login'))
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('backend') }}">Home</a>
+                            </li>
+                        @endif
+                        @if (App\User::hasPermission('admin-patient'))
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('patients') }}">Patients</a>
+                            </li>
+                        @endif
+                        @if (App\User::hasPermission('admin-document'))
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('documents') }}">Dokument</a>
+                            </li>
+                        @endif
+                        @if (App\User::hasPermission('admin-calendar'))
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('appointments') }}">Termine</a>
+                            </li>
+                        @endif
+                        @if (App\User::hasPermission('admin-patient'))
+                            <li class="nav-item mr-2 mb-2">
+                                <a class="btn btn-primary btn-block" href="{{ route('inquiries') }}">{{ __('Anfragen') }}</a>
+                            </li>
+                        @endif
+                        {{--@can('view-own-data')
                         <li class="nav-item mr-2 mb-2">
                             <a class="btn btn-primary btn-block" href="{{ route('backend') }}"><i class="fas fa-home mr-1"></i>{{ __('Home') }}</a>
                         </li>
@@ -63,7 +88,7 @@
                             <li class="nav-item mr-2 mb-2">
                                 <a class="btn btn-primary btn-block" href="{{ route('appointments') }}"><i class="fas fa-calendar-alt mr-1"></i>{{ __('Termine') }}</a>
                             </li>
-                        @endcan
+                        @endcan--}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
