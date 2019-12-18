@@ -122,7 +122,7 @@ class DocumentController extends Controller
         //delete the file from the directory
         $doc_path = $document->pdf;
         $path_pieces = explode("/",$doc_path);
-        $doc_path = "/$path_pieces[2]/$path_pieces[3]";
+        $doc_path = "/$path_pieces[2]/$path_pieces[2]";
         Storage::disk('upload_doc')->delete($doc_path);
         return redirect(route('backend'));
     }
