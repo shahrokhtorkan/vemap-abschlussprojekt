@@ -7,24 +7,24 @@
             <div class="container mb-4">
                 <div class="row justify-content-center">
                     <div class="col-md-12 mb-4">
-                        <div class="card">
-                            <div class="card-header text-dark card-top"><i class="fas fa-calendar-alt mr-1"></i>{{ __('Termine') }}</div>
+                        <div class="card mb-5">
+                            <div class="card-header text-dark card-top"><i class="fas fa-calendar-alt mr-1"></i>{{ __('Verfügbare Termine') }}</div>
                             <div class="card-body">
 
                                 @if(!empty($availableSlots))
-                                    <h2>Verfügbare Termine</h2>
-
-                                    @include('backend.includes.appointments-table', ['slots' => $availableSlots])
-
+                                    @include('backend.includes.admin-appointments-table', ['slots' => $availableSlots])
                                 @else
                                     <p>Keine Termine.</p>
                                 @endif
 
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-dark card-top"><i class="fas fa-calendar-alt mr-1"></i>{{ __('Bestätigte Termine') }}</div>
+                            <div class="card-body">
+
                                 @if(!empty($confirmedSlots))
-                                    <h2>Bestätigte Termine</h2>
-
-                                    @include('backend.includes.appointments-table', ['slots' => $confirmedSlots])
-
+                                    @include('backend.includes.admin-appointments-table', ['slots' => $confirmedSlots])
                                 @else
                                     <p>Keine Termine.</p>
                                 @endif

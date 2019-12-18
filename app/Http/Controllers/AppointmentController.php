@@ -18,9 +18,9 @@ class AppointmentController extends Controller
 
         $user = auth()->user();
 
-        $availableSlots=$user->appointments()->where('status', 'available')->paginate(8);
-        $reservedSlots=$user->appointments()->where('status', 'reserved')->paginate(8);
-        $confirmedSlots=$user->appointments()->whereIn('status', ['reserved','confirmed'])->paginate(8);
+        $availableSlots=$user->appointments()->where('status', 'available')->paginate(4);
+        $reservedSlots=$user->appointments()->where('status', 'reserved')->paginate(4);
+        $confirmedSlots=$user->appointments()->whereIn('status', ['reserved','confirmed'])->paginate(4);
 
         return view('backend.appointments', ['confirmedSlots'=>$confirmedSlots, 'reservedSlots'=>$reservedSlots, 'availableSlots'=>$availableSlots, 'patients'=>Patient::orderBy('lastname')->get(), 'slotStatus' => Appointment::STATUS]);
     }
