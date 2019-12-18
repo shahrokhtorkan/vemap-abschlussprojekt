@@ -8,17 +8,17 @@
     </tr>
     @foreach($slots as $slot)
         <tr>
-            <td>{{ $slot->start }}</td>
-            <td>{{ $slot->end }}</td>
+            <td>{{ $slot->start->format('D d.m. H:i') }}</td>
+            <td>{{ $slot->end->format('H:i') }}</td>
             <td>
                 @if(App\User::hasPermission('admin-calendar'))
                     <form method="post" action="{{ "/appointment/{$slot->id}/assignpatient" }}">
                         @csrf
                         <select class="custom-select" name="patient_id" onchange="this.form.submit()">
                             @if($slot->patient)
-                                <option value="">Kein Patient</option>
+                                <option value="">(Kein Patient)</option>
                             @else
-                                <option selected="selected" value="">Kein Patient</option>
+                                <option selected="selected" value="">Patient auswählen</option>
                             @endif
                             @forelse($patients as $patient)
                                 @if($slot->patient && $slot->patient->id == $patient->id)

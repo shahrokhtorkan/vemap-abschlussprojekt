@@ -54,7 +54,7 @@ Route::group(["middleware" => ['auth']], function () {
             'user' => $user,
             'patient' => $patient,
             'documents' => $documents,
-            /*'mySlots' => Appointment::getMyConfirmedSlots(), 'availableSlots' => Appointment::getAvailableSlots()*/
+            'mySlots' => Appointment::getMyConfirmedSlots(), 'availableSlots' => Appointment::getAvailableSlots()
         ]);
     })->name('backend');
 

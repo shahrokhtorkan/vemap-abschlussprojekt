@@ -57,7 +57,7 @@ class Appointment extends Model
         $user = auth()->user();
         $patient = $user->patient;
         if($patient) {
-            $result =$patient->slots()->whereIn('status', ['reserved', 'confirmed'])->get();
+            $result =$patient->appointments()->whereIn('status', ['reserved', 'confirmed'])->get();
         } else {
             $result=new Collection();
         }

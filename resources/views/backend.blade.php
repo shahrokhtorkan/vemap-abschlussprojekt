@@ -28,10 +28,10 @@
                                     @include('backend.includes.patient-documents')
 
                                     <h4>Meine Termine</h4>
-                                    {{--@include('backend.includes.patient-appointments-table', ['appointments' => $mySlots])--}}
+                                    @include('backend.includes.patient-appointments-table', ['appointments' => $mySlots])
 
                                     <h4>Termin buchen</h4>
-                                    {{--<form method="post" action="/appointments/reserve">
+                                    {{--<form method="post" action="/appointment/reserve">
                                         @csrf
                                         <select name="slot_id">
                                             @forelse($availableSlots as $slot)
