@@ -115,9 +115,11 @@ class DocumentController extends Controller
      */
     public function destroy($documentId)
     {
-
+        //delete the Row from the Documents table
         $document = Document::findOrFail($documentId);
         $document->delete();
+
+        //delete the file from the directory
         $doc_path = $document->pdf;
         $path_pieces = explode("/",$doc_path);
         $doc_path = "/$path_pieces[2]/$path_pieces[3]";
