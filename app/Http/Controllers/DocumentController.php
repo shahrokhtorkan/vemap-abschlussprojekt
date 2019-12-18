@@ -64,7 +64,6 @@ class DocumentController extends Controller
         $uploded_file = $request->file('file');
         $name = $request->text;
         $doc_path = Storage::disk('upload_doc')->put($patient->firstname . $patient->lastname, $uploded_file);
-
         $document = new Document();
         $document->user()->associate(auth()->user());
         $document->patient()->associate($patient);
@@ -114,12 +113,10 @@ class DocumentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($patientId)
+    public function destroy($documentId)
     {
-        User::requirePermission('admin-document');
-
-        $document = Document::findOrFail($patientId);
+        $document = Document::findOrFail($documentId);
         $document->delete();
-        return redirect(route('documents'));
+        return redirect(route('backend'));
     }
 }
