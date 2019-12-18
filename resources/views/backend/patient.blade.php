@@ -20,6 +20,8 @@
                                 <a href="{{ route('patients') }}" class="btn btn-primary float-right">Alle Patienten anzeigen</a>
                                 @if($patient)
                                     <h2 xmlns="http://www.w3.org/1999/html">{{$patient->firstname}} {{$patient->lastname}}</h2>
+                                    @else
+                                    <h2>{{ __(' Neuer Patient') }}</h2>
                                 @endif
 
                                 @if ($errors->any())
