@@ -1,17 +1,17 @@
 @if(App\User::hasPermission('view-own-data'))
     <h4>Meine Dokumente</h4>
-    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
+    <table class="table table-bordered table-hover table-sm table-responsive-sm mb-4">
         <tr>
             <th>Datum</th>
             <th>Beschreibung</th>
-            <th>Pdf</th>
-            <th>Aktion</th>
+            <th class="text-center">Pdf</th>
+            <th class="text-center">Aktion</th>
         </tr>
         @foreach($documents as $document)
             <tr>
                 <td>{{ $document->created_at }}</td>
                 <td>{{ $document->text }}</td>
-                <td><a href="{{$document->pdf}}"><i class="fas fa-file-pdf fa-2x"></i></a></td>
+                <td class="text-center"><a href="{{$document->pdf}}"><i class="fas fa-file-pdf fa-2x"></i></a></td>
                 <td class="text-center">
                     <form method="post" action="/documents/{{$document->id}}/delete">
                         @csrf
