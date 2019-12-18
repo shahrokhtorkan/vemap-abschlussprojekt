@@ -89,7 +89,7 @@ Route::group(["middleware" => ['auth']], function () {
     Route::post('/appointment/{id}/assignpatient', 'AppointmentController@assignPatient');
     Route::post('/appointment/{id}/setstatus', 'AppointmentController@setStatus');
     Route::post('/appointments/{Id}/destroy', 'AppointmentController@destroy');
-    Route::post('/appointment/{id}/cancel', 'AppointmentController@cancel');
+    Route::post('/appointments/{id}/cancel', 'AppointmentController@cancel');
     Route::post('/appointment/reserve', 'AppointmentController@reserve');
     /**
      * Logout

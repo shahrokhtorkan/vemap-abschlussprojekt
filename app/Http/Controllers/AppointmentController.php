@@ -113,9 +113,9 @@ class AppointmentController extends Controller
      * @param $slot_id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function cancel($slot_id)
+    public function cancel($id)
     {
-        $slot = Appointment::findOrFail($slot_id);
+        $slot = Appointment::findOrFail($id);
 
         if ($slot->status == 'reserved') {
             $slot->patient()->dissociate();
