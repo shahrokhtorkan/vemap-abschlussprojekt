@@ -88,13 +88,6 @@ class AppointmentController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    /*public function destroy($slotId)
-    {
-        $appointment = Appointment::findOrFail($slotId);
-        $appointment->destroy();
-        return redirect(route('appointments'));
-    }*/
-
     public function destroy($id)
     {
         Appointment::destroy($id);
