@@ -115,8 +115,13 @@ class DocumentController extends Controller
      */
     public function destroy($documentId)
     {
+
         $document = Document::findOrFail($documentId);
         $document->delete();
+        $doc_path = $document->pdf;
+        $path_pieces = explode("/",$doc_path);
+        $doc_path = "/$path_pieces[2]/$path_pieces[3]";
+        Storage::disk('upload_doc')->delete($doc_path);
         return redirect(route('backend'));
     }
 }
