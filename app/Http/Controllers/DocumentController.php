@@ -31,15 +31,6 @@ class DocumentController extends Controller
     {
         User::requirePermission('admin-document');
 
-        /*$patient = User::findOrFail($patientId);
-
-        // Send a mail notification
-        try {
-            \Mail::to($patient->email)->send(new \App\Mail\PatientWelcomeNotification());
-        } catch(\Exception $e){
-            dd ($e->getMessage());
-        }*/
-
         $patient = Patient::findOrFail($patientId);
         $user = auth()->user();
 
