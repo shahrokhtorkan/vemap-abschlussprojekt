@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    public const STATUS = [ 'available', 'reserved', 'confirmed', 'cancelled' ];
+    public const STATUS = [ 'available', 'reserved', 'confirmed' ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
