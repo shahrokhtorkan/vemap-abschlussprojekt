@@ -22,16 +22,12 @@
                         @forelse($patients as $patient)
                             @if($slot->patient && $slot->patient->id == $patient->id)
                                 <option selected="selected"
-                                        value="{{ $patient->id }}">{{ $patient->lastname }}
-                                    {{ $patient->firstname }}</option>
+                                        value="{{ $patient->id }}">{{ $patient->lastname }}, {{ $patient->firstname }}</option>
                             @else
-                                <option
-                                    value="{{ $patient->id }}">{{ $patient->lastname }}
-                                    {{ $patient->firstname }}</option>
+                                <option value="{{ $patient->id }}">{{ $patient->lastname }}, {{ $patient->firstname }}</option>
                             @endif
                         @empty
-                            <option selected="selected" value="">Keine Patienten
-                            </option>
+                            <option selected="selected" value="">Keine Patienten gefunden</option>
                         @endforelse
                     </select>
                 </form>
@@ -42,8 +38,7 @@
                     <select class="custom-select" name="status" onchange="this.form.submit()">
                         @foreach($slotStatus as $status)
                             @if($slot->status == $status)
-                                <option selected="selected"
-                                        value="{{ $status }}">{{ ucwords($status) }}</option>
+                                <option selected="selected" value="{{ $status }}">{{ ucwords($status) }}</option>
                             @else
                                 <option
                                     value="{{ $status }}">{{ ucwords($status) }}</option>
@@ -53,10 +48,9 @@
                 </form>
             </td>
             <td class="text-center">
-                <form method="post" action="{{ "/appointments/{$slot->id}/delete"}}">
+                <form method="post" action="{{ "/appointments/{$slot->id}/destroy"}}">
                     @csrf
-                    <button class="btn btn-primary btn-sm" type="submit"><i
-                            class="fas fa-trash"></i></button>
+                    <button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-trash"></i></button>
                 </form>
             </td>
         </tr>

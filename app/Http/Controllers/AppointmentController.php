@@ -18,9 +18,9 @@ class AppointmentController extends Controller
 
         $user = auth()->user();
 
-        $availableSlots=$user->appointments()->where('status', 'available')->paginate(10);
-        $reservedSlots=$user->appointments()->where('status', 'reserved')->paginate(10);
-        $confirmedSlots=$user->appointments()->whereIn('status', ['reserved','confirmed'])->paginate(10);
+        $availableSlots=$user->appointments()->where('status', 'available')->paginate(8);
+        $reservedSlots=$user->appointments()->where('status', 'reserved')->paginate(8);
+        $confirmedSlots=$user->appointments()->whereIn('status', ['reserved','confirmed'])->paginate(8);
 
         return view('backend.appointments', ['confirmedSlots'=>$confirmedSlots, 'reservedSlots'=>$reservedSlots, 'availableSlots'=>$availableSlots, 'patients'=>Patient::orderBy('lastname')->get(), 'slotStatus' => Appointment::STATUS]);
     }
@@ -67,10 +67,16 @@ class AppointmentController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function destroy($slotId)
+    /*public function destroy($slotId)
     {
         $appointment = Appointment::findOrFail($slotId);
-        $appointment->delete();
+        $appointment->destroy();
         return redirect(route('appointments'));
+    }*/
+
+    public function destroy($slotId)
+    {
+        Appointment::destroy($slotId);
+        return redirect('/appointments');
     }
 }

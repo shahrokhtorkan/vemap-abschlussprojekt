@@ -12,7 +12,7 @@
                             <div class="card-body">
 
                                 @if(!empty($availableSlots))
-                                    <h1>Verfügbare Termine</h1>
+                                    <h2>Verfügbare Termine</h2>
 
                                     @include('backend.includes.appointments-table', ['slots' => $availableSlots])
 
@@ -21,7 +21,7 @@
                                 @endif
 
                                 @if(!empty($confirmedSlots))
-                                    <h1>Bestätigte Termine</h1>
+                                    <h2>Bestätigte Termine</h2>
 
                                     @include('backend.includes.appointments-table', ['slots' => $confirmedSlots])
 
