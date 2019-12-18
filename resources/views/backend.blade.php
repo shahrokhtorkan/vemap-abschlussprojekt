@@ -27,10 +27,22 @@
                                     {{--Meine Dokumente--}}
                                     @include('backend.includes.patient-documents')
 
-                                    <h2>Meine Termine</h2>
-                                    {{--@include('backend.includes.patient-slot-table', ['appointments' => $mySlots])--}}
+                                    <h4>Meine Termine</h4>
+                                    {{--@include('backend.includes.patient-appointments-table', ['appointments' => $mySlots])--}}
 
-                                    <h2>Termin buchen</h2>
+                                    <h4>Termin buchen</h4>
+                                    {{--<form method="post" action="/appointments/reserve">
+                                        @csrf
+                                        <select name="slot_id">
+                                            @forelse($availableSlots as $slot)
+                                                <option value="{{ $slot->id }}">{{ $slot->user->name }}: {{$slot->start->format('d.m. H:i')}}</option>
+                                            @empty
+                                                <option value="">(Leider sind keine Termine verfuegbar)</option>
+                                            @endforelse
+                                        </select>
+                                        <p>Buchungen sind erst nach Bestätigung durch den Behandler verbindlich.</p>
+                                        <button type="submit">Buchen</button>
+                                    </form>--}}
 
                                 @endif
                             </div>

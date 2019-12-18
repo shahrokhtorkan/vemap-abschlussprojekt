@@ -1,6 +1,6 @@
 @if(App\User::hasPermission('view-own-data') && $patient)
     <p>Sie sind Patient!</p>
-    <h2>Meine Stammdaten</h2>
+    <h4>Meine Stammdaten</h4>
     <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
         <tr>
             <th>Vorname</th>

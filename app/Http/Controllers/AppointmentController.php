@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Appointment;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\ViewErrorBag;
+use Illuminate\Validation\ValidationException;
+use InvalidArgumentException;
 
 class AppointmentController extends Controller
 {
@@ -14,15 +18,21 @@ class AppointmentController extends Controller
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index() {
+
         User::requirePermission('admin-calendar');
 
         $user = auth()->user();
 
-        $availableSlots=$user->appointments()->where('status', 'available')->paginate(4);
-        $reservedSlots=$user->appointments()->where('status', 'reserved')->paginate(4);
-        $confirmedSlots=$user->appointments()->whereIn('status', ['reserved','confirmed'])->paginate(4);
+        $availableSlots = $user->appointments()->where('status', 'available')->paginate(4);
+        $reservedSlots = $user->appointments()->where('status', 'reserved')->paginate(4);
+        $confirmedSlots = $user->appointments()->whereIn('status', ['reserved','confirmed'])->paginate(4);
 
-        return view('backend.appointments', ['confirmedSlots'=>$confirmedSlots, 'reservedSlots'=>$reservedSlots, 'availableSlots'=>$availableSlots, 'patients'=>Patient::orderBy('lastname')->get(), 'slotStatus' => Appointment::STATUS]);
+        return view('backend.appointments', ['confirmedSlots' => $confirmedSlots, 'reservedSlots' => $reservedSlots, 'availableSlots' => $availableSlots, 'patients' => Patient::orderBy('lastname')->get(), 'slotStatus' => $this->getAllStatus()]);
+    }
+
+    private function getAllStatus()
+    {
+        return Appointment::STATUS;
     }
 
     /**
@@ -40,7 +50,7 @@ class AppointmentController extends Controller
         $appointment->patient()->associate($patient);
         $appointment->status='confirmed';
         $appointment->save();
-        return redirect()->route('appointments');
+        return redirect("/appointments");
     }
 
     /**
@@ -53,19 +63,30 @@ class AppointmentController extends Controller
         $request = request();
         $status = $request->status;
 
-        // TODO check if status is a valid status
+        $this->checkIsValidStatus($status);
 
         $slot = Appointment::findOrFail($slotId);
         $slot->status = $status;
-        $slot->patient()->dissociate();
+        if($status=='available') {
+            $slot->patient()->dissociate();
+        }
         $slot->save();
-        return redirect()->route('appointments');
+        return redirect("/appointments");
     }
 
     /**
-     * @param $slotId
+     * @param $status
+     */
+    public function checkIsValidStatus($status): void
+    {
+        if (!in_array($status, $this->getAllStatus())) {
+            throw new InvalidArgumentException("Invalid status.");
+        }
+    }
+
+    /**
+     * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     /*public function destroy($slotId)
     {
@@ -74,9 +95,80 @@ class AppointmentController extends Controller
         return redirect(route('appointments'));
     }*/
 
-    public function destroy($slotId)
+    public function destroy($id)
     {
-        Appointment::destroy($slotId);
+        Appointment::destroy($id);
+        return redirect('/appointments');
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function reserve()
+    {
+        $request = request();
+        $slot = Appointment::findOrFail($request->slot_id);
+        $patient = auth()->user()->patient;
+
+        $slot->patient()->associate($patient);
+        $slot->status = 'reserved';
+        $slot->save();
+        return redirect(route('backend'));
+    }
+
+    /**
+     * @param $slot_id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function cancel($slot_id)
+    {
+        $slot = Appointment::findOrFail($slot_id);
+
+        if ($slot->status == 'reserved') {
+            $slot->patient()->dissociate();
+            $slot->status = 'available';
+            $slot->save();
+        } else {
+            return redirect(route('backend'))->withErrors(['status'=>'Bereits vom Behandler bestätigte Termine können nicht storniert werden.']);
+        }
+        return redirect(route('backend'));
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
+     */
+    public function createForDay()
+    {
+        $request = request();
+        try {
+            $date = Carbon::parse($request->day_date);
+            $startTime = Carbon::parse($request->start);
+            $endTime = Carbon::parse($request->end);
+        } catch (\Exception $e) {
+            throw new InvalidArgumentException("Mindestens einer der Datums- / Uhrzeitparameter in der Anforderung ist ungültig.");
+        }
+        $slotSizeMinutes = 30;
+
+        $currentDateTime = $date->setHours(0)->copy();
+        $endDateTime = $date->copy()->addHours($endTime->hour)->addMinutes($endTime->minute);
+
+        if ($endDateTime <= $currentDateTime) {
+            throw new \Exception("End datetime {$endDateTime} <= Current datetime {$currentDateTime}");
+        }
+
+        $currentDateTime->setHours($startTime->hour);
+        $currentDateTime->setMinutes($startTime->minute);
+
+        while ($currentDateTime < $endDateTime->copy()->subMinutes($slotSizeMinutes)) {
+            $slot = new Appointment();
+            $slot->user()->associate($request->user());
+            $slot->start = $currentDateTime;
+            $currentDateTime->addMinutes($slotSizeMinutes);
+            $slot->end = $currentDateTime;
+            $slot->save();
+        }
+
         return redirect('/appointments');
     }
 }

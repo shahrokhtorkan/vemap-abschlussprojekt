@@ -1,5 +1,5 @@
 @if(App\User::hasPermission('view-own-data'))
-    <h2>Meine Dokumente</h2>
+    <h4>Meine Dokumente</h4>
     <table class="table table-bordered table-hover table-sm table-responsive-sm mb-3">
         <tr>
             <th>Datum</th>

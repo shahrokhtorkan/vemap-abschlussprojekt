@@ -50,7 +50,12 @@ Route::group(["middleware" => ['auth']], function () {
         }else {
             $documents = [];
         }
-        return view('backend', ['user' => $user, 'patient' => $patient, 'documents' => $documents/*, 'mySlots' => Appointment::getMyReservedAndConfirmedSlots(), 'availableSlots' => Appointment::getAvailableSlots()*/])  ;
+        return view('backend', [
+            'user' => $user,
+            'patient' => $patient,
+            'documents' => $documents,
+            /*'mySlots' => Appointment::getMyConfirmedSlots(), 'availableSlots' => Appointment::getAvailableSlots()*/
+        ]);
     })->name('backend');
 
     /**
@@ -80,12 +85,12 @@ Route::group(["middleware" => ['auth']], function () {
      * Protected routes Appointments - 'admin-calendar'
      */
     Route::get('/appointments', 'AppointmentController@index')->name('appointments');
-    /*Route::post('/appointments/create', 'AppointmentController@createForDay');*/
+    Route::post('/appointments/create', 'AppointmentController@createForDay');
     Route::post('/appointment/{id}/assignpatient', 'AppointmentController@assignPatient');
     Route::post('/appointment/{id}/setstatus', 'AppointmentController@setStatus');
     Route::post('/appointment/{id}/destroy', 'AppointmentController@destroy');
-    /*Route::post('/appointment/{id}/cancel', 'AppointmentController@cancel');*/
-    /*Route::post('/appointment/reserve', 'AppointmentController@reserve');*/
+    Route::post('/appointment/{id}/cancel', 'AppointmentController@cancel');
+    Route::post('/appointment/reserve', 'AppointmentController@reserve');
     /**
      * Logout
      */
