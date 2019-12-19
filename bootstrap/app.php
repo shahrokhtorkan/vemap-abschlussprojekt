@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
-setlocale(LC_TIME, 'German');
+setlocale(LC_TIME, 'de');
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
