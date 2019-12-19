@@ -70,7 +70,7 @@ class DocumentController extends Controller
         $document->text = $name;
         $document->pdf = "/upload_doc/" . $doc_path;
         $document->save();
-        return redirect()->route('patients', $patientId);
+        return view('backend.patient', ['patient' => $patient]);
     }
 
     /**
