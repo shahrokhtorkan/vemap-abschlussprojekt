@@ -124,6 +124,6 @@ class DocumentController extends Controller
         $path_pieces = explode("/",$doc_path);
         $doc_path = "/$path_pieces[2]/$path_pieces[2]";
         Storage::disk('upload_doc')->delete($doc_path);
-        return redirect(route('documents'));
+        return redirect()->back();
     }
 }
