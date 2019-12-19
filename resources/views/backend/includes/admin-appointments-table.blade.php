@@ -1,7 +1,7 @@
 <table class="table table-bordered table-hover table-sm table-responsive-sm">
     <tr>
-        <th>Appointment</th>
-        <th>Patient</th>
+        <th>Termine</th>
+        <th>Patienten</th>
         <th>Status</th>
         <th class="text-center">Aktion</th>
     </tr>

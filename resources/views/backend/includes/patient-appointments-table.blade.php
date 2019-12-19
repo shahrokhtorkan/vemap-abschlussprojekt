@@ -1,6 +1,6 @@
-<table class="table table-bordered table-hover table-sm table-responsive-sm">
+<table class="table table-bordered table-hover table-sm table-responsive-sm mb-4">
     <tr>
-        <th>Appointment</th>
+        <th>Termine</th>
         <th>Behandler</th>
         <th>Status</th>
         <th>Aktion</th>
