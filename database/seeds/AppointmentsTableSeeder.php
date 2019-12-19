@@ -23,7 +23,6 @@ class AppointmentsTableSeeder extends Seeder
     public function run()
     {
         $users = [
-            'Admin',
             'Assistant',
             'Patient',
         ];

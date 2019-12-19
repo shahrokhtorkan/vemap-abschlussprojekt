@@ -16,12 +16,12 @@ class PatientsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('de_AT');
-        foreach (range(1,35) as $index) {
+        foreach (range(1,30) as $index) {
             DB::table('patients')->insert([
                 'firstname' => $faker->firstName,
-                'lastname' => $faker->unique()->lastName,
+                'lastname' => $faker->lastName,
                 'svnr' => $faker->numerify('##########'),
-                'email' => $faker->unique()->safeEmail,
+                'email' => $faker->email,
                 'address' => $faker->streetAddress,
                 'plz' => $faker->postcode,
                 'city' => $faker->cityName,
