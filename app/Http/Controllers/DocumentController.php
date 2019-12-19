@@ -70,7 +70,7 @@ class DocumentController extends Controller
         $document->text = $name;
         $document->pdf = "/upload_doc/" . $doc_path;
         $document->save();
-        return redirect()->route('patients', $patientId);
+        return view('backend.patient', ['patient' => $patient]);
     }
 
     /**
@@ -124,6 +124,6 @@ class DocumentController extends Controller
         $path_pieces = explode("/",$doc_path);
         $doc_path = "/$path_pieces[2]/$path_pieces[2]";
         Storage::disk('upload_doc')->delete($doc_path);
-        return redirect(route('backend'));
+        return redirect(route('documents'));
     }
 }

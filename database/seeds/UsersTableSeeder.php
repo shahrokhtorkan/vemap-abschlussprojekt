@@ -18,6 +18,11 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $users = [
+            'Admin' => [
+                'email' => 'admin@example.com',
+                'password' => 'admin',
+                'roles' => ['assistant'],
+            ],
             'Assistant' => [
                 'email' => 'assistant@example.com',
                 'password' => 'assistant',
@@ -27,26 +32,6 @@ class UsersTableSeeder extends Seeder
                 'email' => 'patient@example.com',
                 'password' => 'patient',
                 'roles' => ['patient'],
-            ],
-            'Admin' => [
-                'email' => 'admin@example.com',
-                'password' => 'admin',
-                'roles' => ['assistant'],
-            ],
-            'Shahrokh' => [
-                'email' => 'shahrokh@example.com',
-                'password' => 'shahrokh',
-                'roles' => ['assistant'],
-            ],
-            'Lubomir' => [
-                'email' => 'lubomir@example.com',
-                'password' => 'lubomir',
-                'roles' => ['assistant'],
-            ],
-            'Adnan' => [
-                'email' => 'adnan@example.com',
-                'password' => 'adnan',
-                'roles' => ['assistant'],
             ],
         ];
 

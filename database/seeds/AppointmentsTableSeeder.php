@@ -23,12 +23,9 @@ class AppointmentsTableSeeder extends Seeder
     public function run()
     {
         $users = [
+            'Admin',
             'Assistant',
             'Patient',
-            'Admin',
-            'Shahrokh',
-            'Lubomir',
-            'Adnan',
         ];
 
         foreach ($users as $userName) {
