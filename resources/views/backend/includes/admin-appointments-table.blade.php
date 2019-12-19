@@ -7,7 +7,7 @@
     </tr>
     @foreach($slots as $slot)
         <tr>
-            <td>{{ $slot->start->format('D d.m.Y H:i') }} &ndash; {{ $slot->end->format('H:i') }}</td>
+            <td>{{ $slot->start->isoFormat('LLLL') }} &ndash; {{ $slot->end->format('H:i') }}</td>
             <td>
                 @if(App\User::hasPermission('admin-calendar'))
                     <form method="post" action="{{ "/appointment/{$slot->id}/assignpatient" }}">

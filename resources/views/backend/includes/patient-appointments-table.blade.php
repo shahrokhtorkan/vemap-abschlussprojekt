@@ -12,7 +12,7 @@
     @foreach($mySlots as $slot)
         <tr>
             <td>
-                {{ $slot->start->format('D d.m.Y H:i') }} &ndash; {{ $slot->end->format('H:i') }}
+                {{ $slot->start->isoFormat('LLLL') }} &ndash; {{ $slot->end->format('H:i') }}
             </td>
             <td>
                 {{$slot->user->name ?? 'Kein Behandler' }}
