@@ -1,22 +1,20 @@
 <table class="table table-bordered table-hover table-sm table-responsive-sm">
     <tr>
-        <th>Von</th>
-        <th>Bis</th>
+        <th>Appointment</th>
         <th>Patient</th>
         <th>Status</th>
         <th class="text-center">Aktion</th>
     </tr>
     @foreach($slots as $slot)
         <tr>
-            <td>{{ $slot->start->format('D d.m. H:i') }}</td>
-            <td>{{ $slot->end->format('H:i') }}</td>
+            <td>{{ $slot->start->format('D d.m.Y H:i') }} &ndash; {{ $slot->end->format('H:i') }}</td>
             <td>
                 @if(App\User::hasPermission('admin-calendar'))
                     <form method="post" action="{{ "/appointment/{$slot->id}/assignpatient" }}">
                         @csrf
                         <select class="custom-select" name="patient_id" onchange="this.form.submit()">
                             @if($slot->patient)
-                                <option value="">(Kein Patient)</option>
+                                <option value="">Kein Patient</option>
                             @else
                                 <option selected="selected" value="">Patient auswählen</option>
                             @endif

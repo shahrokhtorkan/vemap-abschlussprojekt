@@ -31,7 +31,7 @@
                                     <label for="day_date">Tag:</label>
                                     <select class="form-control ml-1 mr-1" name="day_date">
                                         @foreach(App\Appointment::getNextWorkingDays(14) as $date)
-                                            <option @if($loop->first)selected="selected"@endif name="{{$date}}">{{ $date->format('D, d.m.') }}</option>
+                                            <option @if($loop->first)selected="selected"@endif name="{{$date}}">{{ $date->format('D, d.m.Y') }}</option>
                                         @endforeach
                                     </select>
                                     <label for="start">Von:</label>
