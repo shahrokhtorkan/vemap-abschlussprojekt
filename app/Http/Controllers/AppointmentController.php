@@ -50,6 +50,12 @@ class AppointmentController extends Controller
         $appointment->patient()->associate($patient);
         $appointment->status='confirmed';
         $appointment->save();
+        // Send a mail notification
+        try {
+            \Mail::to($patient->email)->send(new \App\Mail\PatientAppointmentNotification());
+        } catch(\Exception $e){
+            dd ($e->getMessage());
+        }
         return redirect("/appointments");
     }
 
